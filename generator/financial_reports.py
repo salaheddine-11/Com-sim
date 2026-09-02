@@ -17,44 +17,66 @@ class FinancialReportsGenerator:
         self.closing_data = closing_data
 
     def generate_bilan_markdown(self) -> str:
-        # Actif Immobilisé
-        immob_frais_brut = Decimal("50000.00")
-        immob_frais_amort = Decimal("50000.00")
-        immob_terrains_brut = Decimal("800000.00")
-        immob_terrains_amort = Decimal("0.00")
-        immob_batiments_brut = Decimal("2200000.00")
-        immob_batiments_amort = to_dec(Decimal("495000.00") + Decimal("110000.00"))
-        immob_materiel_brut = Decimal("4400000.00")
-        immob_materiel_amort = to_dec(Decimal("1905000.00") + Decimal("220000.00"))
-        immob_transport_brut = Decimal("450000.00")
-        immob_transport_amort = to_dec(Decimal("427500.00") + Decimal("22500.00"))
-        immob_mobilier_brut = Decimal("120000.00")
-        immob_mobilier_amort = to_dec(Decimal("58800.00") + Decimal("12000.00"))
-        immob_info_brut = Decimal("180000.00")
-        immob_info_amort = Decimal("180000.00")
-        immob_depots_brut = Decimal("45000.00")
+        # Actif Immobilisé — values pulled LIVE from the ledger for closing-date fidelity.
+        # All previous hardcoded constants are replaced with PCMLedgerEngine queries
+        # so the rendered numbers reconcile exactly with balance_generale.csv and
+        # journal_general.csv. Hardcoded values were a stale snapshot.
+        immob_frais_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2111"))
+        immob_frais_amort = max(Decimal("0.00"), -self.ledger.get_account_net_balance("2811"))
+        immob_terrains_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2311"))
+        immob_terrains_amort = max(Decimal("0.00"), -self.ledger.get_account_net_balance("2812"))
+        immob_batiments_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2321"))
+        immob_batiments_amort = max(Decimal("0.00"), -self.ledger.get_account_net_balance("2832"))
+        immob_materiel_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2332"))
+        immob_materiel_amort = max(Decimal("0.00"), -self.ledger.get_account_net_balance("2833"))
+        immob_transport_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2340"))
+        immob_transport_amort = max(Decimal("0.00"), -self.ledger.get_account_net_balance("2834"))
+        immob_mobilier_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2351"))
+        immob_mobilier_amort = max(Decimal("0.00"), -self.ledger.get_account_net_balance("28351"))
+        immob_info_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2352"))
+        immob_info_amort = max(Decimal("0.00"), -self.ledger.get_account_net_balance("28352"))
+        immob_depots_brut = max(Decimal("0.00"), self.ledger.get_account_net_balance("2481"))
         immob_depots_amort = Decimal("0.00")
 
-        total_immob_brut = Decimal("8245000.00")
-        total_immob_amort = to_dec(immob_frais_amort + immob_batiments_amort + immob_materiel_amort + immob_transport_amort + immob_mobilier_amort + immob_info_amort)
+        total_immob_brut = to_dec(
+            immob_frais_brut + immob_terrains_brut + immob_batiments_brut +
+            immob_materiel_brut + immob_transport_brut + immob_mobilier_brut +
+            immob_info_brut + immob_depots_brut
+        )
+        total_immob_amort = to_dec(
+            immob_frais_amort + immob_terrains_amort + immob_batiments_amort +
+            immob_materiel_amort + immob_transport_amort + immob_mobilier_amort +
+            immob_info_amort + immob_depots_amort
+        )
         total_immob_net = to_dec(total_immob_brut - total_immob_amort)
 
-        # Actif Circulant
+        # Actif Circulant — pull ALL Bilan accounts from the live ledger
         stock_mp_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3111"))
+        stock_aux_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3121"))   # FIX: was not in original
         stock_pf_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3151"))
         clients_ordinaires_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3421"))
         clients_effets_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3424"))
         effets_escompte_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("5115"))
         tva_recup_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3451"))
-        tva_credit_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3456"))
+        tva_credit_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3455"))    # FIX: was 3456 (Crédit d'impôt IS), now correctly points to Crédit de TVA reportable
+        credit_impot_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3456"))
         acomptes_is_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3453"))
+        autres_creances_exploit_net = max(Decimal("0.00"), self.ledger.get_account_net_balance("3481")) + \
+                                       max(Decimal("0.00"), self.ledger.get_account_net_balance("3488"))
 
-        total_actif_circulant = to_dec(stock_mp_net + stock_pf_net + clients_ordinaires_net + clients_effets_net + effets_escompte_net + tva_recup_net + tva_credit_net + acomptes_is_net)
+        total_actif_circulant = to_dec(
+            stock_mp_net + stock_aux_net + stock_pf_net +
+            clients_ordinaires_net + clients_effets_net +
+            effets_escompte_net + tva_recup_net + tva_credit_net +
+            credit_impot_net + acomptes_is_net +
+            autres_creances_exploit_net
+        )
 
         # Trésorerie Actif
         banques_actif = max(Decimal("0.00"), self.ledger.get_account_net_balance("5141"))
         caisse_actif = max(Decimal("0.00"), self.ledger.get_account_net_balance("5161"))
-        total_tresorerie_actif = to_dec(banques_actif + caisse_actif)
+        autres_tresor_actif = max(Decimal("0.00"), self.ledger.get_account_net_balance("5148"))  # chèques à encaisser
+        total_tresorerie_actif = to_dec(banques_actif + caisse_actif + autres_tresor_actif)
 
         total_actif = to_dec(total_immob_net + total_actif_circulant + total_tresorerie_actif)
 
@@ -98,6 +120,10 @@ class FinancialReportsGenerator:
         bfr = to_dec(total_actif_circulant - total_passif_circulant)
         tn = to_dec(total_tresorerie_actif - total_tresorerie_passif)
         eq_check = to_dec(fr - bfr)
+        equilibre_ok = (total_actif == total_passif)
+        identite_ok = (eq_check == tn)
+        equilibre_delta = to_dec(total_actif - total_passif)
+        identite_delta = to_dec(eq_check - tn)
 
         md = f"""# BILAN (ACTIF & PASSIF) AU 31 DÉCEMBRE 2025
 **Raison Sociale** : SOUSS AGRI-PACK SARL  
@@ -124,12 +150,14 @@ class FinancialReportsGenerator:
 | | | | |
 | **ACTIF CIRCULANT (HORS TRÉSORERIE)** | | | |
 | Stocks de matières premières (Bobines papier) | {stock_mp_net:,.2f} | 0.00 | {stock_mp_net:,.2f} |
+| Stocks de matières et fournitures consommables (Amidon, Encres) | {stock_aux_net:,.2f} | 0.00 | {stock_aux_net:,.2f} |
 | Stocks de produits finis (Carton ondulé) | {stock_pf_net:,.2f} | 0.00 | {stock_pf_net:,.2f} |
 | Clients ordinaires (Créances facturées) | {clients_ordinaires_net:,.2f} | 0.00 | {clients_ordinaires_net:,.2f} |
 | Clients - Effets à recevoir (LCR en portefeuille) | {clients_effets_net:,.2f} | 0.00 | {clients_effets_net:,.2f} |
 | Effets remis à l'escompte (Banque) | {effets_escompte_net:,.2f} | 0.00 | {effets_escompte_net:,.2f} |
 | État - TVA récupérable sur charges | {tva_recup_net:,.2f} | 0.00 | {tva_recup_net:,.2f} |
 | État - Crédit de TVA à reporter | {tva_credit_net:,.2f} | 0.00 | {tva_credit_net:,.2f} |
+| État - Crédit d'impôt IS excédentaire | {credit_impot_net:,.2f} | 0.00 | {credit_impot_net:,.2f} |
 | État - Acomptes provisionnels sur IS versés | {acomptes_is_net:,.2f} | 0.00 | {acomptes_is_net:,.2f} |
 | **SOUS-TOTAL ACTIF CIRCULANT (II)** | **{total_actif_circulant:,.2f}** | **0.00** | **{total_actif_circulant:,.2f}** |
 | | | | |
@@ -179,11 +207,11 @@ class FinancialReportsGenerator:
 
 ## 3. ÉQUILIBRE FINANCIER & RATIOS FONDAMENTAUX
 
-- **Équilibre Bilan** : $\\text{{Total Actif}} ({total_actif:,.2f}\\text{{ MAD}}) \\equiv \\text{{Total Passif}} ({total_passif:,.2f}\\text{{ MAD}})$ $\\implies$ **ÉQUILIBRÉ (Delta: 0.00 MAD)**
+- **Équilibre Bilan** : $\\text{{Total Actif}} ({total_actif:,.2f}\\text{{ MAD}}) \\equiv \\text{{Total Passif}} ({total_passif:,.2f}\\text{{ MAD}})$ $\\implies$ **{'ÉQUILIBRÉ' if equilibre_ok else f'NON ÉQUILIBRÉ (Δ = {equilibre_delta:+,.2f} MAD)'}** (Delta: {equilibre_delta:+,.2f} MAD)
 - **Fonds de Roulement (FR)** : ${total_financement_permanent:,.2f} - {total_immob_net:,.2f} = \\mathbf{{{fr:,.2f}\\text{{ MAD}}}}$
 - **Besoin en Fonds de Roulement (BFR)** : ${total_actif_circulant:,.2f} - {total_passif_circulant:,.2f} = \\mathbf{{{bfr:,.2f}\\text{{ MAD}}}}$
 - **Trésorerie Nette (TN)** : ${total_tresorerie_actif:,.2f} - {total_tresorerie_passif:,.2f} = \\mathbf{{{tn:,.2f}\\text{{ MAD}}}}$
-- **Identité Fondamentale** : $\\text{{FR}} ({fr:,.2f}) - \\text{{BFR}} ({bfr:,.2f}) = {eq_check:,.2f}\\text{{ MAD}} \\equiv \\text{{TN}} ({tn:,.2f}\\text{{ MAD}})$ $\\implies$ **VÉRIFIÉE**
+- **Identité Fondamentale** : $\\text{{FR}} ({fr:,.2f}) - \\text{{BFR}} ({bfr:,.2f}) = {eq_check:,.2f}\\text{{ MAD}} \\equiv \\text{{TN}} ({tn:,.2f}\\text{{ MAD}})$ $\\implies$ **{'VÉRIFIÉE' if identite_ok else f'NON VÉRIFIÉE (Δ = {identite_delta:+,.2f} MAD)'}**
 """
         return md
 

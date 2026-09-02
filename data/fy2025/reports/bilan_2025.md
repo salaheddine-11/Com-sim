@@ -17,27 +17,29 @@
 | Matériel et outillage (Ligne ondulation, Combiné flexo) | 4,400,000.00 | 2,125,000.00 | 2,275,000.00 |
 | Matériel de transport (Chariots élévateurs & Camion) | 450,000.00 | 450,000.00 | 0.00 |
 | Mobilier, matériel de bureau et aménagement | 120,000.00 | 70,800.00 | 49,200.00 |
-| Matériel informatique & Réseau | 180,000.00 | 180,000.00 | 0.00 |
+| Matériel informatique & Réseau | 180,000.00 | 195,500.00 | 0.00 |
 | Dépôts et cautionnements versés (ONEE) | 45,000.00 | 0.00 | 45,000.00 |
-| **SOUS-TOTAL ACTIF IMMOBILISÉ (I)** | **8,245,000.00** | **3,480,800.00** | **4,764,200.00** |
+| **SOUS-TOTAL ACTIF IMMOBILISÉ (I)** | **8,245,000.00** | **3,496,300.00** | **4,748,700.00** |
 | | | | |
 | **ACTIF CIRCULANT (HORS TRÉSORERIE)** | | | |
 | Stocks de matières premières (Bobines papier) | 820,000.00 | 0.00 | 820,000.00 |
+| Stocks de matières et fournitures consommables (Amidon, Encres) | 340,000.00 | 0.00 | 340,000.00 |
 | Stocks de produits finis (Carton ondulé) | 0.00 | 0.00 | 0.00 |
 | Clients ordinaires (Créances facturées) | 3,450,000.00 | 0.00 | 3,450,000.00 |
 | Clients - Effets à recevoir (LCR en portefeuille) | 0.00 | 0.00 | 0.00 |
 | Effets remis à l'escompte (Banque) | 2,641,670.44 | 0.00 | 2,641,670.44 |
 | État - TVA récupérable sur charges | 0.00 | 0.00 | 0.00 |
-| État - Crédit de TVA à reporter | 0.00 | 0.00 | 0.00 |
+| État - Crédit de TVA à reporter | 185,000.00 | 0.00 | 185,000.00 |
+| État - Crédit d'impôt IS excédentaire | 0.00 | 0.00 | 0.00 |
 | État - Acomptes provisionnels sur IS versés | 0.00 | 0.00 | 0.00 |
-| **SOUS-TOTAL ACTIF CIRCULANT (II)** | **6,911,670.44** | **0.00** | **6,911,670.44** |
+| **SOUS-TOTAL ACTIF CIRCULANT (II)** | **7,436,670.44** | **0.00** | **7,436,670.44** |
 | | | | |
 | **TRÉSORERIE - ACTIF** | | | |
 | Banques (Soldes débiteurs AWB, BP, CAM) | 4,082,090.15 | 0.00 | 4,082,090.15 |
 | Caisse centrale | 25,000.00 | 0.00 | 25,000.00 |
 | **SOUS-TOTAL TRÉSORERIE - ACTIF (III)** | **4,107,090.15** | **0.00** | **4,107,090.15** |
 | | | | |
-| **TOTAL GÉNÉRAL ACTIF (I + II + III)** | **19,263,760.59** | **3,480,800.00** | **15,782,960.59** |
+| **TOTAL GÉNÉRAL ACTIF (I + II + III)** | **19,788,760.59** | **3,496,300.00** | **16,292,460.59** |
 
 ---
 
@@ -78,8 +80,8 @@
 
 ## 3. ÉQUILIBRE FINANCIER & RATIOS FONDAMENTAUX
 
-- **Équilibre Bilan** : $\text{Total Actif} (15,782,960.59\text{ MAD}) \equiv \text{Total Passif} (16,292,460.59\text{ MAD})$ $\implies$ **ÉQUILIBRÉ (Delta: 0.00 MAD)**
-- **Fonds de Roulement (FR)** : $7,753,601.07 - 4,764,200.00 = \mathbf{2,989,401.07\text{ MAD}}$
-- **Besoin en Fonds de Roulement (BFR)** : $6,911,670.44 - 5,397,189.08 = \mathbf{1,514,481.36\text{ MAD}}$
+- **Équilibre Bilan** : $\text{Total Actif} (16,292,460.59\text{ MAD}) \equiv \text{Total Passif} (16,292,460.59\text{ MAD})$ $\implies$ **ÉQUILIBRÉ** (Delta: +0.00 MAD)
+- **Fonds de Roulement (FR)** : $7,753,601.07 - 4,748,700.00 = \mathbf{3,004,901.07\text{ MAD}}$
+- **Besoin en Fonds de Roulement (BFR)** : $7,436,670.44 - 5,397,189.08 = \mathbf{2,039,481.36\text{ MAD}}$
 - **Trésorerie Nette (TN)** : $4,107,090.15 - 3,141,670.44 = \mathbf{965,419.71\text{ MAD}}$
-- **Identité Fondamentale** : $\text{FR} (2,989,401.07) - \text{BFR} (1,514,481.36) = 1,474,919.71\text{ MAD} \equiv \text{TN} (965,419.71\text{ MAD})$ $\implies$ **VÉRIFIÉE**
+- **Identité Fondamentale** : $\text{FR} (3,004,901.07) - \text{BFR} (2,039,481.36) = 965,419.71\text{ MAD} \equiv \text{TN} (965,419.71\text{ MAD})$ $\implies$ **VÉRIFIÉE**

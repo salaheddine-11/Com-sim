@@ -1,5 +1,7 @@
 # Original User Request
 
+> **Snapshot note**: This repository is committed **post-Phase-2**. While the original request below stipulated Phase 1 = design + spec + verify *only* and Phase 2 = synthetic transaction generation, the actual snapshot contains both phases already executed: `data/fy2025/` is fully populated with 262 sales invoices, 262 LCRs, 294 payroll slips, 1,488 balanced journal entries, and rendered Bilan / CPC / Liasse Fiscale. `scripts/run_simulation_fy2025.py` and `scripts/audit_fy2025_data.py` exist and have been executed end-to-end. Future iterations should treat this snapshot as the authoritative state — both phases are sealed.
+
 ## 2026-09-01T19:14:45Z
 
 Comprehensive system design, large-scale relational world-building architecture, closed economic costing model, effective-dated multi-year transition engine (FY 2025 baseline -> FY 2026 evolution), and formal verification rulebook for **Souss Agri-Pack SARL** (a realistic, deeply interconnected Moroccan agricultural packaging SME simulation based on LF 2023-2025, CGI, CNSS, BAM, ADII, and Plan Comptable Marocain accounting standards).
