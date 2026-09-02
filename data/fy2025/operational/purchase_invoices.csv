@@ -1,0 +1,52 @@
+invoice_number,invoice_date,due_date,supplier_id,supplier_name,category,currency,amount_ht_mad,tva_amount_mad,amount_ttc_mad,customs_dum_ref,status
+FAC-FOUR-2025-00001,2025-01-08,2025-03-09,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,221305.87,44261.17,265567.04,,PAID
+FAC-FOUR-2025-00002,2025-01-18,2025-03-19,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,217185.64,43437.13,260622.77,,PAID
+FAC-FOUR-2025-00003,2025-01-15,2025-04-15,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,232312.45,46578.65,279471.88,DUM-2025-AG-00001,PAID
+FAC-FOUR-2025-00004,2025-01-12,2025-02-11,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,24322.50,4864.50,29187.00,,PAID
+FAC-FOUR-2025-00005,2025-02-07,2025-04-08,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,242773.08,48554.62,291327.70,,PAID
+FAC-FOUR-2025-00006,2025-02-17,2025-04-18,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,222036.12,44407.22,266443.34,,PAID
+FAC-FOUR-2025-00007,2025-02-15,2025-05-16,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,249520.88,50028.94,300173.62,DUM-2025-AG-00002,PAID
+FAC-FOUR-2025-00008,2025-02-12,2025-03-14,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,23582.50,4716.50,28299.00,,PAID
+FAC-FOUR-2025-00009,2025-03-10,2025-05-09,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,191250.65,38250.13,229500.78,,PAID
+FAC-FOUR-2025-00010,2025-03-18,2025-05-17,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,194226.77,38845.35,233072.12,,PAID
+FAC-FOUR-2025-00011,2025-03-15,2025-06-13,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,215104.12,43128.38,258770.26,DUM-2025-AG-00003,PAID
+FAC-FOUR-2025-00012,2025-03-12,2025-04-11,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,26090.00,5218.00,31308.00,,PAID
+FAC-FOUR-2025-00013,2025-04-07,2025-06-06,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,96344.79,19268.96,115613.75,,PAID
+FAC-FOUR-2025-00014,2025-04-16,2025-06-15,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,99384.03,19876.81,119260.84,,PAID
+FAC-FOUR-2025-00015,2025-04-26,2025-06-25,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,95386.04,19077.21,114463.25,,PAID
+FAC-FOUR-2025-00016,2025-04-15,2025-07-14,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,154874.99,31052.44,186314.62,DUM-2025-AG-00004,PAID
+FAC-FOUR-2025-00017,2025-04-12,2025-05-12,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,25597.50,5119.50,30717.00,,PAID
+FAC-FOUR-2025-00018,2025-05-09,2025-07-08,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,111216.60,22243.32,133459.92,,PAID
+FAC-FOUR-2025-00019,2025-05-17,2025-07-16,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,109046.63,21809.33,130855.96,,PAID
+FAC-FOUR-2025-00020,2025-05-15,2025-08-13,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,120458.35,24151.90,144911.40,DUM-2025-AG-00005,PAID
+FAC-FOUR-2025-00021,2025-05-12,2025-06-11,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,25962.50,5192.50,31155.00,,PAID
+FAC-FOUR-2025-00022,2025-06-07,2025-08-06,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,79352.54,15870.51,95223.05,,PAID
+FAC-FOUR-2025-00023,2025-06-19,2025-08-18,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,79048.93,15809.79,94858.72,,PAID
+FAC-FOUR-2025-00024,2025-06-12,2025-07-12,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,25275.00,5055.00,30330.00,,PAID
+FAC-FOUR-2025-00025,2025-07-08,2025-09-06,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,61078.77,12215.75,73294.52,,PAID
+FAC-FOUR-2025-00026,2025-07-20,2025-09-18,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,62043.91,12408.78,74452.69,,PAID
+FAC-FOUR-2025-00027,2025-07-15,2025-10-13,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,68833.37,13801.09,82806.54,DUM-2025-AG-00006,PAID
+FAC-FOUR-2025-00028,2025-07-12,2025-08-11,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,23302.50,4660.50,27963.00,,PAID
+FAC-FOUR-2025-00029,2025-08-09,2025-10-08,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,82740.12,16548.02,99288.14,,PAID
+FAC-FOUR-2025-00030,2025-08-18,2025-10-17,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,81717.45,16343.49,98060.94,,PAID
+FAC-FOUR-2025-00031,2025-08-12,2025-09-11,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,25997.50,5199.50,31197.00,,PAID
+FAC-FOUR-2025-00032,2025-09-11,2025-11-10,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,100351.30,20070.26,120421.56,,PAID
+FAC-FOUR-2025-00033,2025-09-19,2025-11-18,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,102527.12,20505.42,123032.54,,PAID
+FAC-FOUR-2025-00034,2025-09-28,2025-11-27,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,101424.03,20284.81,121708.84,,PAID
+FAC-FOUR-2025-00035,2025-09-15,2025-12-14,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,163479.16,32777.57,196665.43,DUM-2025-AG-00007,PAID
+FAC-FOUR-2025-00036,2025-09-12,2025-10-12,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,23985.00,4797.00,28782.00,,PAID
+FAC-FOUR-2025-00037,2025-10-11,2025-12-10,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,127333.72,25466.74,152800.46,,PAID
+FAC-FOUR-2025-00038,2025-10-16,2025-12-15,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,119236.01,23847.20,143083.21,,PAID
+FAC-FOUR-2025-00039,2025-10-27,2025-12-26,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,119015.50,23803.10,142818.60,,PAID
+FAC-FOUR-2025-00040,2025-10-15,2026-01-13,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,197895.87,39678.12,238068.73,DUM-2025-AG-00008,PENDING
+FAC-FOUR-2025-00041,2025-10-12,2025-11-11,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,24435.00,4887.00,29322.00,,PAID
+FAC-FOUR-2025-00042,2025-11-10,2026-01-09,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,146559.32,29311.86,175871.18,,PENDING
+FAC-FOUR-2025-00043,2025-11-17,2026-01-16,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,136995.79,27399.16,164394.95,,PENDING
+FAC-FOUR-2025-00044,2025-11-26,2026-01-25,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,137901.81,27580.36,165482.17,,PENDING
+FAC-FOUR-2025-00045,2025-11-15,2026-02-13,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,232312.53,46578.66,279471.97,DUM-2025-AG-00009,PENDING
+FAC-FOUR-2025-00046,2025-11-12,2025-12-12,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,25245.00,5049.00,30294.00,,PAID
+FAC-FOUR-2025-00047,2025-12-09,2026-02-07,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,153414.92,30682.98,184097.90,,PENDING
+FAC-FOUR-2025-00048,2025-12-18,2026-02-16,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,160489.43,32097.89,192587.32,,PENDING
+FAC-FOUR-2025-00049,2025-12-26,2026-02-24,SUP-001,CMCP International Paper Kenitra,Matières Premières (Papier Kraft/Cannelure),MAD,152132.85,30426.57,182559.42,,PENDING
+FAC-FOUR-2025-00050,2025-12-15,2026-03-15,SUP-002,International Paper Madrid SA,Matières Premières Import EU (Testliner/Kraftliner),EUR,249520.85,50028.93,300173.58,DUM-2025-AG-00010,PENDING
+FAC-FOUR-2025-00051,2025-12-12,2026-01-11,SUP-003,Colorpak Chimie & Encres SARL,Matières Consommables (Encres & Colles),MAD,22612.50,4522.50,27135.00,,PENDING

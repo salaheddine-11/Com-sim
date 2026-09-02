@@ -1,0 +1,446 @@
+payroll_parameters:
+  currency: MAD
+  statutory_monthly_hours: 191.0
+  smig_2025:
+    hourly_rate_mad: 17.1
+    monthly_gross_mad: 3266.1
+    effective_from: '2025-01-01'
+    effective_to: '2025-12-31'
+  smig_2026:
+    hourly_rate_mad: 17.92
+    monthly_gross_mad: 3422.72
+    increase_pct: 5.0
+    effective_from: '2026-01-01'
+  social_security_rates:
+    cnss_prestations_sociales:
+      employer_rate_pct: 8.98
+      employee_rate_pct: 4.48
+      monthly_ceiling_mad: 6000.0
+      annual_ceiling_mad: 72000.0
+    allocations_familiales:
+      employer_rate_pct: 6.4
+      employee_rate_pct: 0.0
+      monthly_ceiling_mad: null
+    taxe_formation_professionnelle:
+      employer_rate_pct: 1.6
+      employee_rate_pct: 0.0
+      monthly_ceiling_mad: null
+    assurance_maladie_obligatoire_amo:
+      employer_rate_pct: 2.26
+      employee_rate_pct: 2.26
+      monthly_ceiling_mad: null
+    amo_solidarite:
+      employer_rate_pct: 1.85
+      employee_rate_pct: 0.0
+      monthly_ceiling_mad: null
+    total_cnss_amo_nominal_employer_pct: 21.09
+    total_cnss_amo_nominal_employee_pct: 6.74
+  accident_du_travail_insurance:
+    employer_rate_pct: 3.8
+    employee_rate_pct: 0.0
+    insurer: RMA Royale Marocaine d'Assurance
+    policy_type: Couverture Risques Industriels & Accidents du Travail
+headcount_summary:
+  total_headcount: 27
+  permanent_employees: 22
+  seasonal_workers: 5
+  seasonal_duration_months: 6
+  departments:
+  - name: Direction & Administration
+    count: 5
+  - name: Commercial & Vente
+    count: 1
+  - name: Logistique & ExpÃƒÂ©ditions
+    count: 5
+  - name: Production & Impression
+    count: 13
+  - name: QualitÃƒÂ© & Maintenance
+    count: 3
+employees:
+- id: DIR-01
+  cin: JC654321
+  cnss: '182745601'
+  full_name: Fatima Zahra Amri
+  job_title: Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e)
+  department: Direction
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 24133.45
+  annual_gross_mad: 289601.4
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 41536.33
+  employer_at_insurance_mad: 11004.85
+  total_employer_cost_mad: 342142.58
+- id: DIR-02
+  cin: JD987654
+  cnss: '182745602'
+  full_name: Hassan Oulhaj
+  job_title: Directeur Commercial (AssociÃƒÂ©)
+  department: Direction
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 21547.73
+  annual_gross_mad: 258572.76
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 37778.76
+  employer_at_insurance_mad: 9825.76
+  total_employer_cost_mad: 306177.28
+- id: ADM-01
+  cin: JB234567
+  cnss: '182745603'
+  full_name: Mohammed Tazi
+  job_title: Chef Comptable / Comptable Unique
+  department: Administration
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 10342.91
+  annual_gross_mad: 124114.92
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 21495.92
+  employer_at_insurance_mad: 4716.37
+  total_employer_cost_mad: 150327.21
+- id: ADM-02
+  cin: JB345678
+  cnss: '182745604'
+  full_name: Latifa Mansouri
+  job_title: Responsable Ressources Humaines & Paie
+  department: Administration
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 7757.18
+  annual_gross_mad: 93086.16
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 17738.33
+  employer_at_insurance_mad: 3537.27
+  total_employer_cost_mad: 114361.76
+- id: ADM-03
+  cin: JB456789
+  cnss: '182745605'
+  full_name: Karim Berrada
+  job_title: Administrateur SystÃƒÂ¨mes & ERP
+  department: IT / Administration
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 7326.23
+  annual_gross_mad: 87914.76
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 17112.08
+  employer_at_insurance_mad: 3340.76
+  total_employer_cost_mad: 108367.6
+- id: COM-01
+  cin: JB567890
+  cnss: '182745606'
+  full_name: Rachid Alami
+  job_title: Commercial Grands Comptes Exportateurs
+  department: Commercial
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 9481.0
+  annual_gross_mad: 113772.0
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 20243.39
+  employer_at_insurance_mad: 4323.34
+  total_employer_cost_mad: 138338.73
+- id: LOG-01
+  cin: JB678901
+  cnss: '182745607'
+  full_name: Omar Fassi
+  job_title: Responsable Logistique & ExpÃƒÂ©ditions
+  department: Logistique
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 8188.14
+  annual_gross_mad: 98257.68
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 18364.61
+  employer_at_insurance_mad: 3733.79
+  total_employer_cost_mad: 120356.08
+- id: LOG-02
+  cin: JB789012
+  cnss: '182745608'
+  full_name: Brahim El Idrissi
+  job_title: Chauffeur Livreur Poids Lourd
+  department: Logistique
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 4740.5
+  annual_gross_mad: 56886.0
+  annual_capped_base_mad: 56886.0
+  employer_cnss_mad: 11997.26
+  employer_at_insurance_mad: 2161.67
+  total_employer_cost_mad: 71044.93
+- id: PRD-01
+  cin: JB890123
+  cnss: '182745609'
+  full_name: Mehdi Chraibi
+  job_title: IngÃƒÂ©nieur Cartonnier / Resp. Production
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 13790.55
+  annual_gross_mad: 165486.6
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 26506.03
+  employer_at_insurance_mad: 6288.49
+  total_employer_cost_mad: 198281.12
+- id: PRD-02
+  cin: JB901234
+  cnss: '182745610'
+  full_name: Aziz Naciri
+  job_title: Chef d'Ãƒâ€°quipe Lignes de Transformation
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 7326.23
+  annual_gross_mad: 87914.76
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 17112.08
+  employer_at_insurance_mad: 3340.76
+  total_employer_cost_mad: 108367.6
+- id: PRD-03
+  cin: JA123456
+  cnss: '182745611'
+  full_name: Said Tahiri
+  job_title: Conducteur CombinÃƒÂ© Flexo-Dossier L1
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 5343.83
+  annual_gross_mad: 64125.96
+  annual_capped_base_mad: 64125.96
+  employer_cnss_mad: 13524.16
+  employer_at_insurance_mad: 2436.79
+  total_employer_cost_mad: 80086.91
+- id: PRD-04
+  cin: JA234567
+  cnss: '182745612'
+  full_name: Hicham Bennis
+  job_title: Conducteur CombinÃƒÂ© Flexo-Dossier L2
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 5343.83
+  annual_gross_mad: 64125.96
+  annual_capped_base_mad: 64125.96
+  employer_cnss_mad: 13524.16
+  employer_at_insurance_mad: 2436.79
+  total_employer_cost_mad: 80086.91
+- id: PRD-05
+  cin: JA345678
+  cnss: '182745613'
+  full_name: Yassine Bouazza
+  job_title: Conducteur Autoplatine & DÃƒÂ©coupe Rotative
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 5171.45
+  annual_gross_mad: 62057.4
+  annual_capped_base_mad: 62057.4
+  employer_cnss_mad: 13087.91
+  employer_at_insurance_mad: 2358.18
+  total_employer_cost_mad: 77503.49
+- id: PRD-06
+  cin: JA456789
+  cnss: '182745614'
+  full_name: Tariq Jamali
+  job_title: Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 4999.07
+  annual_gross_mad: 59988.84
+  annual_capped_base_mad: 59988.84
+  employer_cnss_mad: 12651.65
+  employer_at_insurance_mad: 2279.58
+  total_employer_cost_mad: 74920.07
+- id: MNT-01
+  cin: JA567890
+  cnss: '182745615'
+  full_name: Mustapha Cherkaoui
+  job_title: Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance
+  department: Maintenance
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 6464.32
+  annual_gross_mad: 77571.84
+  annual_capped_base_mad: 72000.0
+  employer_cnss_mad: 15859.55
+  employer_at_insurance_mad: 2947.73
+  total_employer_cost_mad: 96379.12
+- id: MNT-02
+  cin: JA678901
+  cnss: '182745616'
+  full_name: Nabil Zaki
+  job_title: Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance
+  department: Maintenance
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 3878.59
+  annual_gross_mad: 46543.08
+  annual_capped_base_mad: 46543.08
+  employer_cnss_mad: 9815.94
+  employer_at_insurance_mad: 1768.64
+  total_employer_cost_mad: 58127.66
+- id: PRD-07
+  cin: JA789012
+  cnss: '182745617'
+  full_name: Hamza Belkadi
+  job_title: OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 3620.02
+  annual_gross_mad: 43440.24
+  annual_capped_base_mad: 43440.24
+  employer_cnss_mad: 9161.55
+  employer_at_insurance_mad: 1650.73
+  total_employer_cost_mad: 54252.52
+- id: PRD-08
+  cin: JA890123
+  cnss: '182745618'
+  full_name: Khadija Benjelloun
+  job_title: OpÃƒÂ©ratrice Agrafeuse Semi-Automatique
+  department: Production
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 3275.26
+  annual_gross_mad: 39303.12
+  annual_capped_base_mad: 39303.12
+  employer_cnss_mad: 8289.03
+  employer_at_insurance_mad: 1493.52
+  total_employer_cost_mad: 49085.67
+- id: LOG-03
+  cin: JA901234
+  cnss: '182745619'
+  full_name: Adil Chaoui
+  job_title: Cariste Manutention Bobines Papier
+  department: Logistique
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 3447.64
+  annual_gross_mad: 41371.68
+  annual_capped_base_mad: 41371.68
+  employer_cnss_mad: 8725.29
+  employer_at_insurance_mad: 1572.12
+  total_employer_cost_mad: 51669.09
+- id: LOG-04
+  cin: JH123456
+  cnss: '182745620'
+  full_name: Kamal Lahlou
+  job_title: Cariste Ãƒâ€°vacuation Produits Finis
+  department: Logistique
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 3447.64
+  annual_gross_mad: 41371.68
+  annual_capped_base_mad: 41371.68
+  employer_cnss_mad: 8725.29
+  employer_at_insurance_mad: 1572.12
+  total_employer_cost_mad: 51669.09
+- id: QLT-01
+  cin: JH234567
+  cnss: '182745621'
+  full_name: Soufiane Drissi
+  job_title: ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT
+  department: QualitÃƒÂ©
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 4740.5
+  annual_gross_mad: 56886.0
+  annual_capped_base_mad: 56886.0
+  employer_cnss_mad: 11997.26
+  employer_at_insurance_mad: 2161.67
+  total_employer_cost_mad: 71044.93
+- id: LOG-05
+  cin: JH345678
+  cnss: '182745622'
+  full_name: Mourad Saber
+  job_title: Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres
+  department: Logistique
+  contract_type: CDI
+  months_active: 12
+  monthly_gross_mad: 3620.02
+  annual_gross_mad: 43440.24
+  annual_capped_base_mad: 43440.24
+  employer_cnss_mad: 9161.55
+  employer_at_insurance_mad: 1650.73
+  total_employer_cost_mad: 54252.52
+- id: SEAS-01
+  cin: JH456789
+  cnss: '182745623'
+  full_name: Hassan Saisonnier
+  job_title: OpÃƒÂ©rateur Saisonnier Palettisation 1 (6m SMIG)
+  department: Production
+  contract_type: CDD Saisonnier
+  months_active: 6
+  monthly_gross_mad: 3266.1
+  annual_gross_mad: 19596.6
+  annual_capped_base_mad: 19596.6
+  employer_cnss_mad: 4132.92
+  employer_at_insurance_mad: 744.67
+  total_employer_cost_mad: 24474.19
+- id: SEAS-02
+  cin: JH567890
+  cnss: '182745624'
+  full_name: Driss Saisonnier
+  job_title: OpÃƒÂ©rateur Saisonnier Palettisation 2 (6m SMIG)
+  department: Production
+  contract_type: CDD Saisonnier
+  months_active: 6
+  monthly_gross_mad: 3266.1
+  annual_gross_mad: 19596.6
+  annual_capped_base_mad: 19596.6
+  employer_cnss_mad: 4132.92
+  employer_at_insurance_mad: 744.67
+  total_employer_cost_mad: 24474.19
+- id: SEAS-03
+  cin: JH678901
+  cnss: '182745625'
+  full_name: Ali Saisonnier
+  job_title: OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 1 (6m SMIG)
+  department: Production
+  contract_type: CDD Saisonnier
+  months_active: 6
+  monthly_gross_mad: 3266.1
+  annual_gross_mad: 19596.6
+  annual_capped_base_mad: 19596.6
+  employer_cnss_mad: 4132.92
+  employer_at_insurance_mad: 744.67
+  total_employer_cost_mad: 24474.19
+- id: SEAS-04
+  cin: JH789012
+  cnss: '182745626'
+  full_name: Simo Saisonnier
+  job_title: OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 2 (6m SMIG)
+  department: Production
+  contract_type: CDD Saisonnier
+  months_active: 6
+  monthly_gross_mad: 3266.1
+  annual_gross_mad: 19596.6
+  annual_capped_base_mad: 19596.6
+  employer_cnss_mad: 4132.92
+  employer_at_insurance_mad: 744.67
+  total_employer_cost_mad: 24474.19
+- id: SEAS-05
+  cin: JH890123
+  cnss: '182745627'
+  full_name: Reda Saisonnier
+  job_title: OpÃƒÂ©rateur Saisonnier Cerclage Palettes (6m SMIG)
+  department: Production
+  contract_type: CDD Saisonnier
+  months_active: 6
+  monthly_gross_mad: 3266.1
+  annual_gross_mad: 19596.6
+  annual_capped_base_mad: 19596.6
+  employer_cnss_mad: 4132.92
+  employer_at_insurance_mad: 744.67
+  total_employer_cost_mad: 24474.19
+reconciliation:
+  total_annual_gross_payroll_mad: 2089586.0
+  total_annual_capped_base_mad: 1529183.0
+  total_employer_cnss_mad: 411010.0
+  total_employer_at_insurance_mad: 79404.0
+  total_employer_labour_cost_mad: 2580000.0
+  target_pl_labour_line_mad: 2580000.0
+  delta_reconciliation_mad: 0.0
+  reconciliation_exact: true

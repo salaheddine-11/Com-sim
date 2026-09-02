@@ -1,0 +1,162 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — INVENTORY POLICIES & SCRAP RECOVERY SPECIFICATION
+# Effective Fiscal Year: 2025
+# Accounting Standard: Plan Comptable Marocain (PCM), Normes CGNC
+# ==============================================================================
+
+inventory_valuation_policy:
+  method: "CUMP_PERPETUAL"
+  full_name: "Coût Unitaire Moyen Pondéré calculé après chaque entrée"
+  pcm_rules: "Articles valorisés au coût d'acquisition effectif rendu usine net de TVA récupérable"
+  revaluation_trigger: "À chaque réception de marchandises (Bon de Réception - BR)"
+  issue_pricing_rule: "Sorties valorisées au dernier CUMP valide au moment de la consommation"
+  physical_inventory_frequency: "Inventaire physique annuel au 31 décembre + inventaires tournants mensuels"
+
+cost_components_landed:
+  domestic_reels:
+    - "Prix unitaire facture fournisseur HT"
+    - "Frais de transport amont et déchargement"
+    - "Moins : Rabais, remises et ristournes obtenus directement"
+  import_eu_reels:
+    - "Prix d'achat facturé CIF Port d'Agadir"
+    - "Droit d'importation (DI 0.0% sous accord UE-Maroc avec certificat EUR.1)"
+    - "Taxe Parafiscale à l'Importation (TPI 0.25%)"
+    - "Frais de manutention portuaire, magasinage et transit en douane"
+    - "Transport terrestre du Port d'Agadir à l'usine d'Ait Melloul"
+
+bill_of_materials_conversion:
+  corrugated_board_surface_unit: "1.00 m² de plaque simple cannelure (C-flute)"
+  ply_layers:
+    outer_liner:
+      material_type: "Kraftliner"
+      base_grammage_g_m2: 150.00
+      takeup_factor: 1.00
+      effective_grammage_g_m2: 150.00
+      pcm_account: "3111"
+    fluting_medium:
+      material_type: "Fluting (Cannelure C)"
+      base_grammage_g_m2: 120.00
+      takeup_factor: 1.48
+      effective_grammage_g_m2: 177.60
+      pcm_account: "3111"
+    inner_liner:
+      material_type: "Testliner 2"
+      base_grammage_g_m2: 150.00
+      takeup_factor: 1.00
+      effective_grammage_g_m2: 150.00
+      pcm_account: "3111"
+  consolidated_grammage:
+    total_paper_consumed_g_m2: 477.60
+    total_paper_consumed_kg_m2: 0.4776
+  cost_rates:
+    blended_paper_price_mad_kg: 6.2000
+    net_paper_cost_mad_m2: 2.9574
+    total_auxiliaries_mad_m2: 0.1500
+    net_direct_material_cost_mad_m2: 3.1074
+
+technical_scrap_and_waste_policy:
+  gross_waste_rate_pct: 8.00
+  gross_direct_material_required_mad_m2: 3.3776
+  scrap_composition:
+    recyclable_paper_trimmings_pct: 6.50
+    unrecoverable_dust_moisture_sludge_pct: 1.50
+  scrap_recovery_sales:
+    reclaimed_scrap_weight_kg_m2: 0.04153
+    scrap_sale_price_mad_kg: 0.8000
+    scrap_recovery_revenue_mad_m2: 0.03322
+    pcm_credit_account: "71275"
+    pcm_account_title: "Ventes de déchets et rebuts"
+    annual_budgeted_scrap_sales_mad: 63000.00
+    collection_partner: "Sociétés de recyclage et papeteries locales (GPC / Med Paper)"
+
+inventory_items_and_safety_stocks:
+  raw_materials_reels:
+    pcm_account: "3111"
+    warehouse_location: "Parc à bobines couvert — Zone Nord Ait Melloul"
+    items:
+      - item_code: "RM-KRAFT-150"
+        description: "Bobines Kraftliner 150 g/m² Laize 2200mm"
+        unit: "Tonne"
+        target_safety_stock_days: 30
+        safety_stock_quantity_tonnes: 120.00
+        reorder_point_tonnes: 180.00
+        standard_order_quantity_tonnes: 100.00
+        lead_time_days_domestic: 7
+        lead_time_days_import: 21
+      - item_code: "RM-FLUTE-120"
+        description: "Bobines Fluting Cannelure 120 g/m² Laize 2200mm"
+        unit: "Tonne"
+        target_safety_stock_days: 30
+        safety_stock_quantity_tonnes: 100.00
+        reorder_point_tonnes: 150.00
+        standard_order_quantity_tonnes: 80.00
+        lead_time_days_domestic: 7
+        lead_time_days_import: 21
+      - item_code: "RM-TEST-150"
+        description: "Bobines Testliner 2 150 g/m² Laize 2200mm"
+        unit: "Tonne"
+        target_safety_stock_days: 30
+        safety_stock_quantity_tonnes: 120.00
+        reorder_point_tonnes: 180.00
+        standard_order_quantity_tonnes: 100.00
+        lead_time_days_domestic: 7
+        lead_time_days_import: 21
+
+  consumables_and_auxiliaries:
+    pcm_account: "3122"
+    warehouse_location: "Magasin des produits chimiques & fournitures"
+    items:
+      - item_code: "AUX-STARCH"
+        description: "Amidon de maïs industriel pour colle d'ondulation (Sacs 25kg)"
+        unit: "Kg"
+        safety_stock_quantity_kg: 3000.00
+        reorder_point_kg: 5000.00
+        cost_mad_per_kg: 3.2000
+      - item_code: "AUX-INK-SET"
+        description: "Encres flexographiques aqueuses (Noir, Cyan, Magenta, Jaune)"
+        unit: "Kg"
+        safety_stock_quantity_kg: 800.00
+        reorder_point_kg: 1500.00
+        cost_mad_per_kg: 28.0000
+      - item_code: "AUX-WIRE-STRAP"
+        description: "Fil métallique d'agrafage & feuillard polypropylène"
+        unit: "Bobine"
+        safety_stock_quantity_units: 50.00
+        reorder_point_units: 100.00
+      - item_code: "AUX-FILM"
+        description: "Film étirable de palettisation & cornières carton"
+        unit: "Rouleau"
+        safety_stock_quantity_units: 100.00
+        reorder_point_units: 200.00
+
+  finished_goods:
+    pcm_account: "3121"
+    warehouse_location: "Zone de stockage produits finis palettisés"
+    target_safety_stock_days: 15
+    valuation_basis: "Coût de production complet (Matières + Main d'œuvre directe + Énergie)"
+    items:
+      - sku_code: "P001"
+        name: "Plateau Agrumes 10kg"
+        safety_stock_m2: 31666.00
+      - sku_code: "P002"
+        name: "Caisse Tomate Export 6kg"
+        safety_stock_m2: 22166.00
+      - sku_code: "P003"
+        name: "Plateau Avocat Export 4kg"
+        safety_stock_m2: 11083.00
+      - sku_code: "P004"
+        name: "Master Barquette Fruits Rouges"
+        safety_stock_m2: 7916.00
+      - sku_code: "P005"
+        name: "Caisse Américaine Standard"
+        safety_stock_m2: 6333.00
+
+storage_capacity_limits:
+  paper_reel_warehouse_tonnes: 1500.00
+  finished_goods_warehouse_pallets: 800.00
+  finished_goods_warehouse_boxes: 200000.00
+
+state_invariants:
+  no_negative_stock: true
+  perpetual_cump_enforcement: true
+  quarantine_on_inspection_failure: true

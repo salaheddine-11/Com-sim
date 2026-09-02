@@ -1,0 +1,213 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://souss-agripack.ma/schemas/events.json",
+  "title": "SoussAgriPackEventsPayload",
+  "description": "JSON Schema Draft-07 governing discrete transactional, operational, and regulatory event payloads across all 8 enterprise cycles (EVT-SAL, EVT-PUR, EVT-PAY, EVT-BNK, EVT-TAX, EVT-INV, EVT-RSK, EVT-CLS).",
+  "definitions": {
+    "event_id_type": {
+      "type": "string",
+      "pattern": "^EVT-(SAL|PUR|PAY|BNK|TAX|INV|RSK|CLS)-[0-9]{3}$",
+      "description": "Canonical event identifier with 3-letter cycle prefix and 3-digit sequence"
+    },
+    "cycle_type": {
+      "type": "string",
+      "enum": [
+        "ORDER_TO_CASH",
+        "PROCURE_TO_PAY",
+        "PAYROLL_SOCIAL",
+        "BANKING_TREASURY",
+        "TAX_COMPLIANCE",
+        "INVENTORY_PRODUCTION",
+        "RISK_SHOCKS",
+        "YEAR_END_CLOSING"
+      ]
+    },
+    "trigger_type_enum": {
+      "type": "string",
+      "enum": [
+        "SCHEDULED",
+        "TRANSACTIONAL",
+        "CONDITIONAL",
+        "STOCHASTIC"
+      ]
+    },
+    "currency_enum": {
+      "type": "string",
+      "enum": ["MAD", "EUR", "USD"]
+    },
+    "amounts_breakdown": {
+      "type": "object",
+      "required": [
+        "amount_ht_mad",
+        "tva_rate",
+        "amount_tva_mad",
+        "amount_ttc_mad"
+      ],
+      "properties": {
+        "amount_ht_mad": {
+          "type": "number",
+          "description": "Montant Hors Taxe en MAD"
+        },
+        "tva_rate": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 0.20,
+          "description": "Taux de TVA applicable (0.00, 0.07, 0.09, 0.10, 0.14, 0.18, 0.20)"
+        },
+        "amount_tva_mad": {
+          "type": "number",
+          "minimum": 0.0,
+          "description": "Montant de la TVA en MAD"
+        },
+        "amount_ttc_mad": {
+          "type": "number",
+          "description": "Montant Toutes Taxes Comprises en MAD"
+        }
+      }
+    },
+    "event_payload_detail": {
+      "type": "object",
+      "required": [
+        "reference_document",
+        "currency",
+        "amounts"
+      ],
+      "properties": {
+        "reference_document": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Numéro de pièce justificative (Facture, Bon de Livraison, DUM, Avis de débit/crédit, etc.)"
+        },
+        "third_party_id": {
+          "type": "string",
+          "description": "Identifiant client (CLI-xxx), fournisseur (SUP-xxx), banque (AWB/BP/CAM/BMCE), ou employé (EMP-xxx)"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency_enum"
+        },
+        "exchange_rate": {
+          "type": "number",
+          "minimum": 0.0,
+          "default": 1.0,
+          "description": "Taux de change BAM applicable au jour de l'opération"
+        },
+        "amounts": {
+          "$ref": "#/definitions/amounts_breakdown"
+        },
+        "breakdown": {
+          "type": "object",
+          "description": "Détails analytiques et ventilations spécifiques (quantité m2, poids kg, agios, retenue à la source, etc.)",
+          "properties": {
+            "quantity_m2": { "type": "number", "minimum": 0.0 },
+            "quantity_kg": { "type": "number", "minimum": 0.0 },
+            "unit_price_mad": { "type": "number", "minimum": 0.0 },
+            "customs_duty_mad": { "type": "number", "minimum": 0.0 },
+            "tpi_mad": { "type": "number", "minimum": 0.0 },
+            "demurrage_days": { "type": "integer", "minimum": 0 },
+            "agio_interest_mad": { "type": "number", "minimum": 0.0 },
+            "bank_commission_mad": { "type": "number", "minimum": 0.0 },
+            "wht_rate": { "type": "number", "minimum": 0.0, "maximum": 0.30 },
+            "wht_amount_mad": { "type": "number", "minimum": 0.0 },
+            "gross_salary_mad": { "type": "number", "minimum": 0.0 },
+            "cnss_employee_mad": { "type": "number", "minimum": 0.0 },
+            "cnss_employer_mad": { "type": "number", "minimum": 0.0 },
+            "ir_amount_mad": { "type": "number", "minimum": 0.0 },
+            "net_salary_mad": { "type": "number", "minimum": 0.0 }
+          }
+        }
+      }
+    },
+    "single_event": {
+      "type": "object",
+      "required": [
+        "event_id",
+        "event_code",
+        "event_name",
+        "operational_cycle",
+        "trigger_type",
+        "fiscal_year",
+        "effective_date",
+        "payload",
+        "preconditions",
+        "postconditions"
+      ],
+      "properties": {
+        "event_id": {
+          "$ref": "#/definitions/event_id_type"
+        },
+        "event_code": {
+          "type": "string",
+          "minLength": 3
+        },
+        "event_name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "operational_cycle": {
+          "$ref": "#/definitions/cycle_type"
+        },
+        "trigger_type": {
+          "$ref": "#/definitions/trigger_type_enum"
+        },
+        "fiscal_year": {
+          "type": "integer",
+          "enum": [2025, 2026]
+        },
+        "effective_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "payload": {
+          "$ref": "#/definitions/event_payload_detail"
+        },
+        "preconditions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "postconditions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "journal_mapping": {
+          "type": "object",
+          "properties": {
+            "template_id": { "type": "string" },
+            "journal_code": {
+              "type": "string",
+              "enum": [
+                "RAN",
+                "ACH",
+                "VEN",
+                "BQ-AWB",
+                "BQ-BP",
+                "BQ-CAM",
+                "BQ-BMCE",
+                "CAI",
+                "PAI",
+                "OD"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["events"],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/single_event"
+          }
+        }
+      }
+    },
+    {
+      "$ref": "#/definitions/single_event"
+    }
+  ]
+}

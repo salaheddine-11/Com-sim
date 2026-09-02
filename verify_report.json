@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SoussAgriPackVerificationReport",
+  "timestamp": "2026-09-02T12:36:41.530036+00:00",
+  "overall_status": "PASS",
+  "checks_passed": 12,
+  "checks_failed": 0,
+  "total_checks": 12,
+  "checks": [
+    {
+      "check_id": 1,
+      "check_name": "Account Referential Integrity",
+      "status": "PASS",
+      "message": "Referential integrity verified. All 78 accounts across 52 templates (148 lines) exist in the authoritative PCM Chart of Accounts.",
+      "metrics": {
+        "total_chart_of_accounts": 304,
+        "unique_referenced_accounts": 78,
+        "total_templates_checked": 52,
+        "total_lines_checked": 148,
+        "orphan_accounts_count": 0,
+        "orphan_accounts": []
+      }
+    },
+    {
+      "check_id": 2,
+      "check_name": "1:1 Event Coverage",
+      "status": "PASS",
+      "message": "Bijective 1:1 event mapping certified. Exactly 52 events map 1:1 to 52 journal templates with 0 unmapped and 0 orphans.",
+      "metrics": {
+        "total_events": 52,
+        "total_templates": 52,
+        "unmapped_events_count": 0,
+        "orphan_templates_count": 0,
+        "unmapped_events": [],
+        "orphan_templates": []
+      }
+    },
+    {
+      "check_id": 3,
+      "check_name": "Zero Journal Imbalance",
+      "status": "PASS",
+      "message": "Zero journal imbalance certified. All 52 PCM journal templates satisfy Sum(Debits) == Sum(Credits) with 0.00 MAD maximum imbalance.",
+      "metrics": {
+        "total_templates_checked": 52,
+        "balanced_templates_count": 52,
+        "imbalanced_templates_count": 0,
+        "imbalanced_templates": []
+      }
+    },
+    {
+      "check_id": 4,
+      "check_name": "Effective-Dated Parameter Integrity",
+      "status": "PASS",
+      "message": "Effective-dated parameter continuity certified. All 57 parameter families (66 temporal slices) have 0 gaps and 0 overlaps across [2025-01-01, 2026-12-31].",
+      "metrics": {
+        "total_parameter_families": 57,
+        "total_temporal_slices": 66,
+        "anomalies_count": 0,
+        "anomalies": []
+      }
+    },
+    {
+      "check_id": 5,
+      "check_name": "Business Plan Algebra",
+      "status": "PASS",
+      "message": "Business Plan Revenue Algebra and Seasonality verified. Calculated CA: 10,930,700.00 MAD (Target: 10,930,700.00 MAD, Delta: 0.00 MAD / 0.0000%). 12 monthly multipliers sum to exactly 12.0000.",
+      "metrics": {
+        "target_ca_mad": 10930700.0,
+        "calculated_ca_mad": 10930700.0,
+        "ca_delta_mad": 0.0,
+        "ca_relative_error_pct": 0.0,
+        "target_volume_m2": 1900000.0,
+        "calculated_volume_m2": 1900000.0,
+        "sum_seasonality_multipliers": 12.0,
+        "seasonality_months_count": 12,
+        "sku_count": 5
+      }
+    },
+    {
+      "check_id": 6,
+      "check_name": "Costing & Margin Consistency",
+      "status": "PASS",
+      "message": "Closed BOM Costing & Margin consistency verified. Paper consumed: 477.60 g/m² (0.4776 kg/m²). Direct material cost: 3.3817 MAD/m² gross (3.1111 MAD/m² net). Weighted selling price: 5.7530 MAD/m² yields a 1.7012x gross margin multiplier (>= 1.50x threshold).",
+      "metrics": {
+        "total_paper_consumed_g_m2": 477.6,
+        "total_paper_consumed_kg_m2": 0.4776,
+        "net_paper_cost_mad_per_m2": 2.9611,
+        "total_auxiliaries_mad_per_m2": 0.15,
+        "net_direct_material_cost_mad_per_m2": 3.1111,
+        "gross_direct_material_cost_mad_per_m2": 3.3817,
+        "weighted_selling_price_mad_per_m2": 5.753,
+        "margin_over_gross_ratio": 1.7012,
+        "margin_over_net_ratio": 1.8492,
+        "threshold_min_ratio": 1.5
+      }
+    },
+    {
+      "check_id": 7,
+      "check_name": "P&L Envelope & Fiscal Invariant",
+      "status": "PASS",
+      "message": "P&L Envelope and Fiscal Invariant certified. Pre-tax Accounting Result: +495,700.00 MAD (> 0). Fiscal Result: 530,000.00 MAD -> Computed IS 2025: 98,500.00 MAD vs Cotisation Minimale (CM): 27,326.75 MAD. Fiscal Activation Ratio: 3.6045x (>= 2.50x).",
+      "metrics": {
+        "chiffre_affaires_ht_mad": 10930700.0,
+        "pre_tax_accounting_profit_mad": 495700.0,
+        "taxable_fiscal_result_mad": 530000.0,
+        "computed_is_2025_mad": 98500.0,
+        "computed_cotisation_minimale_mad": 27326.75,
+        "is_to_cm_ratio": 3.6045,
+        "mandatory_min_ratio": 2.5
+      }
+    },
+    {
+      "check_id": 8,
+      "check_name": "Payroll Reconciliation",
+      "status": "PASS",
+      "message": "Payroll and social charges reconciled 1:1 with P&L. Total headcount: 27 (22 perm + 5 seasonal). Annual Gross Payroll: 2,113,816.08 MAD. Employer CNSS: 385,072.73 MAD + AT Insurance: 80,325.01 MAD -> Total Employer Labour Cost: 2,579,213.82 MAD (Target P&L Line: 2,580,000.00 MAD, Delta: 786.18 MAD / 0.0305%).",
+      "metrics": {
+        "total_headcount": 27,
+        "permanent_employees_count": 22,
+        "seasonal_workers_count": 5,
+        "annual_gross_payroll_mad": 2113816.08,
+        "employer_cnss_mad": 385072.73,
+        "employer_at_insurance_mad": 80325.01,
+        "total_employer_labour_cost_mad": 2579213.82,
+        "target_pl_labour_line_mad": 2580000.0,
+        "delta_mad": 786.18,
+        "variance_pct": 0.0305
+      }
+    },
+    {
+      "check_id": 9,
+      "check_name": "Credit-Line Sufficiency",
+      "status": "PASS",
+      "message": "Credit-line sufficiency certified. Peak BFR: 3,520,000.00 MAD - Fonds de Roulement: 1,900,000.00 MAD = Peak Cash Deficit: 1,620,000.00 MAD. Total Authorized Facilities: 2,500,000.00 MAD (Escompte 1.5M + Découvert 600k + Campagne CAM 400k) provides a safe liquidity buffer of +880,000.00 MAD.",
+      "metrics": {
+        "peak_high_season_bfr_mad": 3520000.0,
+        "fonds_de_roulement_mad": 1900000.0,
+        "peak_cash_deficit_mad": 1620000.0,
+        "total_authorized_credit_lines_mad": 2500000.0,
+        "net_liquidity_buffer_mad": 880000.0,
+        "facilities_breakdown": [
+          {
+            "bank": "Attijariwafa Bank (AWB)",
+            "facility": "Ligne d'Escompte Commerciale",
+            "limit_mad": 1500000.0
+          },
+          {
+            "bank": "Attijariwafa Bank (AWB)",
+            "facility": "Facilité de Caisse / Découvert Autorisé",
+            "limit_mad": 600000.0
+          },
+          {
+            "bank": "Crédit Agricole du Maroc (CAM)",
+            "facility": "Crédit de Campagne Agricole (Septembre - Mars)",
+            "limit_mad": 400000.0
+          }
+        ]
+      }
+    },
+    {
+      "check_id": 10,
+      "check_name": "Balance Sheet Equilibrium",
+      "status": "PASS",
+      "message": "Balance Sheet Equilibrium & Fundamental Identity certified. Total Actif: 10,233,700.00 MAD == Total Passif: 10,233,700.00 MAD (Delta: 0.00 MAD). FR (1,900,000.00 MAD) - BFR (2,090,000.00 MAD) == TN (-190,000.00 MAD) with 0.00 MAD identity delta.",
+      "metrics": {
+        "total_actif_net_mad": 10233700.0,
+        "total_passif_net_mad": 10233700.0,
+        "balance_delta_mad": 0.0,
+        "actif_immobilise_net_mad": 5128700.0,
+        "actif_circulant_net_mad": 4795000.0,
+        "tresorerie_actif_mad": 310000.0,
+        "financement_permanent_mad": 7028700.0,
+        "passif_circulant_mad": 2705000.0,
+        "tresorerie_passif_mad": 500000.0,
+        "fonds_de_roulement_fr_mad": 1900000.0,
+        "besoin_fonds_roulement_bfr_mad": 2090000.0,
+        "tresorerie_nette_tn_mad": -190000.0,
+        "fundamental_identity_satisfied": true
+      }
+    },
+    {
+      "check_id": 11,
+      "check_name": "Retained Earnings Vintage Partition",
+      "status": "PASS",
+      "message": "Retained Earnings Vintage Partition certified. Pre-2023 Tranche (WHT 15.00%): 2,150,000.00 MAD + Post-2023 Tranche (Glide 11.25%/10.00%): 1,678,700.00 MAD = 3,828,700.00 MAD, reconciling exactly to Account 1191 / Total Retained Earnings (3,828,700.00 MAD).",
+      "metrics": {
+        "account_number": "1191",
+        "total_retained_earnings_mad": 3828700.0,
+        "pre_2023_vintage_tranche_mad": 2150000.0,
+        "pre_2023_wht_rate_pct": 15.0,
+        "post_2023_vintage_tranche_mad": 1678700.0,
+        "post_2023_wht_rate_2025_pct": 11.25,
+        "post_2023_wht_rate_2026_pct": 10.0,
+        "vintage_sum_delta_mad": 0.0,
+        "account_1191_delta_mad": 0.0
+      }
+    },
+    {
+      "check_id": 12,
+      "check_name": "Audit Metrics",
+      "status": "PASS",
+      "message": "Audit Metrics & Governance Quality Gate verified. Total regulatory parameters: 66 (59 verified with primary legal citations, 7 flagged [TO VERIFY]). All 3 JSON schemas validated cleanly with 0 errors.",
+      "metrics": {
+        "total_parameters": 66,
+        "verified_parameters_count": 59,
+        "to_verify_count": 7,
+        "schema_validation_errors": 0,
+        "validated_schemas": [
+          "entities.json",
+          "events.json",
+          "journal_entries.json"
+        ]
+      }
+    }
+  ],
+  "audit_metrics": {
+    "total_parameters": 66,
+    "verified_parameters_count": 59,
+    "to_verify_count": 7,
+    "schema_validation_errors": 0,
+    "validated_schemas": [
+      "entities.json",
+      "events.json",
+      "journal_entries.json"
+    ]
+  }
+}

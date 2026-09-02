@@ -1,0 +1,154 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — OPERATIONAL & REGULATORY RISK EVENT DISTRIBUTIONS
+# Deterministic Pseudo-Random Simulation Engine
+# Reference Standard: Bank Al-Maghrib (BAM), ADII, Dahir CNSS, Loi 69-21
+# ==============================================================================
+
+simulation_engine:
+  mode: "DETERMINISTIC_PRNG"
+  base_year: 2025
+  horizon_years: 2
+  global_random_generator: "Mersenne Twister (MT19937)"
+
+risk_events:
+  - event_id: "RSK-01"
+    event_code: "EVT-RSK-001"
+    name: "Machine Breakdown (Panne Ligne d'Ondulation / Combiné Flexo)"
+    category: "Operational / Production"
+    description: "Casse mécanique, surchauffe rouleau onduleur ou panne électronique sur combiné flexo"
+    distribution:
+      type: "Poisson"
+      parameters:
+        lambda_rate_per_quarter: 0.50
+        annual_expected_events: 2.00
+    impact:
+      downtime_hours_min: 4
+      downtime_hours_max: 24
+      direct_repair_cost_min_mad: 25000.00
+      direct_repair_cost_max_mad: 65000.00
+      pcm_debit_account: "61331"
+      pcm_account_title: "Entretien et réparations du matériel et outillage"
+    prng_seed: 42001
+    mitigation: "Contrat de maintenance préventive trimestrielle et stock de pièces d'usure critiques"
+
+  - event_id: "RSK-02"
+    event_code: "EVT-RSK-002"
+    name: "Paper Reel Moisture Spoilage / Damage (Avarie Humidité / Manutention Bobines)"
+    category: "Operational / Supply Chain"
+    description: "Humidification accidentelle ou perforation de bobines de Kraftliner lors du transport ou stockage"
+    distribution:
+      type: "Bernoulli"
+      parameters:
+        probability_per_shipment: 0.08
+    impact:
+      spoilage_cost_min_mad: 31000.00
+      spoilage_cost_max_mad: 93000.00
+      salvage_scrap_value_pct: 15.00
+      pcm_loss_account: "61211"
+      pcm_scrap_recovery_account: "71275"
+    prng_seed: 42002
+    mitigation: "Assurance transport facultés et stockage sur palettes plastiques surélevées"
+
+  - event_id: "RSK-03"
+    event_code: "EVT-RSK-003"
+    name: "Client Insolvency / Default (Impayé Client Exportateur / Grossiste)"
+    category: "Financial / Credit Risk"
+    description: "Défaut de paiement d'un client suite à faillite ou litige commercial à l'export"
+    distribution:
+      type: "Beta"
+      parameters:
+        alpha: 2.00
+        beta: 38.00
+        mean_probability: 0.05
+    impact:
+      bad_debt_loss_min_mad: 50000.00
+      bad_debt_loss_max_mad: 25000.000
+      pcm_provision_dotation_account: "61964"
+      pcm_provision_balance_sheet_account: "3942"
+      pcm_loss_account: "6182"
+    prng_seed: 42003
+    mitigation: "Plafonds d'encours de crédit par segment et exigences d'effets de commerce (LCR)"
+
+  - event_id: "RSK-04"
+    event_code: "EVT-RSK-004"
+    name: "Port Agadir Customs Demurrage (Surestaries Portuaires Douane Agadir)"
+    category: "Regulatory / Customs"
+    description: "Retard de dédouanement à l'importation de bobines UE au Port d'Agadir générant des surestaries"
+    distribution:
+      type: "Bernoulli"
+      parameters:
+        probability_per_import_batch: 0.12
+    impact:
+      tariff_schedule:
+        days_1_to_7: 0.00
+        days_8_to_14_mad_per_day: 150.00
+        days_15_to_21_mad_per_day: 300.00
+        days_22_and_above_mad_per_day: 500.00
+      typical_demurrage_fees_min_mad: 1050.00
+      typical_demurrage_fees_max_mad: 4200.00
+      pcm_debit_account: "61471"
+      pcm_account_title: "Frais de magasinage et surestaries"
+    prng_seed: 42004
+    mitigation: "Procédure de dédouanement anticipé en ligne via BADR (ADII)"
+
+  - event_id: "RSK-05"
+    event_code: "EVT-RSK-005"
+    name: "BAM Clamped EUR/MAD FX Volatility (Fluctuation Cours de Change EUR/MAD)"
+    category: "Financial / Market Risk"
+    description: "Variation du cours de change EUR/MAD affectant le coût des importations de papier"
+    distribution:
+      type: "Gaussian_Random_Walk_Clamped"
+      parameters:
+        base_rate_eur_mad: 10.7400
+        monthly_sigma: 0.0080
+        bam_band_pct: 5.00
+        clamped_floor_mad: 10.2030
+        clamped_ceiling_mad: 11.2770
+    impact:
+      pcm_fx_loss_account: "6331"
+      pcm_fx_gain_account: "7331"
+      pcm_fx_loss_title: "Pertes de change"
+      pcm_fx_gain_title: "Gains de change"
+    prng_seed: 42005
+    mitigation: "Contrats de couverture de change à terme (Forward) avec Attijariwafa Bank"
+
+  - event_id: "RSK-06"
+    event_code: "EVT-RSK-006"
+    name: "Law 69-21 Late Payment Penalties (Pénalités Légales sur Délais de Paiement)"
+    category: "Regulatory / Compliance"
+    description: "Application automatique des pénalités légales pour dépassement des délais de paiement clients"
+    distribution:
+      type: "Deterministic_Threshold"
+      parameters:
+        statutory_delay_limit_days: 60
+        bam_key_rate_pct: 3.00
+        first_month_penalty_addon_pct: 0.25
+        subsequent_month_penalty_addon_pct: 0.85
+    impact:
+      penalty_formula: "Invoice_TTC * (bam_key_rate + 0.25% + 0.85% * (months_overdue - 1))"
+      pcm_income_account: "73811"
+      pcm_income_title: "Intérêts et produits assimilés (Pénalités Loi 69-21)"
+      pcm_receivable_account: "3488"
+    prng_seed: 42006
+    mitigation: "Déclaration trimestrielle télédéclarée sur portail DGI SIMPL-Délais de paiement"
+
+  - event_id: "RSK-07"
+    event_code: "EVT-RSK-007"
+    name: "Regulatory SMIG Wage Shock 2026 (Revalorisation Légale du SMIG)"
+    category: "Regulatory / Labour Cost"
+    description: "Hausse légale de 5% du SMIG horaire au 1er janvier 2026 impactant les ouvriers saisonniers"
+    distribution:
+      type: "Deterministic_Step_Function"
+      parameters:
+        effective_date: "2026-01-01"
+        smig_2025_mad_per_hour: 17.1000
+        smig_2026_mad_per_hour: 17.9200
+        wage_growth_pct: 5.00
+    impact:
+      monthly_cost_increase_per_worker_mad: 156.62
+      seasonal_cost_increase_per_worker_6m_mad: 939.72
+      total_seasonal_workforce_shock_mad: 4698.60
+      pcm_wage_account: "61711"
+      pcm_social_charges_account: "61741"
+    prng_seed: 42007
+    mitigation: "Amélioration de la productivité des lignes de découpe et répercussion tarifaire annuelle (+2%)"

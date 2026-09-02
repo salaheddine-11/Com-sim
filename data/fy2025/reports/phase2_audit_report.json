@@ -1,0 +1,160 @@
+{
+  "overall_status": "PASS",
+  "checks_passed": 15,
+  "checks_failed": 0,
+  "total_checks": 15,
+  "checks": [
+    {
+      "check_id": 1,
+      "name": "Journal Double-Entry Invariance",
+      "status": "PASS",
+      "message": "Total Debit = 98,557,684.32 MAD, Total Credit = 98,557,684.32 MAD across 1488 entries (3996 lines).",
+      "metrics": {
+        "total_debit": "98557684.32",
+        "total_credit": "98557684.32",
+        "imbalanced_entries_count": 0
+      }
+    },
+    {
+      "check_id": 2,
+      "name": "Trial Balance to Journal Reconciliation",
+      "status": "PASS",
+      "message": "Trial Balance movement matches General Journal totals exactly (98,557,684.32 MAD).",
+      "metrics": {
+        "tb_total_debit": "98557684.32",
+        "journal_total_debit": "98557684.32"
+      }
+    },
+    {
+      "check_id": 3,
+      "name": "Balance Sheet Equilibrium",
+      "status": "PASS",
+      "message": "Total Actif Net (16,292,460.59 MAD) == Total Passif (16,292,460.59 MAD).",
+      "metrics": {
+        "net_actif": "16292460.59",
+        "total_passif": "16292460.59",
+        "delta": "0.00"
+      }
+    },
+    {
+      "check_id": 4,
+      "name": "Fundamental Financial Identity (FR - BFR = TN)",
+      "status": "PASS",
+      "message": "FR (3,004,901.07) - BFR (-602,189.08) = 3,607,090.15 MAD == TN (3,607,090.15 MAD).",
+      "metrics": {
+        "fr": "3004901.07",
+        "bfr": "-602189.08",
+        "tn": "3607090.15",
+        "identity_delta": "0.00"
+      }
+    },
+    {
+      "check_id": 5,
+      "name": "P&L to Balance Sheet Net Profit Linkage",
+      "status": "PASS",
+      "message": "CPC Net Profit (724,901.07 MAD) reconciles 1:1 with Account 11910000 (724,901.07 MAD).",
+      "metrics": {
+        "cpc_net_profit": "724901.07",
+        "balance_sheet_net_profit": "724901.07"
+      }
+    },
+    {
+      "check_id": 6,
+      "name": "Sales Turnover Reconciliation",
+      "status": "PASS",
+      "message": "Total sales invoices HT (10,885,818.20 MAD across 262 invoices) matches CPC Turnover (10,885,818.20 MAD).",
+      "metrics": {
+        "total_invoices_ht": "10885818.20",
+        "cpc_ca": "10885818.20"
+      }
+    },
+    {
+      "check_id": 7,
+      "name": "Invoice Legal Compliance (15-digit ICE)",
+      "status": "PASS",
+      "message": "100% of domestic sales invoices contain valid 15-digit Moroccan ICE (0 invalid).",
+      "metrics": {
+        "invalid_ice_count": 0,
+        "total_invoices": 262
+      }
+    },
+    {
+      "check_id": 8,
+      "name": "Payroll Labour Line Reconciliation",
+      "status": "PASS",
+      "message": "Annual employer labour cost (2,579,214.42 MAD across 294 slips) reconciles with Class 617 (2,579,214.42 MAD).",
+      "metrics": {
+        "payroll_employer_cost": "2579214.42",
+        "ledger_labour_charges": "2579214.42"
+      }
+    },
+    {
+      "check_id": 9,
+      "name": "CNSS 6,000 MAD Ceiling Compliance",
+      "status": "PASS",
+      "message": "100% of payroll slips strictly respect the 6,000 MAD monthly ceiling on social benefits.",
+      "metrics": {
+        "invalid_slips_count": 0
+      }
+    },
+    {
+      "check_id": 10,
+      "name": "TVA Liquidation Accuracy",
+      "status": "PASS",
+      "message": "All monthly collected TVA liquidated cleanly into VAT payments/credits (Account 44550000 = 0.00 MAD).",
+      "metrics": {
+        "tva_facturee_final_balance": "0.00"
+      }
+    },
+    {
+      "check_id": 11,
+      "name": "Corporate Income Tax (IS) & Acomptes Regularization",
+      "status": "PASS",
+      "message": "Progressive IS 2025 (179,350.27 MAD) > Cotisation Minimale (3,000.00 MAD). Solde = 80,850.27 MAD.",
+      "metrics": {
+        "is_due": "179350.27",
+        "cotisation_minimale": "3000.00",
+        "solde_restant": "80850.27"
+      }
+    },
+    {
+      "check_id": 12,
+      "name": "Commercial Paper Operations",
+      "status": "PASS",
+      "message": "Successfully mobilized and tracked 262 commercial bills (LCRs) across FY 2025.",
+      "metrics": {
+        "commercial_papers_count": 262
+      }
+    },
+    {
+      "check_id": 13,
+      "name": "Purchases & Customs DUM Tracking",
+      "status": "PASS",
+      "message": "Tracked 51 supplier invoices, including 10 EU import DUM declarations at Port of Agadir.",
+      "metrics": {
+        "purchase_invoices_count": 51,
+        "customs_dums_count": 10
+      }
+    },
+    {
+      "check_id": 14,
+      "name": "Bank Overdraft Compliance",
+      "status": "PASS",
+      "message": "Operating bank account (AWB) maintained positive liquidity buffer at year-end (4,082,090.15 MAD).",
+      "metrics": {
+        "awb_bank_balance": "4082090.15"
+      }
+    },
+    {
+      "check_id": 15,
+      "name": "Retained Earnings Vintage Partition",
+      "status": "PASS",
+      "message": "Pre-2023 (2,150,000.00 MAD @ 15% WHT) + Post-2023 (1,678,700.00 MAD @ 11.25% WHT) = 3,828,700.00 MAD.",
+      "metrics": {
+        "pre_2023": "2150000.00",
+        "post_2023": "1678700.00",
+        "total_re": "3828700.00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+account_number,account_title,opening_debit_mad,opening_credit_mad,period_debit_mad,period_credit_mad,total_debit_mad,total_credit_mad,final_debit_balance_mad,final_credit_balance_mad
+11110000,Capital social (Associés Souss Agri-Pack SARL),0.00,800000.00,0.00,0.00,0.00,800000.00,0.00,800000.00
+11400000,Réserve légale (Dotation 5% du bénéfice net),0.00,80000.00,0.00,0.00,0.00,80000.00,0.00,80000.00
+11510000,Réserves statutaires ou contractuelles,0.00,120000.00,0.00,0.00,0.00,120000.00,0.00,120000.00
+11611000,Report à nouveau (vintage pré-2023 soumis à RAS 15%),0.00,3828700.00,0.00,0.00,0.00,3828700.00,0.00,3828700.00
+11910000,Résultat net de l'exercice (Bénéfice net comptable),0.00,0.00,0.00,724901.07,0.00,724901.07,0.00,724901.07
+14810000,Emprunts auprès des établissements de crédit (BMCE Bank MT),0.00,2200000.00,0.00,0.00,0.00,2200000.00,0.00,2200000.00
+21110000,Frais de constitution et d'immatriculation,50000.00,0.00,0.00,0.00,50000.00,0.00,50000.00,0.00
+23110000,Terrains industriels (Zone Industrielle Ait Melloul),800000.00,0.00,0.00,0.00,800000.00,0.00,800000.00,0.00
+23210000,Bâtiments usine et hangars de production carton,2200000.00,0.00,0.00,0.00,2200000.00,0.00,2200000.00,0.00
+23320000,Matériel et outillage de transformation carton (Onduleuse & Combinés),4400000.00,0.00,0.00,0.00,4400000.00,0.00,4400000.00,0.00
+23400000,Matériel de transport (Chariots élévateurs & Camion utilitaire),450000.00,0.00,0.00,0.00,450000.00,0.00,450000.00,0.00
+23510000,"Mobilier, matériel de bureau et agencements",120000.00,0.00,0.00,0.00,120000.00,0.00,120000.00,0.00
+23520000,"Matériel informatique, serveurs ERP et postes DAO/PAO",180000.00,0.00,0.00,0.00,180000.00,0.00,180000.00,0.00
+24810000,"Dépôts et cautionnements versés (ONEE, REDAL/RAMSA, Baux)",45000.00,0.00,0.00,0.00,45000.00,0.00,45000.00,0.00
+28110000,Amortissements des frais de constitution,0.00,50000.00,0.00,0.00,0.00,50000.00,0.00,50000.00
+28321000,Amortissements des bâtiments industriels,0.00,495000.00,0.00,110000.00,0.00,605000.00,0.00,605000.00
+28332000,Amortissements du matériel et outillage (Onduleuse & Combinés),0.00,1905000.00,0.00,220000.00,0.00,2125000.00,0.00,2125000.00
+28340000,Amortissements du matériel de transport,0.00,427500.00,0.00,22500.00,0.00,450000.00,0.00,450000.00
+28351000,Amortissements du mobilier de bureau,0.00,58800.00,0.00,12000.00,0.00,70800.00,0.00,70800.00
+28352000,Amortissements du matériel informatique,0.00,180000.00,0.00,15500.00,0.00,195500.00,0.00,195500.00
+31110000,"Matières premières (Bobines Kraftliner, Testliner, Fluting)",820000.00,0.00,0.00,0.00,820000.00,0.00,820000.00,0.00
+31210000,"Matières et fournitures consommables (Amidon, Encres flexo, Fil)",340000.00,0.00,0.00,0.00,340000.00,0.00,340000.00,0.00
+34210000,Clients ordinaires (Créances commerciales sur ventes carton),3450000.00,0.00,12889525.00,12889525.00,16339525.00,12889525.00,3450000.00,0.00
+34240000,Clients - effets à recevoir (LCN traites en portefeuille),0.00,0.00,12889525.00,12889525.00,12889525.00,12889525.00,0.00,0.00
+34512000,"État - TVA récupérable sur charges (Matières, Énergie, Transport)",0.00,0.00,1369553.09,1369553.09,1369553.09,1369553.09,0.00,0.00
+34531000,État - Acomptes provisionnels sur IS (4 acomptes trimestriels),0.00,0.00,98500.00,98500.00,98500.00,98500.00,0.00,0.00
+34550000,État - Crédit de TVA (Solde reportable),185000.00,0.00,0.00,0.00,185000.00,0.00,185000.00,0.00
+44110000,"Fournisseurs ordinaires (Papetiers, ONEE, Chimiques, Transitaires)",0.00,2150000.00,5276898.49,8145293.30,5276898.49,10295293.30,0.00,5018394.81
+44320000,Rémunérations dues au personnel (Salaires nets à payer),0.00,0.00,2113816.08,2113816.08,2113816.08,2113816.08,0.00,0.00
+44410000,CNSS - Caisse Nationale de Sécurité Sociale (Bordereau Damancom),0.00,112000.00,609246.22,497246.22,609246.22,609246.22,0.00,0.00
+44450000,Mutuelles et assurances accidents du travail (RMA Assurance AT),0.00,0.00,0.00,80325.06,0.00,80325.06,0.00,80325.06
+44530000,État - Impôts sur les résultats (IS liquidé dû / Reliquat),0.00,98500.00,0.00,80850.27,0.00,179350.27,0.00,179350.27
+44550000,État - TVA facturée et collectée sur ventes,0.00,265000.00,2268706.80,2003706.80,2268706.80,2268706.80,0.00,0.00
+44560000,État - TVA due (Solde liquidé mensuel à payer via SIMPL-TVA),0.00,0.00,815034.77,899153.71,815034.77,899153.71,0.00,84118.94
+44571000,État - Retenues à la source sur salaires (IR prélevé SIMPL-IR),0.00,44500.00,210468.64,165968.64,210468.64,210468.64,0.00,0.00
+44880000,Divers créanciers et charges à payer,0.00,35000.00,0.00,0.00,0.00,35000.00,0.00,35000.00
+51150000,Effets remis à l'escompte (LCN en attente de dénouement AWB),0.00,0.00,12889525.00,10247854.56,12889525.00,10247854.56,2641670.44,0.00
+51411000,Banque Attijariwafa bank (Compte courant principal Ait Melloul),285000.00,0.00,12643212.47,8846122.32,12928212.47,8846122.32,4082090.15,0.00
+51611000,Caisse Centrale Usine Ait Melloul,25000.00,0.00,0.00,0.00,25000.00,0.00,25000.00,0.00
+55200000,Crédits d'escompte (Ligne mobilisée AWB),0.00,500000.00,10247854.56,12889525.00,10247854.56,13389525.00,0.00,3141670.44
+61111000,Achats de papier Kraftliner et Testliner (Fournisseurs locaux),0.00,0.00,3803519.74,0.00,3803519.74,0.00,3803519.74,0.00
+61112000,Achats de papier Kraftliner importé (UE / Espagne / Portugal),0.00,0.00,1889023.35,0.00,1889023.35,0.00,1889023.35,0.00
+61211000,Achats d'amidon et colles industrielles d'ondulation,0.00,0.00,296407.50,0.00,296407.50,0.00,296407.50,0.00
+61251000,Achats non stockés - Électricité moyenne tension (ONEE MT),0.00,0.00,392182.40,0.00,392182.40,0.00,392182.40,0.00
+61331000,Entretien et réparations du matériel et outillage,0.00,0.00,212763.60,0.00,212763.60,0.00,212763.60,0.00
+61421000,Transports sur achats (Fret maritime & Douane Port Agadir),0.00,0.00,204235.85,0.00,204235.85,0.00,204235.85,0.00
+61611000,Impôts et taxes directs - Taxe professionnelle,0.00,0.00,66.60,0.00,66.60,0.00,66.60,0.00
+61612000,Impôts et taxes directs - Taxe de services communaux (TSC),0.00,0.00,233.10,0.00,233.10,0.00,233.10,0.00
+61711000,Rémunérations du personnel permanent (22 salariés CDI),0.00,0.00,2015833.08,0.00,2015833.08,0.00,2015833.08,0.00
+61712000,Rémunérations des ouvriers saisonniers (5 opérateurs SMIG),0.00,0.00,97983.00,0.00,97983.00,0.00,97983.00,0.00
+61741000,Charges sociales patronales - CNSS Prestations & Allocations,0.00,0.00,264374.46,0.00,264374.46,0.00,264374.46,0.00
+61742000,Charges sociales patronales - AMO & Taxe de formation professionnelle,0.00,0.00,120698.82,0.00,120698.82,0.00,120698.82,0.00
+61761000,Cotisations d'assurance Accidents du Travail (AT obligatoire 3.80%),0.00,0.00,80325.06,0.00,80325.06,0.00,80325.06,0.00
+61810000,Dotations d'exploitation aux amortissements des immobilisations corporelles,0.00,0.00,380000.00,0.00,380000.00,0.00,380000.00,0.00
+63181000,Intérêts bancaires et agios sur crédits d'escompte,0.00,0.00,223920.30,0.00,223920.30,0.00,223920.30,0.00
+67010000,Impôts sur les résultats (IS exigible de l'exercice),0.00,0.00,179350.27,0.00,179350.27,0.00,179350.27,0.00
+71211000,Ventes de produits finis au Maroc (Emballages carton - TVA 20%),0.00,0.00,0.00,10018534.00,0.00,10018534.00,0.00,10018534.00
+71212000,Ventes de produits finis à l'exportation directe (TVA 0% Art 92),0.00,0.00,0.00,867284.20,0.00,867284.20,0.00,867284.20
+88000000,Résultat net après impôts (Bénéfice/Perte net d'exercice),0.00,0.00,724901.07,0.00,724901.07,0.00,724901.07,0.00

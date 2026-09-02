@@ -1,0 +1,178 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — OPENING BALANCE SHEET (BILAN D'OUVERTURE)
+# Effective Date: 2025-01-01
+# Standard: Plan Comptable Marocain (PCM), CGI 2025, LF 2023-2025
+# ==============================================================================
+
+balance_sheet_metadata:
+  entity_name: "Souss Agri-Pack SARL"
+  as_of_date: "2025-01-01"
+  accounting_currency: "MAD"
+  reporting_standard: "Plan Comptable Marocain (PCM)"
+  total_actif_mad: 10233700.00
+  total_passif_mad: 10233700.00
+  accounting_delta_mad: 0.00
+  is_balanced: true
+
+financial_ratios_and_invariants:
+  fonds_de_roulement_fr_mad: 1900000.00
+  besoin_en_fonds_de_roulement_bfr_mad: 2090000.00
+  tresorerie_nette_tn_mad: -190000.00
+  fundamental_identity: "FR - BFR == TN (1,900,000 - 2,090,000 == -190,000)"
+  fundamental_identity_satisfied: true
+  retained_earnings_vintage_partition:
+    account_code: "1191"
+    account_title: "Report à nouveau"
+    total_retained_earnings_mad: 3828700.00
+    pre_2023_tranche:
+      description: "Bénéfices antérieurs à l'exercice 2023"
+      amount_mad: 2150000.00
+      applicable_wht_rate_pct: 15.00
+      legal_basis: "CGI Art. 73-II & LF 2023 Régime transitoire"
+    post_2023_tranche:
+      description: "Bénéfices des exercices 2023 et postérieurs"
+      amount_mad: 1678700.00
+      applicable_wht_rate_2025_pct: 11.25
+      applicable_wht_rate_2026_pct: 10.00
+      legal_basis: "CGI Art. 73-II & LF 2023 Trajectoire de convergence"
+    vintage_sum_reconciliation_mad: 3828700.00
+    vintage_partition_exact: true
+
+actif:
+  actif_immobilise:
+    rubrique_code: "2"
+    rubrique_title: "Actif Immobilisé"
+    comptes:
+      - account_number: "2111"
+        account_title: "Frais de constitution"
+        montant_brut_mad: 50000.00
+        amortissements_mad: 50000.00
+        montant_net_mad: 0.00
+      - account_number: "2311"
+        account_title: "Terrains industriels"
+        montant_brut_mad: 800000.00
+        amortissements_mad: 0.00
+        montant_net_mad: 800000.00
+      - account_number: "2321"
+        account_title: "Bâtiments industriels"
+        montant_brut_mad: 2200000.00
+        amortissements_mad: 495000.00
+        montant_net_mad: 1705000.00
+      - account_number: "2332"
+        account_title: "Matériel et outillage"
+        montant_brut_mad: 4400000.00
+        amortissements_mad: 1905000.00
+        montant_net_mad: 2495000.00
+      - account_number: "2340"
+        account_title: "Matériel de transport"
+        montant_brut_mad: 450000.00
+        amortissements_mad: 427500.00
+        montant_net_mad: 22500.00
+      - account_number: "2351"
+        account_title: "Mobilier, matériel de bureau et aménagement"
+        montant_brut_mad: 120000.00
+        amortissements_mad: 58800.00
+        montant_net_mad: 61200.00
+      - account_number: "2352"
+        account_title: "Matériel informatique"
+        montant_brut_mad: 180000.00
+        amortissements_mad: 180000.00
+        montant_net_mad: 0.00
+      - account_number: "2481"
+        account_title: "Dépôts et cautionnements versés"
+        montant_brut_mad: 45000.00
+        amortissements_mad: 0.00
+        montant_net_mad: 45000.00
+    sous_total_actif_immobilise_net_mad: 5128700.00
+
+  actif_circulant_hors_tresorerie:
+    rubrique_code: "3"
+    rubrique_title: "Actif Circulant (hors trésorerie)"
+    comptes:
+      - account_number: "3111"
+        account_title: "Stocks de matières premières (Bobines de papier)"
+        montant_net_mad: 820000.00
+      - account_number: "3121"
+        account_title: "Stocks de produits finis (Cartons ondulés)"
+        montant_net_mad: 340000.00
+      - account_number: "3421"
+        account_title: "Clients et comptes rattachés (Effets & Créances)"
+        montant_net_mad: 3450000.00
+      - account_number: "3455"
+        account_title: "État, TVA récupérable"
+        montant_net_mad: 185000.00
+    sous_total_actif_circulant_net_mad: 4795000.00
+
+  tresorerie_actif:
+    rubrique_code: "51"
+    rubrique_title: "Trésorerie - Actif"
+    comptes:
+      - account_number: "5141"
+        account_title: "Banques (Soldes créditeurs AWB, BP, CAM)"
+        montant_net_mad: 285000.00
+      - account_number: "5161"
+        account_title: "Caisse centrale"
+        montant_net_mad: 25000.00
+    sous_total_tresorerie_actif_mad: 310000.00
+
+  total_actif_general_mad: 10233700.00
+
+passif:
+  financement_permanent:
+    rubrique_code: "1"
+    rubrique_title: "Financement Permanent (Capitaux Propres & Dettes Long Terme)"
+    comptes:
+      - account_number: "1111"
+        account_title: "Capital social"
+        montant_net_mad: 800000.00
+      - account_number: "1140"
+        account_title: "Réserve légale"
+        montant_net_mad: 80000.00
+      - account_number: "1151"
+        account_title: "Réserves statutaires"
+        montant_net_mad: 120000.00
+      - account_number: "1191"
+        account_title: "Report à nouveau"
+        montant_net_mad: 3828700.00
+      - account_number: "1481"
+        account_title: "Emprunts auprès des établissements de crédit (BMCE MT)"
+        montant_net_mad: 2200000.00
+    sous_total_financement_permanent_mad: 7028700.00
+
+  passif_circulant_hors_tresorerie:
+    rubrique_code: "4"
+    rubrique_title: "Passif Circulant (hors trésorerie)"
+    comptes:
+      - account_number: "4411"
+        account_title: "Fournisseurs et comptes rattachés"
+        montant_net_mad: 2150000.00
+      - account_number: "4441"
+        account_title: "CNSS à payer (Cotisations Décembre 2024)"
+        montant_net_mad: 112000.00
+      - account_number: "4452"
+        account_title: "État, Impôts sur les sociétés dû (Solde IS 2024)"
+        montant_net_mad: 98500.00
+      - account_number: "4455"
+        account_title: "État, TVA facturée à décaisser"
+        montant_net_mad: 265000.00
+      - account_number: "4457"
+        account_title: "État, Impôts et taxes (IR retenu sur salaires)"
+        montant_net_mad: 44500.00
+      - account_number: "4488"
+        account_title: "Autres créanciers et charges à payer"
+        montant_net_mad: 35000.00
+    sous_total_passif_circulant_mad: 2705000.00
+
+  tresorerie_passif:
+    rubrique_code: "55"
+    rubrique_title: "Trésorerie - Passif"
+    comptes:
+      - account_number: "5520"
+        account_title: "Crédits d'escompte (LCR mobilisées auprès de la banque)"
+        montant_net_mad: 500000.00
+      - account_number: "5541"
+        account_title: "Banques (Découverts bancaires utilisés)"
+        montant_net_mad: 0.00
+    sous_total_tresorerie_passif_mad: 500000.00
+
+  total_passif_general_mad: 10233700.00

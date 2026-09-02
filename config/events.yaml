@@ -1,0 +1,880 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — AUTHORITATIVE NUMBERED BUSINESS EVENT CATALOG
+# Comprehensive Multi-Cycle Event Topology across 8 Enterprise Categories
+# Standard: Plan Comptable Marocain (PCM), CGI 2025/2026, Dahir CNSS 1972, BAM
+# ==============================================================================
+
+metadata:
+  catalog_name: "Souss Agri-Pack SARL Business Events Catalog"
+  company: "Souss Agri-Pack SARL"
+  total_categories: 8
+  total_events: 49
+  status: "ACTIVE"
+
+events:
+  # ============================================================================
+  # 1. ORDER-TO-CASH & COMMERCIAL SALES (EVT-SAL-xxx)
+  # ============================================================================
+  - event_id: "EVT-SAL-001"
+    event_code: "SAL_ORDER_CONFIRMATION"
+    event_name: "Sales Order Confirmation"
+    operational_cycle: "ORDER_TO_CASH"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Bon de Commande (BC Client)"
+    description: "Réception et confirmation de la commande client avec vérification de l'encours de crédit autorisé."
+    preconditions:
+      - "Client account is active in dim_clients"
+      - "Outstanding receivables + order amount <= client credit limit"
+    postconditions:
+      - "Order status set to CONFIRMED"
+      - "Production scheduling reservation queued"
+    parameters:
+      required_fields: ["client_id", "order_reference", "order_date", "items", "total_ht_mad"]
+
+  - event_id: "EVT-SAL-002"
+    event_code: "SAL_GOODS_DISPATCH"
+    event_name: "Finished Goods Dispatch & Delivery"
+    operational_cycle: "ORDER_TO_CASH"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Bon de Livraison (BL)"
+    description: "Expédition des caisses ou plateaux carton vers le client et signature du bon de livraison."
+    preconditions:
+      - "Finished goods manufactured and available in warehouse"
+      - "Delivery truck loaded and BL generated"
+    postconditions:
+      - "Warehouse finished goods stock decreased"
+      - "Delivery note signed by consignee"
+    parameters:
+      required_fields: ["bl_number", "client_id", "dispatch_date", "skus_delivered", "cump_cost_mad"]
+
+  - event_id: "EVT-SAL-003"
+    event_code: "SAL_DOMESTIC_INVOICE"
+    event_name: "Domestic Sales Invoice (TVA 20%)"
+    operational_cycle: "ORDER_TO_CASH"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture de Vente Locale"
+    description: "Émission de la facture de vente pour le marché local marocain soumise à la TVA standard de 20%."
+    preconditions:
+      - "Valid signed BL exists"
+      - "Client ICE format valid (15 digits)"
+    postconditions:
+      - "Debit 34210000 (Clients ordinaires) for TTC"
+      - "Credit 71211000 (Ventes de produits finis au Maroc) for HT"
+      - "Credit 44550000 (État - TVA facturée) for TVA 20%"
+    parameters:
+      required_fields: ["invoice_number", "client_id", "invoice_date", "amount_ht", "tva_rate", "amount_tva", "amount_ttc"]
+
+  - event_id: "EVT-SAL-004"
+    event_code: "SAL_DIRECT_EXPORT_INVOICE"
+    event_name: "Direct EU Export Invoice (TVA 0% Art 92)"
+    operational_cycle: "ORDER_TO_CASH"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture Export & DUM Sortie"
+    description: "Facturation directe d'emballages carton à l'exportation (Union Européenne / Afrique) exonérée avec droit à déduction."
+    preconditions:
+      - "Customs DUM de sortie validée"
+      - "Certificat EUR.1 ou déclaration d'origine établie"
+    postconditions:
+      - "Debit 34210000 (Clients ordinaires) for HT"
+      - "Credit 71212000 (Ventes à l'exportation directe) for HT"
+    parameters:
+      required_fields: ["invoice_number", "client_id", "currency", "exchange_rate", "amount_ht_mad", "dum_number"]
+
+  - event_id: "EVT-SAL-005"
+    event_code: "SAL_CUSTOMER_CREDIT_NOTE"
+    event_name: "Customer Credit Note (Avoir Vente)"
+    operational_cycle: "ORDER_TO_CASH"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture d'Avoir"
+    description: "Émission d'un avoir client suite à retour de lots non conformes ou rabais commercial accordé."
+    preconditions:
+      - "Original invoice reference valid"
+      - "Non-conformance report / return validated by QC"
+    postconditions:
+      - "Debit 71211000 (Ventes de produits finis au Maroc) for HT"
+      - "Debit 44550000 (État - TVA facturée) for TVA"
+      - "Credit 34210000 (Clients ordinaires) for TTC"
+    parameters:
+      required_fields: ["credit_note_number", "original_invoice_number", "client_id", "amount_ht", "amount_tva", "amount_ttc"]
+
+  - event_id: "EVT-SAL-006"
+    event_code: "SAL_SCRAP_WASTE_SALE"
+    event_name: "Scrap & Waste Paperboard Sale"
+    operational_cycle: "ORDER_TO_CASH"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture Vente Rebuts"
+    description: "Vente de balles de rognures et déchets de carton ondulé récupérés aux papeteries recycleuses (TVA 20%)."
+    preconditions:
+      - "Baled scrap weight ticket issued"
+      - "Contracted recycler agreement active"
+    postconditions:
+      - "Debit 34210000 (Clients ordinaires) for TTC"
+      - "Credit 71271000 (Ventes de déchets et rebuts de carton) for HT"
+      - "Credit 44550000 (État - TVA facturée) for TVA 20%"
+    parameters:
+      required_fields: ["invoice_number", "recycler_client_id", "weight_kg", "unit_price_mad_kg", "amount_ht", "amount_tva", "amount_ttc"]
+
+  - event_id: "EVT-SAL-007"
+    event_code: "SAL_DOUBTFUL_DEBT_PROVISION"
+    event_name: "Doubtful Customer Reclassification & Provision"
+    operational_cycle: "ORDER_TO_CASH"
+    trigger_type: "CONDITIONAL"
+    primary_document: "Dossier Contentieux & Mise en Demeure"
+    description: "Reclassement d'une créance client échue en douteuse et constatation d'une dotation aux provisions pour dépréciation."
+    preconditions:
+      - "Client unpaid overdue > 180 days after formal notice"
+      - "Legal litigation file opened by company lawyer"
+    postconditions:
+      - "Debit 34250000 (Clients douteux) & Credit 34210000 (Clients ordinaires) for TTC"
+      - "Debit 61961000 (Dotations aux provisions créances) & Credit 39420000 (Provisions dépréciation créances) for HT"
+    parameters:
+      required_fields: ["client_id", "invoice_number", "amount_ttc", "provision_ht", "litigation_reference"]
+
+  # ============================================================================
+  # 2. PROCURE-TO-PAY & IMPORT OPERATIONS (EVT-PUR-xxx)
+  # ============================================================================
+  - event_id: "EVT-PUR-001"
+    event_code: "PUR_ORDER_PLACEMENT"
+    event_name: "Raw Paper Order Placement"
+    operational_cycle: "PROCURE_TO_PAY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Bon de Commande Achat (PO)"
+    description: "Émission du bon de commande pour approvisionnement en bobines de papier kraftliner ou testliner."
+    preconditions:
+      - "MRP stock level <= reorder point"
+      - "Supplier approved in dim_suppliers"
+    postconditions:
+      - "Purchase order sent to paper mill"
+      - "Expected receipt date registered"
+    parameters:
+      required_fields: ["po_number", "supplier_id", "item_codes", "tonnage", "unit_price_mad", "total_ht_mad"]
+
+  - event_id: "EVT-PUR-002"
+    event_code: "PUR_GOODS_RECEIPT_RAW_MATERIAL"
+    event_name: "Raw Material Acceptance & Stock Ingress"
+    operational_cycle: "PROCURE_TO_PAY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Bon de Réception (BR)"
+    description: "Réception physique des bobines de papier à l'usine d'Ait Melloul après contrôles humidité et éclatement."
+    preconditions:
+      - "Physical reels inspected and moisture <= 8.5%"
+      - "Weighbridge weight ticket reconciled with supplier slip"
+    postconditions:
+      - "Debit 31110000 (Matières premières) for CUMP value"
+      - "Credit 61140000 (Variation stocks matières) for CUMP value"
+    parameters:
+      required_fields: ["br_number", "po_number", "supplier_id", "weight_tonnes", "cump_unit_cost", "total_cump_value"]
+
+  - event_id: "EVT-PUR-003"
+    event_code: "PUR_DOMESTIC_SUPPLIER_INVOICE"
+    event_name: "Domestic Paper Mill Supplier Invoice"
+    operational_cycle: "PROCURE_TO_PAY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture Fournisseur Locale"
+    description: "Enregistrement de la facture d'achat de bobines auprès d'une papeterie marocaine (TVA 20%)."
+    preconditions:
+      - "3-Way match verified: PO, BR, and Invoice match"
+      - "Supplier ICE and IF valid"
+    postconditions:
+      - "Debit 61111000 (Achats papier Kraftliner/Testliner) for HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for TVA 20%"
+      - "Credit 44110000 (Fournisseurs ordinaires) for TTC"
+    parameters:
+      required_fields: ["invoice_number", "supplier_id", "invoice_date", "amount_ht", "amount_tva", "amount_ttc"]
+
+  - event_id: "EVT-PUR-004"
+    event_code: "PUR_EU_IMPORT_CLEARANCE"
+    event_name: "EU Paper Import Port Agadir Clearance"
+    operational_cycle: "PROCURE_TO_PAY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "DUM Douane & Facture Papetier UE"
+    description: "Dédouanement à l'importation de bobines UE au Port d'Agadir (0% DI avec EUR.1, TPI 0.25%, TVA 20%)."
+    preconditions:
+      - "EUR.1 movement certificate validated by ADII"
+      - "DUM liquidation receipt issued"
+    postconditions:
+      - "Debit 61112000 (Achats papier importé) for CIF + TPI"
+      - "Debit 34512000 (État - TVA récupérable charges) for Import TVA"
+      - "Credit 44110000 (Fournisseurs / Douane) for total liability"
+    parameters:
+      required_fields: ["dum_number", "foreign_supplier_id", "cif_mad", "tpi_mad", "import_tva_mad", "total_payable_mad"]
+
+  - event_id: "EVT-PUR-005"
+    event_code: "PUR_CUSTOMS_FORWARDER_FEES"
+    event_name: "Customs Forwarder Clearance & Port Freight"
+    operational_cycle: "PROCURE_TO_PAY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture Transitaire"
+    description: "Facturation des honoraires de dédouanement et transport terrestre du Port d'Agadir à l'usine."
+    preconditions:
+      - "Port exit voucher issued"
+      - "Forwarder service breakdown provided"
+    postconditions:
+      - "Debit 61421000 (Transports sur achats) for HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for TVA"
+      - "Credit 44110000 (Fournisseurs) for TTC"
+    parameters:
+      required_fields: ["forwarder_invoice_number", "forwarder_id", "amount_ht", "amount_tva", "amount_ttc"]
+
+  - event_id: "EVT-PUR-006"
+    event_code: "PUR_ONEE_ELECTRICITY_INVOICE"
+    event_name: "ONEE Medium Voltage Electricity Invoice"
+    operational_cycle: "PROCURE_TO_PAY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture ONEE MT"
+    description: "Facture mensuelle d'électricité moyenne tension pour l'onduleuse (TVA 18% en 2025 / 20% en 2026)."
+    preconditions:
+      - "Monthly meter reading verified by factory technical director"
+    postconditions:
+      - "Debit 61251000 (Achats non stockés - Électricité MT) for HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for TVA"
+      - "Credit 44110000 (Fournisseurs - ONEE) for TTC"
+    parameters:
+      required_fields: ["onee_invoice_number", "billing_month", "kwh_consumed", "amount_ht", "tva_rate", "amount_tva", "amount_ttc"]
+
+  - event_id: "EVT-PUR-007"
+    event_code: "PUR_CONSUMABLES_GLUE_INVOICE"
+    event_name: "Consumables, Starch Glue & Inks Invoice"
+    operational_cycle: "PROCURE_TO_PAY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Facture Fournisseur Chimique"
+    description: "Achat d'amidon industriel, colles d'ondulation, encres flexo et fil d'agrafage (TVA 20%)."
+    preconditions:
+      - "Chemicals delivered and quality certificate approved"
+    postconditions:
+      - "Debit 61211000 (Achats d'amidon et colles) for HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for TVA 20%"
+      - "Credit 44110000 (Fournisseurs) for TTC"
+    parameters:
+      required_fields: ["invoice_number", "supplier_id", "amount_ht", "amount_tva", "amount_ttc"]
+
+  # ============================================================================
+  # 3. PAYROLL & SOCIAL CHARGES (EVT-PAY-xxx)
+  # ============================================================================
+  - event_id: "EVT-PAY-001"
+    event_code: "PAY_GROSS_PAYROLL_ACCRUAL"
+    event_name: "Monthly Gross Payroll Accrual"
+    operational_cycle: "PAYROLL_SOCIAL"
+    trigger_type: "SCHEDULED"
+    primary_document: "Livre de Paie Mensuel"
+    description: "Constatation des rémunérations brutes du personnel permanent (22) et saisonniers (5 SMIG)."
+    preconditions:
+      - "Timecards and attendance sheets validated by production manager"
+    postconditions:
+      - "Debit 61711000 (Rémunérations personnel permanent) for permanent gross"
+      - "Debit 61712000 (Rémunérations ouvriers saisonniers) for seasonal gross"
+      - "Credit 44320000 (Rémunérations dues au personnel) for total gross"
+    parameters:
+      required_fields: ["payroll_period", "gross_permanent", "gross_seasonal", "total_gross"]
+
+  - event_id: "EVT-PAY-002"
+    event_code: "PAY_EMPLOYEE_DEDUCTIONS"
+    event_name: "Employee Salary Deductions (CNSS 6.74% & IR)"
+    operational_cycle: "PAYROLL_SOCIAL"
+    trigger_type: "SCHEDULED"
+    primary_document: "Bordereau Récapitulatif de Paie"
+    description: "Comptabilisation des retenues salariales à la source au titre de la CNSS (6.74%) et de l'IR (Barème LF 2025)."
+    preconditions:
+      - "Gross payroll accrued in EVT-PAY-001"
+    postconditions:
+      - "Debit 44320000 (Rémunérations dues au personnel) for total deductions"
+      - "Credit 44410000 (CNSS) for employee CNSS + AMO"
+      - "Credit 44571000 (État - Retenues à la source IR) for withheld IR"
+    parameters:
+      required_fields: ["payroll_period", "cnss_employee_total", "ir_withheld_total", "total_deductions"]
+
+  - event_id: "EVT-PAY-003"
+    event_code: "PAY_EMPLOYER_SOCIAL_ACCRUAL"
+    event_name: "Employer Social Security & AT Insurance Accrual"
+    operational_cycle: "PAYROLL_SOCIAL"
+    trigger_type: "SCHEDULED"
+    primary_document: "Bordereau Cotisations CNSS & Quittance AT"
+    description: "Comptabilisation des charges patronales CNSS (21.09%) et de l'assurance Accidents du Travail (3.80%)."
+    preconditions:
+      - "Gross payroll accrued in EVT-PAY-001"
+    postconditions:
+      - "Debit 61741000 (CNSS Prestations & AF) for employer prestations"
+      - "Debit 61742000 (AMO & Formation pro) for employer AMO & OFPPT"
+      - "Debit 61761000 (Assurance AT 3.80%) for AT premium"
+      - "Credit 44410000 (CNSS) for total employer CNSS"
+      - "Credit 44450000 (Assurances AT) for AT insurer liability"
+    parameters:
+      required_fields: ["payroll_period", "cnss_employer_prestations", "cnss_employer_amo_fp", "at_insurance_cost"]
+
+  - event_id: "EVT-PAY-004"
+    event_code: "PAY_NET_SALARY_BANK_TRANSFER"
+    event_name: "Net Salary Bank Wire Transfer"
+    operational_cycle: "PAYROLL_SOCIAL"
+    trigger_type: "SCHEDULED"
+    primary_document: "Ordre de Virement Bancaire AWB"
+    description: "Virement bancaire collectif des salaires nets sur les comptes des collaborateurs le 28 du mois."
+    preconditions:
+      - "Payroll calculated and bank account balance sufficient"
+    postconditions:
+      - "Debit 44320000 (Rémunérations dues au personnel) for net wages"
+      - "Credit 51411000 (Banque Attijariwafa bank) for net wages"
+    parameters:
+      required_fields: ["transfer_date", "payroll_period", "net_salaries_payable", "bank_reference"]
+
+  - event_id: "EVT-PAY-005"
+    event_code: "PAY_CNSS_TELEPAYMENT"
+    event_name: "CNSS Damancom Tele-Payment"
+    operational_cycle: "PAYROLL_SOCIAL"
+    trigger_type: "SCHEDULED"
+    primary_document: "Bordereau de Télé-règlement Damancom"
+    description: "Règlement mensuel par télépaiement bancaire des cotisations patronales et salariales CNSS au plus tard le 10 du mois M+1."
+    preconditions:
+      - "Damancom declaration submitted and validated"
+    postconditions:
+      - "Debit 44410000 (CNSS) for total liability"
+      - "Credit 51411000 (Banque Attijariwafa bank) for total liability"
+    parameters:
+      required_fields: ["payment_date", "payroll_period", "total_cnss_due", "damancom_receipt"]
+
+  - event_id: "EVT-PAY-006"
+    event_code: "PAY_SIMPL_IR_TELEPAYMENT"
+    event_name: "SIMPL-IR Monthly Tele-Payment"
+    operational_cycle: "PAYROLL_SOCIAL"
+    trigger_type: "SCHEDULED"
+    primary_document: "Quittance de Paiement SIMPL-IR"
+    description: "Paiement en ligne sur le portail SIMPL-IR de la retenue à la source sur salaires au plus tard le dernier jour du mois M+1."
+    preconditions:
+      - "SIMPL-IR monthly return filed on DGI portal"
+    postconditions:
+      - "Debit 44571000 (État - Retenues IR sur salaires) for IR due"
+      - "Credit 51411000 (Banque Attijariwafa bank) for IR due"
+    parameters:
+      required_fields: ["payment_date", "tax_period", "ir_withheld_total", "simpl_receipt_number"]
+
+  # ============================================================================
+  # 4. BANKING, TREASURY & CREDIT FACILITIES (EVT-BNK-xxx)
+  # ============================================================================
+  - event_id: "EVT-BNK-001"
+    event_code: "BNK_LCN_RECEIPT"
+    event_name: "Customer Commercial Bill (LCN) Receipt"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Lettre de Change Normalisée (LCN)"
+    description: "Réception de la traite LCN acceptée par le client en règlement d'une facture à échéance 60-90 jours."
+    preconditions:
+      - "Valid invoice outstanding"
+      - "LCN signed and format valid with 24-digit RIB"
+    postconditions:
+      - "Debit 34240000 (Clients - effets à recevoir) for nominal"
+      - "Credit 34210000 (Clients ordinaires) for nominal"
+    parameters:
+      required_fields: ["lcn_reference", "client_id", "nominal_amount", "due_date", "drawee_bank_rib"]
+
+  - event_id: "EVT-BNK-002"
+    event_code: "BNK_LCN_DISCOUNT_REMITTANCE"
+    event_name: "LCN Commercial Bill Discount Remittance"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Bordereau de Remise à l'Escompte"
+    description: "Remise physique et électronique d'effets de commerce à l'escompte auprès d'Attijariwafa bank."
+    preconditions:
+      - "LCN held in portfolio (Account 34240000)"
+      - "AWB escompte ceiling (1.5M MAD) not exceeded"
+    postconditions:
+      - "Debit 51150000 (Effets remis à l'escompte) for nominal"
+      - "Credit 34240000 (Clients - effets à recevoir) for nominal"
+    parameters:
+      required_fields: ["remittance_slip_number", "bills_count", "lcn_nominal", "bank_code"]
+
+  - event_id: "EVT-BNK-003"
+    event_code: "BNK_DISCOUNT_ADVICE_CREDIT"
+    event_name: "Discount Advice & Agios Deduction"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Avis de Crédit Escompte AWB"
+    description: "Crédit en compte du produit net de l'escompte après déduction des intérêts, commissions et TVA 10% sur agios."
+    preconditions:
+      - "Remittance processed by bank discount department"
+    postconditions:
+      - "Debit 51411000 (Banque AWB) for net credited amount"
+      - "Debit 63181000 (Intérêts et agios escompte) for discount interest + fees"
+      - "Debit 34512000 (État - TVA récupérable charges) for 10% VAT on fees"
+      - "Credit 55200000 (Crédits d'escompte) for total nominal"
+    parameters:
+      required_fields: ["advice_number", "lcn_nominal", "discount_interest_ht", "banking_fees_ht", "agio_tva_10", "total_agio_ttc"]
+
+  - event_id: "EVT-BNK-004"
+    event_code: "BNK_LCN_MATURITY_EXTINCTION"
+    event_name: "LCN Normal Maturity Extinction"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "SCHEDULED"
+    primary_document: "Avis de Dénouement Bancaire"
+    description: "Extinction de la dette d'escompte à bonne date d'échéance suite au paiement effectif par le tiré."
+    preconditions:
+      - "Maturity date reached and bill honored by drawee bank"
+    postconditions:
+      - "Debit 55200000 (Crédits d'escompte) for nominal"
+      - "Credit 51150000 (Effets remis à l'escompte) for nominal"
+    parameters:
+      required_fields: ["lcn_reference", "maturity_date", "lcn_nominal"]
+
+  - event_id: "EVT-BNK-005"
+    event_code: "BNK_LCN_UNPAID_PROTEST"
+    event_name: "LCN Unpaid Bill Protest & Bank Debit"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "CONDITIONAL"
+    primary_document: "Avis d'Impayé Bancaire & Frais de Rejet"
+    description: "Rejet d'une LCN escomptée pour défaut de provision du client et débit du compte bancaire avec frais de rejet."
+    preconditions:
+      - "Drawee bank returns unpaid notification"
+    postconditions:
+      - "Debit 34210000 (Clients ordinaires) for nominal"
+      - "Debit 61471000 (Services bancaires - Frais de rejet) for fees HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for 10% VAT on fees"
+      - "Credit 51411000 (Banque AWB) for nominal + fees TTC"
+    parameters:
+      required_fields: ["lcn_reference", "client_id", "lcn_nominal", "reject_fee_ht", "reject_fee_tva"]
+
+  - event_id: "EVT-BNK-006"
+    event_code: "BNK_SUPPLIER_WIRE_TRANSFER"
+    event_name: "Supplier Bank Wire Settlement"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Ordre de Virement Fournisseur"
+    description: "Règlement d'une facture fournisseur par virement bancaire sur compte courant AWB."
+    preconditions:
+      - "Approved supplier invoice due for payment"
+      - "Available cash balance or authorized overdraft room"
+    postconditions:
+      - "Debit 44110000 (Fournisseurs ordinaires) for payment amount"
+      - "Credit 51411000 (Banque Attijariwafa bank) for payment amount"
+    parameters:
+      required_fields: ["transfer_reference", "supplier_id", "invoice_reference", "payment_amount"]
+
+  - event_id: "EVT-BNK-007"
+    event_code: "BNK_CAMPAIGN_CREDIT_DRAWDOWN"
+    event_name: "Agricultural Campaign Credit Drawdown (CAM)"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Contrat de Prêt Campagne CAM"
+    description: "Déblocage de la ligne de crédit de campagne agricole auprès du Crédit Agricole du Maroc (400 000 MAD) pour financer le BFR."
+    preconditions:
+      - "High season agricultural window active (September to March)"
+      - "CAM credit line ceiling not exceeded"
+    postconditions:
+      - "Debit 51413000 (Banque CAM) for principal"
+      - "Credit 55410000 (Crédits de campagne agricole) for principal"
+    parameters:
+      required_fields: ["loan_contract_number", "drawdown_date", "loan_principal", "interest_rate"]
+
+  - event_id: "EVT-BNK-008"
+    event_code: "BNK_CAMPAIGN_CREDIT_REPAYMENT"
+    event_name: "Agricultural Campaign Credit Repayment (CAM)"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "SCHEDULED"
+    primary_document: "Avis de Débit Remboursement CAM"
+    description: "Remboursement intégral du crédit de campagne agricole et des intérêts échus en fin de saison maraîchère (Mars)."
+    preconditions:
+      - "Campaign loan maturity reached"
+      - "Sufficient cash collections from citrus/tomato exporters"
+    postconditions:
+      - "Debit 55410000 (Crédits de campagne agricole) for principal"
+      - "Debit 63183000 (Intérêts crédits de campagne) for interest HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for 10% VAT on interest"
+      - "Credit 51413000 (Banque CAM) for total settlement"
+    parameters:
+      required_fields: ["loan_contract_number", "settlement_date", "loan_principal", "interest_amount_ht", "interest_tva_10"]
+
+  # ============================================================================
+  # 5. TAXATION, REGULATORY & FISCAL COMPLIANCE (EVT-TAX-xxx)
+  # ============================================================================
+  - event_id: "EVT-TAX-001"
+    event_code: "TAX_MONTHLY_SIMPL_TVA_LIQUIDATION"
+    event_name: "Monthly SIMPL-TVA Declaration Liquidation"
+    operational_cycle: "TAX_COMPLIANCE"
+    trigger_type: "SCHEDULED"
+    primary_document: "Déclaration SIMPL-TVA Mensuelle"
+    description: "Liquidation comptable mensuelle de la TVA (TVA Facturée vs TVA Récupérable Charges et Immobilisations)."
+    preconditions:
+      - "Month M sales and purchase journals closed and reconciled"
+    postconditions:
+      - "Debit 44550000 (État - TVA facturée) for collected TVA"
+      - "Credit 34512000 (État - TVA récupérable charges) for charges TVA"
+      - "Credit 34511000 (État - TVA récupérable immos) for immos TVA"
+      - "Credit 44560000 (État - TVA due) for net payable (or Debit 34550000 if credit)"
+    parameters:
+      required_fields: ["tax_period", "tva_collectee_total", "tva_deductible_charges", "tva_deductible_immob", "tva_due_net"]
+
+  - event_id: "EVT-TAX-002"
+    event_code: "TAX_MONTHLY_TVA_TELEPAYMENT"
+    event_name: "Monthly SIMPL-TVA Tele-Payment"
+    operational_cycle: "TAX_COMPLIANCE"
+    trigger_type: "SCHEDULED"
+    primary_document: "Quittance de Paiement SIMPL-TVA"
+    description: "Télérèglement bancaire de la TVA due au plus tard le dernier jour du mois M+1."
+    preconditions:
+      - "SIMPL-TVA declaration approved on DGI portal"
+      - "Net TVA due > 0"
+    postconditions:
+      - "Debit 44560000 (État - TVA due) for amount paid"
+      - "Credit 51411000 (Banque Attijariwafa bank) for amount paid"
+    parameters:
+      required_fields: ["payment_date", "tax_period", "tva_due_net", "quittance_reference"]
+
+  - event_id: "EVT-TAX-003"
+    event_code: "TAX_QUARTERLY_IS_ACOMPTE"
+    event_name: "Quarterly Corporate Tax (IS) Acompte Settlement"
+    operational_cycle: "TAX_COMPLIANCE"
+    trigger_type: "SCHEDULED"
+    primary_document: "Bordereau SIMPL-IS Acompte"
+    description: "Paiement de l'acompte provisionnel trimestriel d'IS (25% de l'IS de référence de l'exercice N-1) aux échéances légales."
+    preconditions:
+      - "Statutory due dates: March 31, June 30, September 30, December 31"
+    postconditions:
+      - "Debit 34531000 (État - Acomptes provisionnels sur IS) for installment"
+      - "Credit 51411000 (Banque Attijariwafa bank) for installment"
+    parameters:
+      required_fields: ["quarter_index", "due_date", "acompte_amount", "reference_base_is"]
+
+  - event_id: "EVT-TAX-004"
+    event_code: "TAX_ANNUAL_IS_LIQUIDATION"
+    event_name: "Annual IS Liquidation & Reliquat Settlement"
+    operational_cycle: "TAX_COMPLIANCE"
+    trigger_type: "SCHEDULED"
+    primary_document: "Liasse Fiscale SIMPL-IS"
+    description: "Liquidation annuelle de l'IS au 31 mars N+1 (imputation des 4 acomptes versés et constatation du reliquat dû)."
+    preconditions:
+      - "Fiscal result and progressive IS barème computed"
+      - "IS > CM invariant verified"
+    postconditions:
+      - "Debit 67010000 (Impôts sur les résultats) for total IS due"
+      - "Credit 34531000 (État - Acomptes provisionnels IS) for sum of 4 acomptes"
+      - "Credit 44530000 (État - Impôts sur résultats) for balance due"
+    parameters:
+      required_fields: ["fiscal_year", "total_is_due", "sum_4_acomptes", "is_reliquat_due"]
+
+  - event_id: "EVT-TAX-005"
+    event_code: "TAX_LOCAL_TP_TSC_PAYMENT"
+    event_name: "Taxe Professionnelle (TP) & TSC Payment"
+    operational_cycle: "TAX_COMPLIANCE"
+    trigger_type: "SCHEDULED"
+    primary_document: "Rôle d'Imposition DGI Fiscalité Locale"
+    description: "Paiement annuel de la Taxe Professionnelle (10%) et de la TSC (10.50%) assises sur la Valeur Locative des immobilisations (3%)."
+    preconditions:
+      - "5-Year exemption ended (1st taxable year: 2025)"
+      - "DGI assessment roll received"
+    postconditions:
+      - "Debit 61611000 (Impôts directs - TP) for TP amount"
+      - "Debit 61612000 (Impôts directs - TSC) for TSC amount"
+      - "Credit 51411000 (Banque Attijariwafa bank) for total local taxes"
+    parameters:
+      required_fields: ["tax_year", "valeur_locative_base", "tp_amount", "tsc_amount", "payment_date"]
+
+  - event_id: "EVT-TAX-006"
+    event_code: "TAX_DIVIDEND_DISTRIBUTION_VINTAGE_RAS"
+    event_name: "Dividend Distribution & Vintage Withholding Tax (RAS)"
+    operational_cycle: "TAX_COMPLIANCE"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Procès-Verbal Assemblée Générale Ordinaire (AGO)"
+    description: "Distribution de dividendes aux associés et prélèvement de la RAS selon le millésime (15% pré-2023 vs 11.25%/10% post-2023)."
+    preconditions:
+      - "AGM approval and distributable profit available in retained earnings"
+      - "Account 11611/11612 vintage partition verified"
+    postconditions:
+      - "Debit 11910000 / 11610000 (Résultat / Report à nouveau) for gross dividends"
+      - "Credit 44572000 (État - Retenues à la source dividendes) for RAS"
+      - "Credit 44650000 (Associés - dividendes à payer) for net dividends"
+    parameters:
+      required_fields: ["agm_date", "gross_dividends", "pre_2023_portion", "post_2023_portion", "ras_dividends_amount", "net_dividends_payable"]
+
+  - event_id: "EVT-TAX-007"
+    event_code: "TAX_LAW_69_21_PENALTY_ACCRUAL"
+    event_name: "Law 69-21 Late Payment Penalty Accrual"
+    operational_cycle: "TAX_COMPLIANCE"
+    trigger_type: "SCHEDULED"
+    primary_document: "Déclaration Trimestrielle SIMPL-Délais de Paiement"
+    description: "Constatation de la provision pour pénalités légales sur factures fournisseurs impayées au-delà des 60 jours statutaires."
+    preconditions:
+      - "Quarterly supplier ageing review identifies overdue invoices"
+    postconditions:
+      - "Debit 65832000 (Pénalités de retard Loi 69-21) for fine amount"
+      - "Credit 45010000 (Provisions litiges et pénalités Loi 69-21) for fine amount"
+    parameters:
+      required_fields: ["quarter_period", "overdue_invoices_count", "overdue_base_ttc", "penalty_l69_amount"]
+
+  # ============================================================================
+  # 6. INVENTORY & PRODUCTION OPERATIONS (EVT-INV-xxx)
+  # ============================================================================
+  - event_id: "EVT-INV-001"
+    event_code: "INV_RAW_PAPER_CORRUGATOR_ISSUE"
+    event_name: "Raw Paper Reel Issue to Corrugator Line"
+    operational_cycle: "INVENTORY_PRODUCTION"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Bon de Sortie Matières Premières"
+    description: "Sortie de stock des bobines de Kraftliner, Testliner et Fluting pour alimentation de l'onduleuse (valorisé au CUMP)."
+    preconditions:
+      - "Production work order released"
+      - "Reels available in covered raw material warehouse"
+    postconditions:
+      - "Debit 61140000 (Variation stocks matières premières) for CUMP value"
+      - "Credit 31110000 (Matières premières) for CUMP value"
+    parameters:
+      required_fields: ["production_order_id", "reel_barcodes", "weight_kg", "cump_rate", "consumed_cump_value"]
+
+  - event_id: "EVT-INV-002"
+    event_code: "INV_FINISHED_GOODS_RECEIPT"
+    event_name: "Finished Goods Warehouse Stock Entry"
+    operational_cycle: "INVENTORY_PRODUCTION"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Bon d'Entrée Produits Finis"
+    description: "Entrée en stock magasin des caisses et plateaux carton finis (P001 à P005) valorisés au coût de production standard/réel."
+    preconditions:
+      - "Production batch completed and palletized"
+      - "Quality control inspection approved"
+    postconditions:
+      - "Debit 31510000 (Produits finis) for production cost"
+      - "Credit 71320000 (Variation stocks produits finis) for production cost"
+    parameters:
+      required_fields: ["batch_number", "sku_code", "quantity_m2", "unit_cost_mad_m2", "production_cost_value"]
+
+  - event_id: "EVT-INV-003"
+    event_code: "INV_PRODUCTION_SCRAP_LOGGING"
+    event_name: "Production Scrap & Waste Paperboard Logging (8%)"
+    operational_cycle: "INVENTORY_PRODUCTION"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Fiche de Balle Rebuts & Déchets"
+    description: "Constatation des rognures et chutes techniques de découpe (8% scrap rate) récupérées et valorisées au prix de récupération."
+    preconditions:
+      - "Baling press compaction completed and weighed"
+    postconditions:
+      - "Debit 31580000 (Déchets et rebuts carton) for scrap value"
+      - "Credit 61140000 (Variation stocks matières premières) for scrap value"
+    parameters:
+      required_fields: ["shift_id", "scrap_weight_kg", "scrap_unit_price", "scrap_recoverable_value"]
+
+  # ============================================================================
+  # 7. RISK & STOCHASTIC EVENTS (EVT-RSK-xxx)
+  # ============================================================================
+  - event_id: "EVT-RSK-001"
+    event_code: "RSK_MACHINE_BREAKDOWN_REPAIR"
+    event_name: "Machine Breakdown & Emergency Maintenance"
+    operational_cycle: "RISK_SHOCKS"
+    trigger_type: "STOCHASTIC"
+    primary_document: "Rapport d'Intervention & Facture Réparation"
+    description: "Panne mécanique imprévue sur la ligne d'ondulation ou combiné flexo nécessitant une intervention d'urgence."
+    preconditions:
+      - "Stochastic Poisson trigger fired (Seed RSK-01)"
+    postconditions:
+      - "Debit 61331000 (Entretien et réparations matériel) for repair HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for TVA 20%"
+      - "Credit 44110000 (Fournisseurs prestataires) for repair TTC"
+    parameters:
+      required_fields: ["incident_id", "machine_code", "downtime_hours", "repair_cost_ht", "repair_cost_tva", "repair_cost_ttc"]
+
+  - event_id: "EVT-RSK-002"
+    event_code: "RSK_REEL_HUMIDITY_SPOILAGE"
+    event_name: "Paper Reel Humidity Damage & Destruction"
+    operational_cycle: "RISK_SHOCKS"
+    trigger_type: "STOCHASTIC"
+    primary_document: "Constat d'Avarie et Mise au Rebut"
+    description: "Détérioration accidentelle de bobines de papier suite à infiltration d'humidité ou choc manutention."
+    preconditions:
+      - "Stochastic Bernoulli trigger fired (Seed RSK-02)"
+    postconditions:
+      - "Debit 65881000 (Pertes sur stocks avariés) for damaged cost"
+      - "Credit 31110000 (Matières premières) for damaged cost"
+    parameters:
+      required_fields: ["incident_id", "damaged_reels_count", "damaged_stock_value"]
+
+  - event_id: "EVT-RSK-003"
+    event_code: "RSK_PORT_AGADIR_DEMURRAGE"
+    event_name: "Port of Agadir Customs Demurrage Incurred"
+    operational_cycle: "RISK_SHOCKS"
+    trigger_type: "STOCHASTIC"
+    primary_document: "Facture Surestaries Port Agadir (Marsa Maroc)"
+    description: "Application du barème progressif de surestaries portuaires suite à un retard de dédouanement dépassant 7 jours de franchise."
+    preconditions:
+      - "Container dwell time > 7 days in port"
+      - "Stochastic trigger fired (Seed RSK-04)"
+    postconditions:
+      - "Debit 65881000 (Frais de surestaries Port Agadir) for demurrage HT"
+      - "Debit 34512000 (État - TVA récupérable charges) for TVA 20%"
+      - "Credit 44110000 (Fournisseurs - Port) for demurrage TTC"
+    parameters:
+      required_fields: ["container_number", "dwell_days", "demurrage_amount_ht", "demurrage_tva"]
+
+  - event_id: "EVT-RSK-004"
+    event_code: "RSK_CLIENT_DEFAULT_BAD_DEBT"
+    event_name: "Customer Default & Bad Debt Write-Off"
+    operational_cycle: "RISK_SHOCKS"
+    trigger_type: "STOCHASTIC"
+    primary_document: "Certificat d'Irrécouvrabilité & Jugement"
+    description: "Constatation de la perte définitive sur créance client irrécouvrable après clôture de la procédure judiciaire."
+    preconditions:
+      - "Customer formal insolvency certificate issued"
+      - "Prior provision existing in Account 39420000"
+    postconditions:
+      - "Debit 61820000 (Pertes sur créances irrécouvrables) for loss HT"
+      - "Debit 44550000 (État - TVA facturée régularisée) for TVA"
+      - "Credit 34250000 (Clients douteux) for total default TTC"
+    parameters:
+      required_fields: ["client_id", "bad_debt_ttc", "loss_amount_ht", "tva_loss", "court_case_reference"]
+
+  - event_id: "EVT-RSK-005"
+    event_code: "RSK_FOREIGN_EXCHANGE_LOSS"
+    event_name: "Foreign Exchange Fluctuation Loss"
+    operational_cycle: "RISK_SHOCKS"
+    trigger_type: "STOCHASTIC"
+    primary_document: "Avis d'Opération de Change Bancaire"
+    description: "Enregistrement de la perte de change réalisée lors du règlement d'un fournisseur papetier européen en EUR."
+    preconditions:
+      - "EUR/MAD exchange rate at settlement > rate at invoice booking"
+      - "Stochastic BAM clamped random walk step (Seed RSK-05)"
+    postconditions:
+      - "Debit 63310000 (Pertes de change) for realized FX delta"
+      - "Credit 44110000 (Fournisseurs) for realized FX delta"
+    parameters:
+      required_fields: ["settlement_id", "booking_rate", "settlement_rate", "fx_loss_amount"]
+
+  - event_id: "EVT-RSK-006"
+    event_code: "RSK_LAW_69_21_PENALTY_COLLECTED"
+    event_name: "Law 69-21 Late Penalty Received from Client"
+    operational_cycle: "RISK_SHOCKS"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Avis de Crédit Pénalités Légales Reçues"
+    description: "Encaissement des pénalités légales de retard facturées à un grand compte GMS en dépassement de délai de paiement."
+    preconditions:
+      - "Client settlement includes Law 69-21 late payment penalty"
+    postconditions:
+      - "Debit 51411000 (Banque Attijariwafa bank) for penalty received"
+      - "Credit 73811000 (Intérêts et pénalités Loi 69-21 reçus) for income"
+    parameters:
+      required_fields: ["client_id", "invoice_reference", "penalty_received_amount"]
+
+  - event_id: "EVT-RSK-007"
+    event_code: "RSK_CGI_ART_193_CASH_PENALTY"
+    event_name: "CGI Art. 193 Cash Receipt Sanction"
+    operational_cycle: "RISK_SHOCKS"
+    trigger_type: "CONDITIONAL"
+    primary_document: "Notification Redressement Fiscal DGI"
+    description: "Sanction fiscale de 6% pour encaissement commercial en espèces d'un montant supérieur au plafond légal de 20 000 MAD."
+    preconditions:
+      - "Cash receipt from client exceeds 20 000 MAD threshold"
+    postconditions:
+      - "Debit 65833000 (Sanctions encaissement espèces CGI 193) for penalty"
+      - "Credit 44521000 (État - Impôts et taxes à payer) for penalty"
+    parameters:
+      required_fields: ["receipt_id", "cash_amount", "penalty_rate", "cash_penalty_amount"]
+
+  # ============================================================================
+  # 8. YEAR-END CLOSING & FINANCIAL ROLL-OVER (EVT-CLS-xxx)
+  # ============================================================================
+  - event_id: "EVT-CLS-001"
+    event_code: "CLS_ANNUAL_DEPRECIATION_DDA"
+    event_name: "Annual Fixed Asset Depreciation Accrual (DDA)"
+    operational_cycle: "YEAR_END_CLOSING"
+    trigger_type: "SCHEDULED"
+    primary_document: "Tableau d'Amortissement des Immobilisations"
+    description: "Comptabilisation des dotations annuelles aux amortissements linéaires des immobilisations corporelles (~380 000 MAD)."
+    preconditions:
+      - "Fixed assets register up to date in fixed_assets_depreciation.yaml"
+      - "December 31 closing date reached"
+    postconditions:
+      - "Debit 61810000 (Dotations d'exploitation aux amortissements) for total DDA"
+      - "Credit 28321000 (Amortissements bâtiments) for building DDA"
+      - "Credit 28332000 (Amortissements matériel) for machinery DDA"
+      - "Credit 28340000 (Amortissements transport) for vehicle DDA"
+      - "Credit 28351000 (Amortissements mobilier) for furniture DDA"
+      - "Credit 28352000 (Amortissements informatique) for IT DDA"
+    parameters:
+      required_fields: ["fiscal_year", "total_annual_dda", "dda_buildings", "dda_machinery", "dda_vehicles", "dda_furniture", "dda_it"]
+
+  - event_id: "EVT-CLS-002"
+    event_code: "CLS_PREPAID_CHARGES_REGULARIZATION"
+    event_name: "Prepaid Charges Cut-Off Adjustment (CCA)"
+    operational_cycle: "YEAR_END_CLOSING"
+    trigger_type: "SCHEDULED"
+    primary_document: "État d'Inventaire Comptable de Fin d'Exercice"
+    description: "Neutralisation de la fraction d'assurances multirisque et abonnements payés d'avance se rapportant à l'exercice N+1."
+    preconditions:
+      - "Prorata temporis calculation of insurance premiums crossing year-end"
+    postconditions:
+      - "Debit 34910000 (Charges constatées d'avance) for prepaid portion"
+      - "Credit 61341000 (Primes d'assurances) for prepaid portion"
+    parameters:
+      required_fields: ["fiscal_year", "policy_reference", "prepaid_expense_amount"]
+
+  - event_id: "EVT-CLS-003"
+    event_code: "CLS_UNBILLED_DELIVERIES_FAE"
+    event_name: "Unbilled Deliveries Cut-Off Accrual (FAE)"
+    operational_cycle: "YEAR_END_CLOSING"
+    trigger_type: "SCHEDULED"
+    primary_document: "État des BL Non Facturés au 31/12"
+    description: "Constatation des factures à établir sur livraisons de carton effectuées avant le 31 décembre non encore facturées."
+    preconditions:
+      - "Physical goods dispatched with signed BL dated <= Dec 31"
+    postconditions:
+      - "Debit 34271000 (Clients - factures à établir) for unbilled TTC"
+      - "Credit 71211000 (Ventes de produits finis au Maroc) for unbilled HT"
+      - "Credit 44550000 (État - TVA facturée) for unbilled TVA"
+    parameters:
+      required_fields: ["fiscal_year", "bl_references", "unbilled_amount_ht", "unbilled_amount_tva", "unbilled_amount_ttc"]
+
+  - event_id: "EVT-CLS-004"
+    event_code: "CLS_EXPENSE_ACCOUNTS_CPC_CLEARANCE"
+    event_name: "Expense Accounts Clearance to CPC Synthesis"
+    operational_cycle: "YEAR_END_CLOSING"
+    trigger_type: "SCHEDULED"
+    primary_document: "Balance Générale de Clôture Avant Résultat"
+    description: "Virement et solde de l'ensemble des comptes de charges (Classe 6) vers les comptes de résultats de synthèse (Classe 8)."
+    preconditions:
+      - "All operating, financial, non-current charges posted and reconciled"
+    postconditions:
+      - "Debit 81000000 (Résultat d'exploitation) for operating expenses"
+      - "Debit 83000000 (Résultat financier) for financial expenses"
+      - "Debit 85000000 (Résultat non courant) for non-current expenses"
+      - "Credit Class 6 accounts for their debit balances"
+    parameters:
+      required_fields: ["fiscal_year", "sum_charges_exploitation", "sum_charges_financieres", "sum_charges_non_courantes", "balance_61111", "balance_61711"]
+
+  - event_id: "EVT-CLS-005"
+    event_code: "CLS_REVENUE_ACCOUNTS_CPC_CLEARANCE"
+    event_name: "Revenue Accounts Clearance to CPC Synthesis"
+    operational_cycle: "YEAR_END_CLOSING"
+    trigger_type: "SCHEDULED"
+    primary_document: "Balance Générale de Clôture Avant Résultat"
+    description: "Virement et solde de l'ensemble des comptes de produits (Classe 7) vers les comptes de résultats de synthèse (Classe 8)."
+    preconditions:
+      - "All operating, financial, non-current revenues posted and reconciled"
+    postconditions:
+      - "Debit Class 7 accounts for their credit balances"
+      - "Credit 81000000 (Résultat d'exploitation) for operating revenues"
+      - "Credit 83000000 (Résultat financier) for financial revenues"
+    parameters:
+      required_fields: ["fiscal_year", "balance_71211", "balance_71212", "sum_produits_exploitation", "sum_produits_financiers"]
+
+  - event_id: "EVT-CLS-006"
+    event_code: "CLS_NET_PROFIT_DETERMINATION"
+    event_name: "Net Accounting Profit Determination"
+    operational_cycle: "YEAR_END_CLOSING"
+    trigger_type: "SCHEDULED"
+    primary_document: "Compte de Produits et Charges (CPC Synthétique)"
+    description: "Constatation du bénéfice net comptable définitif de l'exercice au compte de capitaux propres 11910000."
+    preconditions:
+      - "Pre-tax result determined and IS tax expense recorded"
+    postconditions:
+      - "Debit 88000000 (Résultat net après impôts) for net profit"
+      - "Credit 11910000 (Résultat net de l'exercice - Bénéfice) for net profit"
+    parameters:
+      required_fields: ["fiscal_year", "pretax_profit", "is_tax_expense", "net_accounting_profit"]
+
+  - event_id: "EVT-CLS-007"
+    event_code: "CLS_OPENING_BALANCE_ROLLOVER"
+    event_name: "Opening Balance Sheet Roll-Over to Fiscal Year N+1"
+    operational_cycle: "YEAR_END_CLOSING"
+    trigger_type: "SCHEDULED"
+    primary_document: "Bilan de Clôture & Journal des À-Nouveaux"
+    description: "Réouverture des comptes de bilan au 1er janvier de l'exercice suivant dans le Journal des À-Nouveaux (RAN)."
+    preconditions:
+      - "Fiscal Year N fully audited and closed"
+      - "Balance sheet balanced: Total Actif == Total Passif"
+    postconditions:
+      - "Debit asset accounts for ending balances"
+      - "Credit liability and equity accounts for ending balances"
+    parameters:
+      required_fields: ["next_fiscal_year", "balance_actif_2311", "balance_actif_2321", "balance_actif_2332", "balance_passif_1111", "balance_passif_1140", "balance_passif_11611", "balance_passif_11612"]

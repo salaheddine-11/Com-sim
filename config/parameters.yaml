@@ -1,0 +1,1199 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — AUTHORITATIVE REGULATORY & OPERATING PARAMETERS
+# Effective Date Range: 2025-01-01 to 2026-12-31 (Continuous Coverage)
+# Legal Standards: CGI 2025/2026, LF 2023 (50-22), LF 2024 (55-23), LF 2025 (60-24),
+# Dahir CNSS 1972, Code du Travail (Loi 65-99), BAM, ADII, Loi 69-21, Loi 47-06
+# Verification Rule: 100% gap-free, overlap-free validity intervals over [2025-01-01, 2026-12-31]
+# ==============================================================================
+
+metadata:
+  schema_version: "1.0.0"
+  company_name: "Souss Agri-Pack SARL"
+  zone: "Zone Industrielle Ait Melloul, Agadir"
+  ice: "002345678000091"
+  identifiant_fiscal: "45127890"
+  effective_start_date: "2025-01-01"
+  effective_end_date: "2026-12-31"
+  monetary_unit: "MAD"
+  description: "Comprehensive effective-dated regulatory parameter table for Moroccan tax, social, banking, customs, and commercial compliance."
+
+# ==============================================================================
+# SECTION 1: MASTER EFFECTIVE-DATED PARAMETER TABLE
+# ==============================================================================
+parameters:
+  # ----------------------------------------------------------------------------
+  # 1. Corporate Income Tax (IS) - Progressive Barème
+  # ----------------------------------------------------------------------------
+  - parameter_name: "is_rate_slice_1_under_300k_2025"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.1750
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6 (Trajectoire de convergence Année 3)"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS applicable à la tranche de résultat fiscal inférieure ou égale à 300 000 MAD pour l'exercice 2025."
+    tags: ["is", "bareme_progressif", "fy2025", "cgi_art_19"]
+
+  - parameter_name: "is_rate_slice_1_under_300k_2026"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6 (Taux cible unifié Année 4)"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS applicable à la tranche de résultat fiscal inférieure ou égale à 300 000 MAD pour l'exercice 2026."
+    tags: ["is", "bareme_progressif", "fy2026", "cgi_art_19"]
+
+  - parameter_name: "is_rate_slice_2_300k_to_1m_2025"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS applicable à la tranche de résultat fiscal comprise entre 300 001 et 1 000 000 MAD pour l'exercice 2025."
+    tags: ["is", "bareme_progressif", "fy2025", "cgi_art_19"]
+
+  - parameter_name: "is_rate_slice_2_300k_to_1m_2026"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS applicable à la tranche de résultat fiscal comprise entre 300 001 et 1 000 000 MAD pour l'exercice 2026."
+    tags: ["is", "bareme_progressif", "fy2026", "cgi_art_19"]
+
+  - parameter_name: "is_rate_slice_3_1m_to_100m_2025"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.2275
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS applicable à la tranche de résultat fiscal de 1 000 001 à 100 000 000 MAD pour 2025 (convergence vers 20%)."
+    tags: ["is", "bareme_progressif", "fy2025", "cgi_art_19"]
+
+  - parameter_name: "is_rate_slice_3_1m_to_100m_2026"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS unifié à 20% pour la tranche de 1 000 001 à 100 000 000 MAD pour 2026."
+    tags: ["is", "bareme_progressif", "fy2026", "cgi_art_19"]
+
+  - parameter_name: "is_rate_slice_4_over_100m_2025"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.3400
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS pour bénéfices supérieurs à 100 000 000 MAD en 2025."
+    tags: ["is", "bareme_progressif", "fy2025", "cgi_art_19"]
+
+  - parameter_name: "is_rate_slice_4_over_100m_2026"
+    domain: "corporate_income_tax"
+    category: "impot_sur_les_societes"
+    value: 0.3500
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 n° 50-22 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux d'IS cible pour bénéfices supérieurs à 100 000 000 MAD en 2026."
+    tags: ["is", "bareme_progressif", "fy2026", "cgi_art_19"]
+
+  # ----------------------------------------------------------------------------
+  # 2. Cotisation Minimale (CM) & Installments
+  # ----------------------------------------------------------------------------
+  - parameter_name: "cotisation_minimale_rate"
+    domain: "corporate_income_tax"
+    category: "cotisation_minimale"
+    value: 0.0025
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 144-I (Taux normal de 0.25% pour activités industrielles & commerciales)"
+    verification_status: "VERIFIED"
+    description: "Taux de cotisation minimale de 0.25% appliqué à l'assiette globale de chiffre d'affaires et produits accessoires."
+    tags: ["is", "cotisation_minimale", "cgi_art_144"]
+
+  - parameter_name: "cotisation_minimale_minimum_floor_mad"
+    domain: "corporate_income_tax"
+    category: "cotisation_minimale"
+    value: 3000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 144-I-C (Montant minimum légal de 3 000 MAD)"
+    verification_status: "VERIFIED"
+    description: "Plancher d'imposition au titre de la cotisation minimale en l'absence de chiffre d'affaires ou bénéfice."
+    tags: ["is", "cotisation_minimale", "plancher", "cgi_art_144"]
+
+  - parameter_name: "is_acompte_quarterly_rate"
+    domain: "corporate_income_tax"
+    category: "acomptes_provisionnels"
+    value: 0.2500
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 170 (4 acomptes trimestriels égaux à 25% de l'IS de référence de l'exercice précédent)"
+    verification_status: "VERIFIED"
+    description: "Fraction de 25% appliquée à l'IS dû N-1 pour le calcul de chaque acompte trimestriel."
+    tags: ["is", "acomptes", "cgi_art_170"]
+
+  # ----------------------------------------------------------------------------
+  # 3. Cash Ceiling Rules & Fiscal Penalties (CGI Art. 11-II, 106-II, 193)
+  # ----------------------------------------------------------------------------
+  - parameter_name: "cash_purchase_invoice_ceiling_ttc_mad"
+    domain: "tax_compliance"
+    category: "plafond_especes_achats"
+    value: 5000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 11-II (Non-déductibilité IS) & CGI Art. 106-II (Non-récupérabilité TVA)"
+    verification_status: "VERIFIED"
+    description: "Plafond de 5 000 MAD TTC par facture fournisseur réglée en espèces; au-delà, charge et TVA rejetées à 100%."
+    tags: ["especes", "achats", "rejet_fiscal", "cgi_art_11", "cgi_art_106"]
+
+  - parameter_name: "cash_purchase_monthly_supplier_ceiling_ttc_mad"
+    domain: "tax_compliance"
+    category: "plafond_especes_achats"
+    value: 50000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 11-II & CGI Art. 106-II (Plafond mensuel cumulé par fournisseur)"
+    verification_status: "VERIFIED"
+    description: "Plafond mensuel de 50 000 MAD TTC par fournisseur pour l'ensemble des règlements en espèces."
+    tags: ["especes", "achats", "plafond_mensuel", "cgi_art_11"]
+
+  - parameter_name: "cash_sales_collection_ceiling_mad"
+    domain: "tax_compliance"
+    category: "sanction_especes_ventes"
+    value: 20000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 193 (Sanction pour paiement en espèces excédant le seuil légal) [TO VERIFY]"
+    verification_status: "TO_VERIFY"
+    description: "Seuil d'encaissement commercial en espèces au-delà duquel la sanction fiscale s'applique au vendeur."
+    tags: ["especes", "ventes", "sanction_fiscale", "cgi_art_193", "to_verify"]
+
+  - parameter_name: "cash_sales_collection_penalty_rate"
+    domain: "tax_compliance"
+    category: "sanction_especes_ventes"
+    value: 0.0600
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 193 (Taux de sanction de 6% sur encaissement en espèces non-déductible)"
+    verification_status: "VERIFIED"
+    description: "Pénalité de 6% appliquée sur le montant total des encaissements espèces dépassant le plafond légal."
+    tags: ["especes", "sanction", "amende_6583", "cgi_art_193"]
+
+  # ----------------------------------------------------------------------------
+  # 4. Value Added Tax (TVA) - LF 2024 Multi-Year Convergence (CGI Art. 87-130)
+  # ----------------------------------------------------------------------------
+  - parameter_name: "tva_rate_standard_packaging"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 98 (Taux normal de 20% applicable aux emballages et matières carton)"
+    verification_status: "VERIFIED"
+    description: "Taux normal de TVA de 20% applicable aux ventes d'emballages en carton ondulé et achats de fournitures."
+    tags: ["tva", "taux_normal", "cgi_art_98"]
+
+  - parameter_name: "tva_rate_electricity_mt_onee_2025"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.1800
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "LF 2024 n° 55-23 Art. 6 & CGI Art. 98 (Convergence progressive vers 20%)"
+    verification_status: "VERIFIED"
+    description: "Taux de TVA de 18% sur l'énergie électrique moyenne tension (ONEE MT) pour l'exercice 2025."
+    tags: ["tva", "energie", "onee_mt", "fy2025", "lf_2024"]
+
+  - parameter_name: "tva_rate_electricity_mt_onee_2026"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "LF 2024 n° 55-23 Art. 6 & CGI Art. 98 (Taux cible 20% au 01/01/2026)"
+    verification_status: "VERIFIED"
+    description: "Taux unifié de TVA de 20% sur l'électricité moyenne tension ONEE applicable à compter de 2026."
+    tags: ["tva", "energie", "onee_mt", "fy2026", "cgi_art_98"]
+
+  - parameter_name: "tva_rate_water_industrial_2025"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.0900
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "LF 2024 n° 55-23 Art. 6 & CGI Art. 99-1 (Convergence progressive vers 10%)"
+    verification_status: "VERIFIED"
+    description: "Taux réduit de TVA de 9% sur l'eau industrielle et assainissement pour l'exercice 2025."
+    tags: ["tva", "eau", "fluides", "fy2025", "lf_2024"]
+
+  - parameter_name: "tva_rate_water_industrial_2026"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.1000
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "LF 2024 n° 55-23 Art. 6 & CGI Art. 99-1 (Taux cible 10% au 01/01/2026)"
+    verification_status: "VERIFIED"
+    description: "Taux réduit harmonisé de TVA de 10% sur l'eau industrielle à compter du 1er janvier 2026."
+    tags: ["tva", "eau", "fluides", "fy2026", "cgi_art_99"]
+
+  - parameter_name: "tva_rate_banking_operations_and_agios"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.1000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 99-3 (Taux de 10% applicable aux opérations de banque et de crédit et agios d'escompte)"
+    verification_status: "VERIFIED"
+    description: "Taux de TVA de 10% applicable aux intérêts, commissions d'escompte et agios bancaires."
+    tags: ["tva", "banque", "agios", "escompte", "cgi_art_99"]
+
+  - parameter_name: "tva_rate_freight_transport_2025"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.1600
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "LF 2024 n° 55-23 Art. 6 (Trajectoire de convergence transport routier de marchandises) [TO VERIFY]"
+    verification_status: "TO_VERIFY"
+    description: "Taux intermédiaire de TVA de 16% sur le transport de marchandises en 2025."
+    tags: ["tva", "transport", "logistique", "fy2025", "to_verify"]
+
+  - parameter_name: "tva_rate_freight_transport_2026"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "LF 2024 n° 55-23 Art. 6 & CGI Art. 98 (Taux normal de 20% au 01/01/2026) [TO VERIFY]"
+    verification_status: "TO_VERIFY"
+    description: "Taux normal de 20% applicable au transport de marchandises à compter de 2026."
+    tags: ["tva", "transport", "logistique", "fy2026", "to_verify"]
+
+  - parameter_name: "tva_rate_direct_exports"
+    domain: "value_added_tax"
+    category: "taux_tva"
+    value: 0.0000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 92-I-1 (Exonération de TVA avec droit à déduction pour exportations directes)"
+    verification_status: "VERIFIED"
+    description: "Régime d'exonération avec droit à déduction (taux 0%) sur les ventes de carton expédiées à l'étranger."
+    tags: ["tva", "export", "exoneration", "cgi_art_92"]
+
+  # ----------------------------------------------------------------------------
+  # 5. Personal Income Tax (IR) & Family Deductions (CGI Art. 73-I / LF 2025)
+  # ----------------------------------------------------------------------------
+  - parameter_name: "ir_bracket_1_0_to_40k_rate"
+    domain: "personal_income_tax"
+    category: "bareme_ir"
+    value: 0.0000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-I & LF 2025 n° 60-24 Art. 6 (Relèvement du seuil d'exonération à 40 000 MAD/an)"
+    verification_status: "VERIFIED"
+    description: "Tranche exonérée d'IR pour revenus salariaux nets imposables de 0 à 40 000 MAD par an (0 à 3 333.33 MAD/mois)."
+    tags: ["ir", "bareme_ir", "exoneration", "lf_2025", "cgi_art_73"]
+
+  - parameter_name: "ir_bracket_2_40k_to_60k_rate"
+    domain: "personal_income_tax"
+    category: "bareme_ir"
+    value: 0.1000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-I & LF 2025 n° 60-24 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux marginal de 10% pour la tranche de 40 001 à 60 000 MAD/an (Somme à déduire: 4 000 MAD/an)."
+    tags: ["ir", "bareme_ir", "lf_2025", "cgi_art_73"]
+
+  - parameter_name: "ir_bracket_3_60k_to_80k_rate"
+    domain: "personal_income_tax"
+    category: "bareme_ir"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-I & LF 2025 n° 60-24 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux marginal de 20% pour la tranche de 60 001 à 80 000 MAD/an (Somme à déduire: 10 000 MAD/an)."
+    tags: ["ir", "bareme_ir", "lf_2025", "cgi_art_73"]
+
+  - parameter_name: "ir_bracket_4_80k_to_100k_rate"
+    domain: "personal_income_tax"
+    category: "bareme_ir"
+    value: 0.3000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-I & LF 2025 n° 60-24 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux marginal de 30% pour la tranche de 80 001 à 100 000 MAD/an (Somme à déduire: 18 000 MAD/an)."
+    tags: ["ir", "bareme_ir", "lf_2025", "cgi_art_73"]
+
+  - parameter_name: "ir_bracket_5_100k_to_180k_rate"
+    domain: "personal_income_tax"
+    category: "bareme_ir"
+    value: 0.3400
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-I & LF 2025 n° 60-24 Art. 6"
+    verification_status: "VERIFIED"
+    description: "Taux marginal de 34% pour la tranche de 100 001 à 180 000 MAD/an (Somme à déduire: 22 000 MAD/an)."
+    tags: ["ir", "bareme_ir", "lf_2025", "cgi_art_73"]
+
+  - parameter_name: "ir_bracket_6_over_180k_rate"
+    domain: "personal_income_tax"
+    category: "bareme_ir"
+    value: 0.3700
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-I & LF 2025 n° 60-24 Art. 6 [TO VERIFY]"
+    verification_status: "TO_VERIFY"
+    description: "Taux marginal supérieur de 37% pour revenus salariaux nets dépassant 180 000 MAD/an (Déduction: 27 400 MAD/an)."
+    tags: ["ir", "bareme_ir", "lf_2025", "to_verify"]
+
+  - parameter_name: "ir_professional_expenses_rate_tier1"
+    domain: "personal_income_tax"
+    category: "frais_professionnels"
+    value: 0.3500
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 59-I-B (LF 2023 / LF 2025 - Taux d'abattement forfaitaire pour SBI <= 78 000 MAD/an)"
+    verification_status: "VERIFIED"
+    description: "Taux de déduction forfaitaire pour frais professionnels de 35% pour salaire brut imposable inférieur à 78 000 MAD/an."
+    tags: ["ir", "frais_pro", "cgi_art_59"]
+
+  - parameter_name: "ir_professional_expenses_annual_ceiling_mad"
+    domain: "personal_income_tax"
+    category: "frais_professionnels"
+    value: 35000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 59-I-B (Plafond annuel de 35 000 MAD / 2 916.67 MAD par mois)"
+    verification_status: "VERIFIED"
+    description: "Plafond légal d'abattement forfaitaire pour frais professionnels salariaux."
+    tags: ["ir", "frais_pro", "plafond", "cgi_art_59"]
+
+  - parameter_name: "ir_family_deduction_annual_per_dependent_mad"
+    domain: "personal_income_tax"
+    category: "charges_de_famille"
+    value: 500.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 74-II (LF 2025 n° 60-24 revalorisation de 360 MAD à 500 MAD par personne à charge)"
+    verification_status: "VERIFIED"
+    description: "Déduction d'IR de 500 MAD par an (41.67 MAD/mois) par personne à charge (conjoint + enfants à charge)."
+    tags: ["ir", "charges_famille", "lf_2025", "cgi_art_74"]
+
+  - parameter_name: "ir_family_deduction_max_dependents_count"
+    domain: "personal_income_tax"
+    category: "charges_de_famille"
+    value: 6
+    unit: "count"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 74-II (Plafond de 6 personnes à charge, soit 3 000 MAD/an maximum)"
+    verification_status: "VERIFIED"
+    description: "Nombre maximum de personnes à charge éligibles aux réductions d'impôt sur le revenu."
+    tags: ["ir", "charges_famille", "plafond", "cgi_art_74"]
+
+  # ----------------------------------------------------------------------------
+  # 6. Dividend Withholding Tax & Vintage Rule (CGI Art. 73-II & 247-XLIV)
+  # ----------------------------------------------------------------------------
+  - parameter_name: "dividend_wht_rate_pre_2023_vintage"
+    domain: "withholding_taxes"
+    category: "retenue_a_la_source_dividendes"
+    value: 0.1500
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 247-XLIV & LF 2023 (Règle du Millésime - Maintien du taux de 15% sur réserves pré-2023)"
+    verification_status: "VERIFIED"
+    description: "Taux fixe de 15% sur les distributions de bénéfices et réserves antérieures au 1er janvier 2023."
+    tags: ["ras", "dividendes", "vintage_pre2023", "cgi_art_247"]
+
+  - parameter_name: "dividend_wht_rate_post_2023_2025"
+    domain: "withholding_taxes"
+    category: "retenue_a_la_source_dividendes"
+    value: 0.1125
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "CGI Art. 73-II-C-1 & LF 2023 Art. 6 (Convergence dégressive Année 3: 11.25%)"
+    verification_status: "VERIFIED"
+    description: "Taux de retenue à la source de 11.25% sur dividendes distribués au titre de l'exercice 2025 (bénéfices 2023+)."
+    tags: ["ras", "dividendes", "fy2025", "cgi_art_73"]
+
+  - parameter_name: "dividend_wht_rate_post_2023_2026"
+    domain: "withholding_taxes"
+    category: "retenue_a_la_source_dividendes"
+    value: 0.1000
+    unit: "rate"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-II-C-1 & LF 2023 Art. 6 (Taux cible final de 10.00% à compter de 2026)"
+    verification_status: "VERIFIED"
+    description: "Taux cible unifié de 10% sur les dividendes issus des bénéfices réalisés à compter de 2023."
+    tags: ["ras", "dividendes", "fy2026", "cgi_art_73"]
+
+  # ----------------------------------------------------------------------------
+  # 7. Minimum Wage (SMIG) & Social Contributions (CNSS Dahir 1972)
+  # ----------------------------------------------------------------------------
+  - parameter_name: "smig_hourly_rate_mad_2025"
+    domain: "social_security"
+    category: "smig"
+    value: 17.1000
+    unit: "MAD/hour"
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "Décret n° 2-23-799 fixant le SMIG (Palier Septembre 2023 / FY 2025)"
+    verification_status: "VERIFIED"
+    description: "Taux horaire légal du SMIG non-agricole de 17.10 MAD/heure pour 2025 (soit 3 266.10 MAD/mois pour 191 heures)."
+    tags: ["smig", "salaire_minimum", "fy2025", "decret_smig"]
+
+  - parameter_name: "smig_hourly_rate_mad_2026"
+    domain: "social_security"
+    category: "smig"
+    value: 17.9200
+    unit: "MAD/hour"
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Accord Dialogue Social tripartite & Décret SMIG (+5% effectif au 01/01/2026)"
+    verification_status: "VERIFIED"
+    description: "Revalorisation du SMIG horaire à 17.92 MAD/h (+5%) au 1er janvier 2026 (soit 3 422.72 MAD/mois)."
+    tags: ["smig", "salaire_minimum", "fy2026", "decret_smig"]
+
+  - parameter_name: "cnss_employer_prestations_sociales_capped_rate"
+    domain: "social_security"
+    category: "cotisations_patronales"
+    value: 0.0898
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Dahir n° 1-72-184 Art. 19 (Cotisation patronale prestations court/long terme plafonnée à 6 000 MAD/mois)"
+    verification_status: "VERIFIED"
+    description: "Taux patronal de 8.98% pour prestations sociales, plafonné à 6 000 MAD de salaire brut mensuel (max 538.80 MAD)."
+    tags: ["cnss", "charges_patronales", "prestations", "dahir_1972"]
+
+  - parameter_name: "cnss_employer_allocations_familiales_rate"
+    domain: "social_security"
+    category: "cotisations_patronales"
+    value: 0.0640
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Dahir n° 1-72-184 Art. 19 (Allocations familiales patronales non plafonnées)"
+    verification_status: "VERIFIED"
+    description: "Taux patronal de 6.40% assis sur la totalité du salaire brut pour les allocations familiales."
+    tags: ["cnss", "charges_patronales", "allocations_familiales"]
+
+  - parameter_name: "cnss_employer_taxe_formation_pro_rate"
+    domain: "social_security"
+    category: "cotisations_patronales"
+    value: 0.0160
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 36-89 (Taxe de Formation Professionnelle versée à l'OFPPT, non plafonnée)"
+    verification_status: "VERIFIED"
+    description: "Taux patronal de 1.60% sur masse salariale brute pour la taxe de formation professionnelle."
+    tags: ["cnss", "ofppt", "formation_pro"]
+
+  - parameter_name: "cnss_employer_amo_base_rate"
+    domain: "social_security"
+    category: "cotisations_patronales"
+    value: 0.0226
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 65-00 portant Code de la Couverture Médicale de Base (AMO patronale 2.26% non plafonnée)"
+    verification_status: "VERIFIED"
+    description: "Taux patronal d'Assurance Maladie Obligatoire de 2.26% sur salaire brut total."
+    tags: ["cnss", "amo", "loi_65_00"]
+
+  - parameter_name: "cnss_employer_amo_solidarite_rate"
+    domain: "social_security"
+    category: "cotisations_patronales"
+    value: 0.0185
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 65-00 Art. 73 (Participation à la Solidarité AMO patronale 1.85% non plafonnée)"
+    verification_status: "VERIFIED"
+    description: "Participation de solidarité AMO patronale de 1.85% sans plafond."
+    tags: ["cnss", "amo", "solidarite"]
+
+  - parameter_name: "cnss_employer_total_nominal_rate"
+    domain: "social_security"
+    category: "cotisations_patronales"
+    value: 0.2109
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Dahir n° 1-72-184 & Loi 65-00 (Somme des taux patronaux nominaux = 21.09%)"
+    verification_status: "VERIFIED"
+    description: "Total nominal des charges sociales patronales CNSS + AMO (21.09%)."
+    tags: ["cnss", "total_patronal"]
+
+  - parameter_name: "cnss_employee_prestations_sociales_capped_rate"
+    domain: "social_security"
+    category: "cotisations_salariales"
+    value: 0.0448
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Dahir n° 1-72-184 Art. 18 (Cotisation salariale 4.48% plafonnée à 6 000 MAD/mois)"
+    verification_status: "VERIFIED"
+    description: "Retenue salariale CNSS de 4.48% plafonnée à 6 000 MAD de salaire brut (max 268.80 MAD/mois)."
+    tags: ["cnss", "charges_salariales", "prestations"]
+
+  - parameter_name: "cnss_employee_amo_rate"
+    domain: "social_security"
+    category: "cotisations_salariales"
+    value: 0.0226
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 65-00 (Cotisation salariale AMO de 2.26% sans plafond)"
+    verification_status: "VERIFIED"
+    description: "Retenue salariale AMO de 2.26% sur l'intégralité du salaire brut."
+    tags: ["cnss", "charges_salariales", "amo"]
+
+  - parameter_name: "cnss_employee_total_nominal_rate"
+    domain: "social_security"
+    category: "cotisations_salariales"
+    value: 0.0674
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Dahir n° 1-72-184 & Loi 65-00 (Total des retenues salariales = 6.74%)"
+    verification_status: "VERIFIED"
+    description: "Total des retenues salariales obligatoires CNSS + AMO (6.74%)."
+    tags: ["cnss", "total_salarial"]
+
+  - parameter_name: "workplace_accident_at_insurance_rate"
+    domain: "social_security"
+    category: "assurance_accidents_travail"
+    value: 0.0380
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 18-12 (Taux moyen assurance accidents du travail secteur transformation papier/carton)"
+    verification_status: "VERIFIED"
+    description: "Taux de cotisation assurance accidents du travail de 3.80% calculé sur masse salariale brute."
+    tags: ["social", "assurance_at", "loi_18_12"]
+
+  # ----------------------------------------------------------------------------
+  # 8. Banking, Treasury & Law 69-21 Commercial Delays
+  # ----------------------------------------------------------------------------
+  - parameter_name: "bam_key_interest_rate"
+    domain: "banking_and_credit"
+    category: "taux_directeur"
+    value: 0.0275
+    unit: "rate"
+    valid_from: "2024-06-25"
+    valid_to: "2026-12-31"
+    source_citation: "Bank Al-Maghrib Conseil de Politique Monétaire (Taux directeur maintenu à 2.75%)"
+    verification_status: "VERIFIED"
+    description: "Taux directeur de Bank Al-Maghrib servant de référence pour les taux bancaires et pénalités de retard."
+    tags: ["bam", "taux_directeur", "politique_monetaire"]
+
+  - parameter_name: "awb_discount_credit_line_ceiling_mad"
+    domain: "banking_and_credit"
+    category: "lignes_credit_awb"
+    value: 1500000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Convention de crédit bancaire Attijariwafa bank & BAM Directives"
+    verification_status: "VERIFIED"
+    description: "Plafond d'escompte commercial autorisé pour mobilisation des effets de commerce (LCN)."
+    tags: ["banque", "escompte", "awb", "tresorerie"]
+
+  - parameter_name: "awb_overdraft_facility_ceiling_mad"
+    domain: "banking_and_credit"
+    category: "lignes_credit_awb"
+    value: 600000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Convention d'ouverture de compte Attijariwafa bank"
+    verification_status: "VERIFIED"
+    description: "Facilité de caisse / découvert autorisé permanent sur compte courant AWB."
+    tags: ["banque", "decouvert", "awb"]
+
+  - parameter_name: "cam_crop_campaign_credit_ceiling_mad"
+    domain: "banking_and_credit"
+    category: "lignes_credit_cam"
+    value: 400000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Convention Crédit Agricole du Maroc (Ligne saisonnière campagne primeurs Sep-Mar)"
+    verification_status: "VERIFIED"
+    description: "Ligne de crédit de campagne agricole mobilisée durant la haute saison maraîchère du Souss."
+    tags: ["banque", "credit_campagne", "cam"]
+
+  - parameter_name: "law_69_21_penalty_rate_month_1"
+    domain: "commercial_compliance"
+    category: "delais_de_paiement"
+    value: 0.0300
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 69-21 modifiant la Loi n° 15-95 Art. 78-3 (Taux BAM 2.75% + majoration 0.25% = 3.00%)"
+    verification_status: "VERIFIED"
+    description: "Taux d'amende légale pour le premier mois de retard sur factures fournisseurs échues."
+    tags: ["loi_69_21", "delais_paiement", "amende_dgi"]
+
+  - parameter_name: "law_69_21_penalty_rate_subsequent_months"
+    domain: "commercial_compliance"
+    category: "delais_de_paiement"
+    value: 0.0085
+    unit: "rate/month"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 69-21 Art. 78-3 (Majoration de +0.85% par mois supplémentaire ou fraction de mois)"
+    verification_status: "VERIFIED"
+    description: "Taux d'amende additionnel par mois supplémentaire de retard de paiement."
+    tags: ["loi_69_21", "amende_additionnelle"]
+
+  # ----------------------------------------------------------------------------
+  # 9. Customs (ADII), Port of Agadir & Currency Basket
+  # ----------------------------------------------------------------------------
+  - parameter_name: "customs_duty_rate_eu_origin"
+    domain: "customs_and_logistics"
+    category: "droits_de_douane"
+    value: 0.0000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Accord d'Association Maroc-UE (Dahir n° 1-00-175, certificat d'origine EUR.1)"
+    verification_status: "VERIFIED"
+    description: "Droit d'importation préférentiel à 0% sur papiers kraft et fournitures originaires de l'Union Européenne."
+    tags: ["douane", "adii", "accord_ue", "eur1"]
+
+  - parameter_name: "customs_duty_rate_mfn_kraftliner_4804"
+    domain: "customs_and_logistics"
+    category: "droits_de_douane"
+    value: 0.1000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "ADII Tarif des Douanes Chapitre 48 (Position SH 4804.11 / 4804.19) [TO VERIFY]"
+    verification_status: "TO_VERIFY"
+    description: "Droit d'importation NPF standard de 10% sur papier Kraftliner hors accords bilatéraux."
+    tags: ["douane", "adii", "sh4804", "to_verify"]
+
+  - parameter_name: "customs_duty_rate_mfn_fluting_4805"
+    domain: "customs_and_logistics"
+    category: "droits_de_douane"
+    value: 0.0250
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "ADII Tarif des Douanes Chapitre 48 (Position SH 4805.11) [TO VERIFY]"
+    verification_status: "TO_VERIFY"
+    description: "Droit d'importation NPF de 2.50% sur papier cannelure (fluting)."
+    tags: ["douane", "adii", "sh4805", "to_verify"]
+
+  - parameter_name: "customs_taxe_parafiscale_import_tpi"
+    domain: "customs_and_logistics"
+    category: "taxes_douanieres"
+    value: 0.0025
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 43-06 (Taxe Parafiscale à l'Importation de 0.25% assise sur valeur CIF)"
+    verification_status: "VERIFIED"
+    description: "TPI de 0.25% appliquée sur la valeur CIF de toutes les marchandises importées."
+    tags: ["douane", "tpi", "loi_43_06"]
+
+  - parameter_name: "customs_import_tva_rate"
+    domain: "customs_and_logistics"
+    category: "taxes_douanieres"
+    value: 0.2000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 121 & Art. 122 (TVA à l'importation sur base CIF + Droits + TPI)"
+    verification_status: "VERIFIED"
+    description: "TVA de 20% liquidée en douane sur la valeur CIF majorée des droits d'importation et taxes parafiscales."
+    tags: ["douane", "tva_import", "cgi_art_121"]
+
+  - parameter_name: "port_agadir_demurrage_free_days"
+    domain: "customs_and_logistics"
+    category: "surestaries_portuaires"
+    value: 7
+    unit: "days"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Tarif d'usage ANP / Marsa Maroc Port d'Agadir (Franchise de séjour de 7 jours)"
+    verification_status: "VERIFIED"
+    description: "Franchise portuaire de séjour de 7 jours sans frais de gardiennage pour conteneurs 20ft/40ft."
+    tags: ["port_agadir", "surestaries", "franchise"]
+
+  - parameter_name: "fx_eur_mad_central_parity"
+    domain: "foreign_exchange"
+    category: "cours_de_change"
+    value: 10.7400
+    unit: "MAD/EUR"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Bank Al-Maghrib Décision n° 01/2020 (Régime de change à bande de fluctuation +/- 5.0%)"
+    verification_status: "VERIFIED"
+    description: "Cours pivot central EUR/MAD pour la simulation stochastique à bande bornée."
+    tags: ["fx", "bam", "eur_mad", "bande_5pct"]
+
+  - parameter_name: "fx_usd_mad_central_parity"
+    domain: "foreign_exchange"
+    category: "cours_de_change"
+    value: 9.3000
+    unit: "MAD/USD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Bank Al-Maghrib Notice n° 01/2020 (+/- 5.0% fluctuation band)"
+    verification_status: "VERIFIED"
+    description: "Cours pivot central USD/MAD pour la valorisation des flux en devises."
+    tags: ["fx", "bam", "usd_mad"]
+
+  # ----------------------------------------------------------------------------
+  # 10. Local Direct Taxes (Loi 47-06: TP & TSC)
+  # ----------------------------------------------------------------------------
+  - parameter_name: "taxe_professionnelle_rental_value_rate"
+    domain: "local_taxes"
+    category: "valeur_locative"
+    value: 0.0300
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 47-06 Art. 7 (Valeur Locative égale à 3% du prix de revient brut des immobilisations)"
+    verification_status: "VERIFIED"
+    description: "Taux de 3.00% appliqué au coût d'acquisition brut des terrains, bâtiments et matériels pour déterminer la VL."
+    tags: ["fiscalite_locale", "loi_47_06", "valeur_locative", "tp"]
+
+  - parameter_name: "taxe_professionnelle_class_2_rate"
+    domain: "local_taxes"
+    category: "taxe_professionnelle"
+    value: 0.1000
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 47-06 Art. 8 (Classe 2 des activités industrielles de transformation carton) [TO VERIFY]"
+    verification_status: "TO_VERIFY"
+    description: "Taux de 10% de Taxe Professionnelle appliqué à la Valeur Locative après expiration de l'exonération quinquennale."
+    tags: ["fiscalite_locale", "tp", "classe_2", "to_verify"]
+
+  - parameter_name: "taxe_services_communaux_urban_rate"
+    domain: "local_taxes"
+    category: "taxe_services_communaux"
+    value: 0.1050
+    unit: "rate"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 47-06 Art. 32 to 39 (Taux de 10.50% en zone urbaine / Commune Urbaine d'Ait Melloul)"
+    verification_status: "VERIFIED"
+    description: "Taux de 10.50% de Taxe de Services Communaux (TSC) assis sur la même Valeur Locative que la TP."
+    tags: ["fiscalite_locale", "tsc", "ait_melloul"]
+
+# ==============================================================================
+# SECTION 2: DOMAIN STRUCTURED OBJECT MODEL (SYSTEM ACCESS)
+# ==============================================================================
+corporate_income_tax:
+  slices_2025:
+    valid_from: "2025-01-01"
+    valid_to: "2025-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 Art. 6 (Convergence Phase Year 3)"
+    brackets:
+      - slice_id: "IS-2025-S1"
+        min_income: 0.00
+        max_income: 300000.00
+        rate: 0.1750
+      - slice_id: "IS-2025-S2"
+        min_income: 300000.01
+        max_income: 1000000.00
+        rate: 0.2000
+      - slice_id: "IS-2025-S3"
+        min_income: 1000000.01
+        max_income: 100000000.00
+        rate: 0.2275
+      - slice_id: "IS-2025-S4"
+        min_income: 100000000.01
+        max_income: null
+        rate: 0.3400
+
+  slices_2026:
+    valid_from: "2026-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 19-I-A & LF 2023 Art. 6 (Target Convergence Year 4)"
+    brackets:
+      - slice_id: "IS-2026-S1"
+        min_income: 0.00
+        max_income: 300000.00
+        rate: 0.2000
+      - slice_id: "IS-2026-S2"
+        min_income: 300000.01
+        max_income: 1000000.00
+        rate: 0.2000
+      - slice_id: "IS-2026-S3"
+        min_income: 1000000.01
+        max_income: 100000000.00
+        rate: 0.2000
+      - slice_id: "IS-2026-S4"
+        min_income: 100000000.01
+        max_income: null
+        rate: 0.3500
+
+  cotisation_minimale:
+    rate: 0.0025
+    minimum_floor_mad: 3000.00
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 144-I (Standard rate for commercial & industrial activities)"
+
+  acomptes_provisionnels:
+    installments_count: 4
+    rate_per_installment: 0.2500
+    due_dates: ["03-31", "06-30", "09-30", "12-31"]
+    regularization_due_date: "03-31"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 170"
+
+cash_regulations:
+  purchases_ceiling_per_invoice_ttc:
+    value: 5000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 11-II & Art. 106-II"
+  purchases_ceiling_monthly_supplier_ttc:
+    value: 50000.00
+    unit: "MAD"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 11-II & Art. 106-II"
+  sales_collection_ceiling_per_receipt:
+    value: 20000.00
+    unit: "MAD"
+    penalty_rate: 0.0600
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 193 (Sanction pour paiement en espèces) [TO VERIFY]"
+
+value_added_tax:
+  rates:
+    standard_packaging_and_materials:
+      - rate: 0.2000
+        valid_from: "2025-01-01"
+        valid_to: "2026-12-31"
+        source_citation: "CGI Art. 98"
+    electricity_medium_voltage_onee:
+      - rate: 0.1800
+        valid_from: "2025-01-01"
+        valid_to: "2025-12-31"
+        source_citation: "LF 2024 Art. 6 (Convergence 18% in 2025)"
+      - rate: 0.2000
+        valid_from: "2026-01-01"
+        valid_to: "2026-12-31"
+        source_citation: "LF 2024 Art. 6 & CGI Art. 98 (Target 20% in 2026)"
+    water_and_assainissement:
+      - rate: 0.0900
+        valid_from: "2025-01-01"
+        valid_to: "2025-12-31"
+        source_citation: "LF 2024 Art. 6 (Convergence 9% in 2025)"
+      - rate: 0.1000
+        valid_from: "2026-01-01"
+        valid_to: "2026-12-31"
+        source_citation: "LF 2024 Art. 6 & CGI Art. 99-1 (Target 10% in 2026)"
+    banking_operations_and_agios:
+      - rate: 0.1000
+        valid_from: "2025-01-01"
+        valid_to: "2026-12-31"
+        source_citation: "CGI Art. 99-3"
+    transport_of_goods:
+      - rate: 0.1600
+        valid_from: "2025-01-01"
+        valid_to: "2025-12-31"
+        source_citation: "LF 2024 Art. 6 (Convergence 16% in 2025) [TO VERIFY]"
+      - rate: 0.2000
+        valid_from: "2026-01-01"
+        valid_to: "2026-12-31"
+        source_citation: "LF 2024 Art. 6 & CGI Art. 98 (Target 20% in 2026) [TO VERIFY]"
+    direct_exports:
+      - rate: 0.0000
+        valid_from: "2025-01-01"
+        valid_to: "2026-12-31"
+        source_citation: "CGI Art. 92-I-1 (Exonération avec droit à déduction)"
+  declaration_regime:
+    frequency: "monthly"
+    due_day: "last_day_of_month_m_plus_1"
+    platform: "SIMPL-TVA"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 110 & Art. 155"
+
+personal_income_tax:
+  annual_brackets:
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 73-I & LF 2025 Art. 6 (Barème IR 2025)"
+    brackets:
+      - min_income: 0.00
+        max_income: 40000.00
+        rate: 0.0000
+        deduction_annual: 0.00
+      - min_income: 40000.01
+        max_income: 60000.00
+        rate: 0.1000
+        deduction_annual: 4000.00
+      - min_income: 60000.01
+        max_income: 80000.00
+        rate: 0.2000
+        deduction_annual: 10000.00
+      - min_income: 80000.01
+        max_income: 100000.00
+        rate: 0.3000
+        deduction_annual: 18000.00
+      - min_income: 100000.01
+        max_income: 180000.00
+        rate: 0.3400
+        deduction_annual: 22000.00
+      - min_income: 180000.01
+        max_income: null
+        rate: 0.3700
+        deduction_annual: 27400.00
+  professional_expenses_abatement:
+    tier1_rate: 0.3500
+    tier1_threshold_annual: 78000.00
+    tier2_rate: 0.2500
+    annual_ceiling: 35000.00
+    monthly_ceiling: 2916.67
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 59-I-B (LF 2023 / LF 2025)"
+  family_deductions:
+    annual_per_dependent: 500.00
+    monthly_per_dependent: 41.67
+    max_dependents_count: 6
+    max_annual_deduction: 3000.00
+    max_monthly_deduction: 250.00
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "CGI Art. 74-II (LF 2025 Revaluation from 360 to 500 MAD)"
+
+withholding_taxes:
+  dividends:
+    pre_2023_vintage_retained_earnings:
+      rate: 0.1500
+      valid_from: "2025-01-01"
+      valid_to: "2026-12-31"
+      source_citation: "CGI Art. 247-XLIV (Transitional Vintage Lock at 15%)"
+    post_2023_earnings_2025:
+      rate: 0.1125
+      valid_from: "2025-01-01"
+      valid_to: "2025-12-31"
+      source_citation: "CGI Art. 73-II-C-1 & LF 2023 Art. 6 (Glide Year 3)"
+    post_2023_earnings_2026:
+      rate: 0.1000
+      valid_from: "2026-01-01"
+      valid_to: "2026-12-31"
+      source_citation: "CGI Art. 73-II-C-1 & LF 2023 Art. 6 (Final Target 10%)"
+
+social_security:
+  smig:
+    - hourly_rate: 17.1000
+      monthly_gross_191h: 3266.10
+      valid_from: "2025-01-01"
+      valid_to: "2025-12-31"
+      source_citation: "Décret n° 2-23-799 (SMIG September 2023 / FY 2025)"
+    - hourly_rate: 17.9200
+      monthly_gross_191h: 3422.72
+      valid_from: "2026-01-01"
+      valid_to: "2026-12-31"
+      source_citation: "Accord Dialogue Social / Décret SMIG (+5% effective 01/01/2026)"
+  contributions_employer:
+    prestations_sociales_capped:
+      rate: 0.0898
+      ceiling_monthly_mad: 6000.00
+      max_monthly_amount: 538.80
+      source_citation: "Dahir n° 1-72-184 Art. 19"
+    allocations_familiales_uncapped:
+      rate: 0.0640
+      source_citation: "Dahir n° 1-72-184 Art. 19"
+    taxe_formation_professionnelle_uncapped:
+      rate: 0.0160
+      source_citation: "Loi n° 36-89 (OFPPT)"
+    amo_patronale_uncapped:
+      rate: 0.0226
+      source_citation: "Loi n° 65-00"
+    solidarite_amo_uncapped:
+      rate: 0.0185
+      source_citation: "Loi n° 65-00 Art. 73"
+    total_employer_rate_nominal: 0.2109
+  contributions_employee:
+    prestations_sociales_capped:
+      rate: 0.0448
+      ceiling_monthly_mad: 6000.00
+      max_monthly_amount: 268.80
+      source_citation: "Dahir n° 1-72-184 Art. 18"
+    amo_salariale_uncapped:
+      rate: 0.0226
+      source_citation: "Loi n° 65-00"
+    total_employee_rate_nominal: 0.0674
+  workplace_accident_insurance_at:
+    rate: 0.0380
+    base: "total_gross_payroll_uncapped"
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 18-12 (Packaging Industry Standard Risk Class)"
+
+banking_and_credit:
+  bam_key_rate:
+    - rate: 0.0275
+      valid_from: "2024-06-25"
+      valid_to: "2026-12-31"
+      source_citation: "Bank Al-Maghrib Monetary Policy Council Decision"
+  credit_facilities:
+    escompte_commercial_awb:
+      ceiling_mad: 1500000.00
+      interest_rate_formula: "BAM_KEY_RATE + 0.0350"  # 6.25% p.a.
+      endorsement_commission_rate: 0.0010
+      fixed_handling_fee_per_bill: 50.00
+      tva_rate_on_fees: 0.1000
+    decouvert_autorise_awb:
+      ceiling_mad: 600000.00
+      interest_rate_formula: "BAM_KEY_RATE + 0.0550"  # 8.25% p.a.
+      overdraft_commission_monthly: 0.0010
+      tva_rate: 0.1000
+    credit_campagne_cam:
+      ceiling_mad: 400000.00
+      interest_rate_annual: 0.0550
+      active_months: [9, 10, 11, 12, 1, 2, 3]
+  law_69_21_payment_delays:
+    applicable_tier: "10M_to_50M_MAD_CA"
+    declaration_frequency: "quarterly"
+    standard_legal_delay_days: 60
+    max_contractual_delay_days: 120
+    penalty_rate_month_1: 0.0300  # BAM 2.75% + 0.25%
+    penalty_rate_additional_months: 0.0085  # +0.85% per month
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 69-21 Art. 78-1 to 78-3 modifiant la Loi n° 15-95"
+
+customs_and_logistics:
+  customs_tariffs:
+    eu_preferential_tariff:
+      droit_importation_rate: 0.0000
+      required_proof: "EUR.1 Movement Certificate"
+      source_citation: "Accord d'Association Maroc-UE (Dahir n° 1-00-175)"
+    mfn_chapter_48:
+      kraftliner_4804:
+        rate: 0.1000
+        source_citation: "ADII Official Customs Tariff HS 4804 [TO VERIFY]"
+      fluting_4805_11:
+        rate: 0.0250
+        source_citation: "ADII Official Customs Tariff HS 4805.11 [TO VERIFY]"
+      testliner_4805_24:
+        rate: 0.0250
+        source_citation: "ADII Official Customs Tariff HS 4805.24 [TO VERIFY]"
+      corrugated_boxes_4819:
+        rate: 0.2500
+        source_citation: "ADII Official Customs Tariff HS 4819 [TO VERIFY]"
+    taxe_parafiscale_import_tpi:
+      rate: 0.0025
+      base: "cif_value"
+      source_citation: "Loi n° 43-06"
+    import_tva:
+      rate: 0.2000
+      base: "cif_value + droit_importation + tpi"
+      source_citation: "CGI Art. 121 & Art. 122"
+  port_of_agadir_surestaries:
+    source_citation: "ANP / Marsa Maroc Port of Agadir Container Tariff"
+    tiers:
+      - days_range: [1, 7]
+        rate_per_day_mad: 0.00
+      - days_range: [8, 14]
+        rate_per_day_mad: 150.00
+      - days_range: [15, 21]
+        rate_per_day_mad: 300.00
+      - days_range: [22, null]
+        rate_per_day_mad: 500.00
+  fx_clamped_basket:
+    source_citation: "Bank Al-Maghrib Notice n° 01/2020 (+/- 5.0% Fluctuation Band)"
+    basket_weights:
+      eur: 0.60
+      usd: 0.40
+    eur_mad:
+      central_parity: 10.7400
+      min_clamped: 10.2030
+      max_clamped: 11.2770
+      monthly_sigma: 0.0080
+    usd_mad:
+      central_parity: 9.3000
+      min_clamped: 8.8350
+      max_clamped: 9.7650
+      monthly_sigma: 0.0120
+
+local_taxes:
+  taxe_professionnelle_tp:
+    status_2020_to_2024: "EXEMPT_5_YEAR_HOLIDAY"
+    first_taxable_year: 2025
+    valeur_locative_rate_on_gross_assets: 0.0300
+    tp_tax_rate_class_2: 0.1000
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 47-06 Art. 6-II-1°, Art. 7, Art. 8 [TO VERIFY]"
+  taxe_services_communaux_tsc:
+    base: "valeur_locative_from_tp"
+    rate_urban_zone_ait_melloul: 0.1050
+    valid_from: "2025-01-01"
+    valid_to: "2026-12-31"
+    source_citation: "Loi n° 47-06 Art. 32 to 39"

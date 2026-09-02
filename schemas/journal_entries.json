@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://souss-agripack.ma/schemas/journal_entries.json",
+  "title": "SoussAgriPackJournalEntries",
+  "description": "JSON Schema Draft-07 governing double-entry Moroccan Plan Comptable Général (PCM / CGNC) journal records with strict zero-fault balance verification across 10 specialized journals.",
+  "definitions": {
+    "journal_code_enum": {
+      "type": "string",
+      "enum": [
+        "RAN",
+        "ACH",
+        "VEN",
+        "BQ-AWB",
+        "BQ-BP",
+        "BQ-CAM",
+        "BQ-BMCE",
+        "CAI",
+        "PAI",
+        "OD"
+      ],
+      "description": "Codes journaux auxiliaires normalisés (RAN: À-nouveaux, ACH: Achats, VEN: Ventes, BQ-*: Banques, CAI: Caisse, PAI: Paie, OD: Opérations Diverses)"
+    },
+    "account_number_pattern": {
+      "type": "string",
+      "pattern": "^[1-8][0-9]{3,7}$",
+      "description": "Numéro de compte PCM à 4-8 chiffres (Classes 1 à 8)"
+    },
+    "journal_line_item": {
+      "type": "object",
+      "required": [
+        "line_number",
+        "account_number",
+        "account_title",
+        "debit_amount",
+        "credit_amount"
+      ],
+      "properties": {
+        "line_number": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Ordre séquentiel de la ligne d'écriture (1, 2, 3...)"
+        },
+        "account_number": {
+          "$ref": "#/definitions/account_number_pattern"
+        },
+        "account_title": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Intitulé officiel du compte selon le CGNC"
+        },
+        "third_party_id": {
+          "type": "string",
+          "description": "Compte de tiers ou identifiant auxiliaire (CLI-xxx, SUP-xxx, EMP-xxx, etc.)"
+        },
+        "line_description": {
+          "type": "string",
+          "description": "Libellé explicatif de l'écriture comptable"
+        },
+        "debit_amount": {
+          "type": "number",
+          "minimum": 0.0,
+          "description": "Montant débité en MAD"
+        },
+        "credit_amount": {
+          "type": "number",
+          "minimum": 0.0,
+          "description": "Montant crédité en MAD"
+        },
+        "analytical_code": {
+          "type": "string",
+          "description": "Code de ventilation analytique (ex: ATELIER_ONDULEUSE, LIGNE_COMBINE, FRAIS_GENERAUX)"
+        }
+      }
+    },
+    "single_journal_entry": {
+      "type": "object",
+      "required": [
+        "entry_id",
+        "event_id",
+        "journal_code",
+        "entry_date",
+        "accounting_period",
+        "piece_justificative",
+        "lines",
+        "total_debit",
+        "total_credit",
+        "is_balanced",
+        "status"
+      ],
+      "properties": {
+        "entry_id": {
+          "type": "string",
+          "pattern": "^JE-[0-9]{4}-[A-Za-z0-9_-]+$",
+          "description": "Numéro d'écriture unique (ex: JE-2025-000101 ou JE-2025-VEN001)"
+        },
+        "event_id": {
+          "type": "string",
+          "pattern": "^EVT-(SAL|PUR|PAY|BNK|TAX|INV|RSK|CLS)-[0-9]{3}$",
+          "description": "Référence de l'événement transactionnel déclencheur"
+        },
+        "journal_code": {
+          "$ref": "#/definitions/journal_code_enum"
+        },
+        "entry_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date de comptabilisation de la pièce"
+        },
+        "accounting_period": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+          "description": "Période comptable au format YYYY-MM (ex: 2025-01)"
+        },
+        "piece_justificative": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Référence de la pièce comptable justificative"
+        },
+        "lines": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/definitions/journal_line_item"
+          },
+          "description": "Lignes de l'écriture en partie double (minimum 2 lignes: au moins 1 débit et 1 crédit)"
+        },
+        "total_debit": {
+          "type": "number",
+          "minimum": 0.0,
+          "description": "Somme des débits de l'écriture en MAD"
+        },
+        "total_credit": {
+          "type": "number",
+          "minimum": 0.0,
+          "description": "Somme des crédits de l'écriture en MAD"
+        },
+        "is_balanced": {
+          "type": "boolean",
+          "enum": [true],
+          "description": "Indicateur d'équilibre strict (doit être true: total_debit == total_credit)"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["DRAFT", "VALIDATED", "POSTED", "REVERSED"],
+          "description": "Statut du grand-livre (DRAFT: brouillard, VALIDATED: validée, POSTED: clôturée/lettrée, REVERSED: extournée)"
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["journal_entries"],
+      "properties": {
+        "journal_entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/single_journal_entry"
+          }
+        }
+      }
+    },
+    {
+      "$ref": "#/definitions/single_journal_entry"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+slip_id,month_period,employee_id,employee_name,position,gross_salary_mad,cnss_employee_mad,amo_employee_mad,ir_net_withheld_mad,net_payable_mad,cnss_employer_mad,at_insurance_mad,total_employer_cost_mad
+BUL-2025-00001,2025-01,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00002,2025-01,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00003,2025-01,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00004,2025-01,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00005,2025-01,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00006,2025-01,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00007,2025-01,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00008,2025-01,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00009,2025-01,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00010,2025-01,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00011,2025-01,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00012,2025-01,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00013,2025-01,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00014,2025-01,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00015,2025-01,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00016,2025-01,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00017,2025-01,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00018,2025-01,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00019,2025-01,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00020,2025-01,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00021,2025-01,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00022,2025-01,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00023,2025-01,SEAS-01,Hassan Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00024,2025-01,SEAS-02,Driss Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00025,2025-01,SEAS-03,Ali Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00026,2025-01,SEAS-04,Simo Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00027,2025-01,SEAS-05,Reda Saisonnier,OpÃƒÂ©rateur Saisonnier Cerclage Palettes (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00028,2025-02,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00029,2025-02,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00030,2025-02,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00031,2025-02,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00032,2025-02,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00033,2025-02,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00034,2025-02,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00035,2025-02,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00036,2025-02,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00037,2025-02,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00038,2025-02,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00039,2025-02,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00040,2025-02,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00041,2025-02,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00042,2025-02,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00043,2025-02,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00044,2025-02,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00045,2025-02,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00046,2025-02,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00047,2025-02,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00048,2025-02,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00049,2025-02,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00050,2025-02,SEAS-01,Hassan Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00051,2025-02,SEAS-02,Driss Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00052,2025-02,SEAS-03,Ali Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00053,2025-02,SEAS-04,Simo Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00054,2025-02,SEAS-05,Reda Saisonnier,OpÃƒÂ©rateur Saisonnier Cerclage Palettes (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00055,2025-03,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00056,2025-03,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00057,2025-03,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00058,2025-03,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00059,2025-03,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00060,2025-03,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00061,2025-03,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00062,2025-03,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00063,2025-03,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00064,2025-03,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00065,2025-03,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00066,2025-03,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00067,2025-03,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00068,2025-03,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00069,2025-03,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00070,2025-03,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00071,2025-03,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00072,2025-03,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00073,2025-03,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00074,2025-03,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00075,2025-03,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00076,2025-03,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00077,2025-03,SEAS-01,Hassan Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00078,2025-03,SEAS-02,Driss Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00079,2025-03,SEAS-03,Ali Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00080,2025-03,SEAS-04,Simo Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00081,2025-03,SEAS-05,Reda Saisonnier,OpÃƒÂ©rateur Saisonnier Cerclage Palettes (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00082,2025-04,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00083,2025-04,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00084,2025-04,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00085,2025-04,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00086,2025-04,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00087,2025-04,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00088,2025-04,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00089,2025-04,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00090,2025-04,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00091,2025-04,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00092,2025-04,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00093,2025-04,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00094,2025-04,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00095,2025-04,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00096,2025-04,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00097,2025-04,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00098,2025-04,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00099,2025-04,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00100,2025-04,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00101,2025-04,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00102,2025-04,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00103,2025-04,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00104,2025-05,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00105,2025-05,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00106,2025-05,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00107,2025-05,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00108,2025-05,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00109,2025-05,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00110,2025-05,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00111,2025-05,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00112,2025-05,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00113,2025-05,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00114,2025-05,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00115,2025-05,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00116,2025-05,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00117,2025-05,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00118,2025-05,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00119,2025-05,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00120,2025-05,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00121,2025-05,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00122,2025-05,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00123,2025-05,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00124,2025-05,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00125,2025-05,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00126,2025-06,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00127,2025-06,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00128,2025-06,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00129,2025-06,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00130,2025-06,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00131,2025-06,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00132,2025-06,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00133,2025-06,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00134,2025-06,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00135,2025-06,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00136,2025-06,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00137,2025-06,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00138,2025-06,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00139,2025-06,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00140,2025-06,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00141,2025-06,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00142,2025-06,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00143,2025-06,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00144,2025-06,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00145,2025-06,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00146,2025-06,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00147,2025-06,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00148,2025-07,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00149,2025-07,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00150,2025-07,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00151,2025-07,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00152,2025-07,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00153,2025-07,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00154,2025-07,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00155,2025-07,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00156,2025-07,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00157,2025-07,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00158,2025-07,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00159,2025-07,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00160,2025-07,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00161,2025-07,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00162,2025-07,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00163,2025-07,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00164,2025-07,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00165,2025-07,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00166,2025-07,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00167,2025-07,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00168,2025-07,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00169,2025-07,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00170,2025-08,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00171,2025-08,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00172,2025-08,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00173,2025-08,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00174,2025-08,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00175,2025-08,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00176,2025-08,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00177,2025-08,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00178,2025-08,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00179,2025-08,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00180,2025-08,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00181,2025-08,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00182,2025-08,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00183,2025-08,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00184,2025-08,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00185,2025-08,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00186,2025-08,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00187,2025-08,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00188,2025-08,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00189,2025-08,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00190,2025-08,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00191,2025-08,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00192,2025-09,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00193,2025-09,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00194,2025-09,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00195,2025-09,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00196,2025-09,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00197,2025-09,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00198,2025-09,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00199,2025-09,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00200,2025-09,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00201,2025-09,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00202,2025-09,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00203,2025-09,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00204,2025-09,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00205,2025-09,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00206,2025-09,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00207,2025-09,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00208,2025-09,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00209,2025-09,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00210,2025-09,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00211,2025-09,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00212,2025-09,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00213,2025-09,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00214,2025-10,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00215,2025-10,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00216,2025-10,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00217,2025-10,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00218,2025-10,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00219,2025-10,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00220,2025-10,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00221,2025-10,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00222,2025-10,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00223,2025-10,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00224,2025-10,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00225,2025-10,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00226,2025-10,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00227,2025-10,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00228,2025-10,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00229,2025-10,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00230,2025-10,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00231,2025-10,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00232,2025-10,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00233,2025-10,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00234,2025-10,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00235,2025-10,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00236,2025-10,SEAS-01,Hassan Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00237,2025-10,SEAS-02,Driss Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00238,2025-10,SEAS-03,Ali Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00239,2025-10,SEAS-04,Simo Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00240,2025-10,SEAS-05,Reda Saisonnier,OpÃƒÂ©rateur Saisonnier Cerclage Palettes (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00241,2025-11,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00242,2025-11,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00243,2025-11,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00244,2025-11,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00245,2025-11,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00246,2025-11,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00247,2025-11,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00248,2025-11,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00249,2025-11,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00250,2025-11,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00251,2025-11,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00252,2025-11,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00253,2025-11,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00254,2025-11,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00255,2025-11,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00256,2025-11,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00257,2025-11,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00258,2025-11,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00259,2025-11,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00260,2025-11,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00261,2025-11,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00262,2025-11,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00263,2025-11,SEAS-01,Hassan Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00264,2025-11,SEAS-02,Driss Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00265,2025-11,SEAS-03,Ali Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00266,2025-11,SEAS-04,Simo Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00267,2025-11,SEAS-05,Reda Saisonnier,OpÃƒÂ©rateur Saisonnier Cerclage Palettes (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00268,2025-12,DIR-01,Fatima Zahra Amri,Directrice Administrative et FinanciÃƒÂ¨re (DAF / AssociÃƒÂ©e),24133.45,268.80,545.42,5336.45,17982.78,3461.37,917.07,28511.89
+BUL-2025-00269,2025-12,DIR-02,Hassan Oulhaj,Directeur Commercial (AssociÃƒÂ©),21547.73,268.80,486.98,4401.36,16390.59,3148.22,818.81,25514.76
+BUL-2025-00270,2025-12,ADM-01,Mohammed Tazi,Chef Comptable / Comptable Unique,10342.91,268.80,233.75,778.36,9062.00,1791.33,393.03,12527.27
+BUL-2025-00271,2025-12,ADM-02,Latifa Mansouri,Responsable Ressources Humaines & Paie,7757.18,268.80,175.31,253.43,7059.64,1478.19,294.77,9530.14
+BUL-2025-00272,2025-12,ADM-03,Karim Berrada,Administrateur SystÃƒÂ¨mes & ERP,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00273,2025-12,COM-01,Rachid Alami,Commercial Grands Comptes Exportateurs,9481.00,268.80,214.27,576.17,8421.76,1686.95,360.28,11528.23
+BUL-2025-00274,2025-12,LOG-01,Omar Fassi,Responsable Logistique & ExpÃƒÂ©ditions,8188.14,268.80,185.05,320.82,7413.47,1530.38,311.15,10029.67
+BUL-2025-00275,2025-12,LOG-02,Brahim El Idrissi,Chauffeur Livreur Poids Lourd,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00276,2025-12,PRD-01,Mehdi Chraibi,IngÃƒÂ©nieur Cartonnier / Resp. Production,13790.55,268.80,311.67,1724.76,11485.32,2208.85,524.04,16523.44
+BUL-2025-00277,2025-12,PRD-02,Aziz Naciri,Chef d'Ãƒâ€°quipe Lignes de Transformation,7326.23,268.80,165.57,186.04,6705.82,1426.01,278.40,9030.64
+BUL-2025-00278,2025-12,PRD-03,Said Tahiri,Conducteur CombinÃƒÂ© Flexo-Dossier L1,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00279,2025-12,PRD-04,Hicham Bennis,Conducteur CombinÃƒÂ© Flexo-Dossier L2,5343.83,239.40,120.77,0.00,4983.66,1127.02,203.07,6673.92
+BUL-2025-00280,2025-12,PRD-05,Yassine Bouazza,Conducteur Autoplatine & DÃƒÂ©coupe Rotative,5171.45,231.68,116.87,0.00,4822.90,1090.65,196.52,6458.62
+BUL-2025-00281,2025-12,PRD-06,Tariq Jamali,Coloriste / PrÃƒÂ©parateur Encres & ClichÃƒÂ©s,4999.07,223.96,112.98,0.00,4662.13,1054.31,189.96,6243.34
+BUL-2025-00282,2025-12,MNT-01,Mustapha Cherkaoui,Technicien Ãƒâ€°lectromÃƒÂ©canicien Maintenance,6464.32,268.80,146.09,67.29,5982.14,1321.63,245.64,8031.59
+BUL-2025-00283,2025-12,MNT-02,Nabil Zaki,Aide-Ãƒâ€°lectromÃƒÂ©canicien Maintenance,3878.59,173.76,87.66,0.00,3617.17,818.00,147.39,4843.98
+BUL-2025-00284,2025-12,PRD-07,Hamza Belkadi,OpÃƒÂ©rateur Machine de Rainage / DÃƒÂ©coupe,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00285,2025-12,PRD-08,Khadija Benjelloun,OpÃƒÂ©ratrice Agrafeuse Semi-Automatique,3275.26,146.73,74.02,0.00,3054.51,690.75,124.46,4090.47
+BUL-2025-00286,2025-12,LOG-03,Adil Chaoui,Cariste Manutention Bobines Papier,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00287,2025-12,LOG-04,Kamal Lahlou,Cariste Ãƒâ€°vacuation Produits Finis,3447.64,154.45,77.92,0.00,3215.27,727.11,131.01,4305.76
+BUL-2025-00288,2025-12,QLT-01,Soufiane Drissi,ContrÃƒÂ´leur QualitÃƒÂ© & Essais ECT/BCT,4740.50,212.37,107.14,0.00,4420.99,999.78,180.14,5920.42
+BUL-2025-00289,2025-12,LOG-05,Mourad Saber,Magasinier MatiÃƒÂ¨res PremiÃƒÂ¨res & Encres,3620.02,162.18,81.81,0.00,3376.03,763.46,137.56,4521.04
+BUL-2025-00290,2025-12,SEAS-01,Hassan Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00291,2025-12,SEAS-02,Driss Saisonnier,OpÃƒÂ©rateur Saisonnier Palettisation 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00292,2025-12,SEAS-03,Ali Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 1 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00293,2025-12,SEAS-04,Simo Saisonnier,OpÃƒÂ©rateur Saisonnier Margeur CombinÃƒÂ© 2 (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03
+BUL-2025-00294,2025-12,SEAS-05,Reda Saisonnier,OpÃƒÂ©rateur Saisonnier Cerclage Palettes (6m SMIG),3266.10,146.32,73.81,0.00,3045.97,688.82,124.11,4079.03

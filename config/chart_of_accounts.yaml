@@ -1,0 +1,2165 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — PLAN COMPTABLE GENERAL MAROCAIN (PCM / CGNC)
+# Standard: CGNC (Code Général de Normalisation Comptable), Loi 9-88
+# Authoritative Structure: Classes 1 to 8, 4 to 8 Digits, French Official Titles
+# ==============================================================================
+
+metadata:
+  standard: "Plan Comptable Général Marocain (PCM / CGNC)"
+  legal_reference: "Loi n° 9-88 relative aux obligations comptables des commerçants"
+  company: "Souss Agri-Pack SARL"
+  classes_count: 8
+  currency: "MAD"
+
+chart_of_accounts:
+  # ============================================================================
+  # CLASSE 1 : COMPTES DE FINANCEMENT PERMANENT
+  # ============================================================================
+  - account_number: "1111"
+    account_title: "Capital social"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11110000"
+    account_title: "Capital social (Associés Souss Agri-Pack SARL)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1119"
+    account_title: "Actionnaires, capital souscrit non appelé"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11190000"
+    account_title: "Actionnaires, capital souscrit non appelé"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1140"
+    account_title: "Réserve légale"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11400000"
+    account_title: "Réserve légale (Dotation 5% du bénéfice net)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1151"
+    account_title: "Réserves statutaires ou contractuelles"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11510000"
+    account_title: "Réserves statutaires ou contractuelles"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1161"
+    account_title: "Report à nouveau (solde créditeur)"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11610000"
+    account_title: "Report à nouveau (solde créditeur global)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11611"
+    account_title: "Report à nouveau (vintage pré-2023)"
+    class_code: 1
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11611000"
+    account_title: "Report à nouveau (vintage pré-2023 soumis à RAS 15%)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11612"
+    account_title: "Report à nouveau (vintage 2023 et post-2023)"
+    class_code: 1
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11612000"
+    account_title: "Report à nouveau (vintage 2023+ soumis à RAS 11.25%/10%)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1169"
+    account_title: "Report à nouveau (solde débiteur)"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11690000"
+    account_title: "Report à nouveau (solde débiteur - Pertes antérieures)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1181"
+    account_title: "Résultats nets en instance d'affectation"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11810000"
+    account_title: "Résultats nets en instance d'affectation"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1191"
+    account_title: "Résultat net de l'exercice (solde créditeur - Bénéfice)"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11910000"
+    account_title: "Résultat net de l'exercice (Bénéfice net comptable)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1199"
+    account_title: "Résultat net de l'exercice (solde débiteur - Perte)"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "11990000"
+    account_title: "Résultat net de l'exercice (Perte nette comptable)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1481"
+    account_title: "Emprunts auprès des établissements de crédit"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "14810000"
+    account_title: "Emprunts auprès des établissements de crédit (BMCE Bank MT)"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "1486"
+    account_title: "Fournisseurs d'immobilisations"
+    class_code: 1
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "14860000"
+    account_title: "Fournisseurs d'immobilisations"
+    class_code: 1
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  # ============================================================================
+  # CLASSE 2 : COMPTES D'ACTIF IMMOBILISE
+  # ============================================================================
+  - account_number: "2111"
+    account_title: "Frais de constitution"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "21110000"
+    account_title: "Frais de constitution et d'immatriculation"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2230"
+    account_title: "Fonds commercial"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "22300000"
+    account_title: "Fonds commercial"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2311"
+    account_title: "Terrains nus"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "23110000"
+    account_title: "Terrains industriels (Zone Industrielle Ait Melloul)"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2321"
+    account_title: "Bâtiments industriels"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "23210000"
+    account_title: "Bâtiments usine et hangars de production carton"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2332"
+    account_title: "Matériel et outillage"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "23320000"
+    account_title: "Matériel et outillage de transformation carton (Onduleuse & Combinés)"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2340"
+    account_title: "Matériel de transport"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "23400000"
+    account_title: "Matériel de transport (Chariots élévateurs & Camion utilitaire)"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2351"
+    account_title: "Mobilier de bureau"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "23510000"
+    account_title: "Mobilier, matériel de bureau et agencements"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2352"
+    account_title: "Matériel informatique"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "23520000"
+    account_title: "Matériel informatique, serveurs ERP et postes DAO/PAO"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2411"
+    account_title: "Prêts au personnel"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "24110000"
+    account_title: "Prêts au personnel"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2481"
+    account_title: "Dépôts et cautionnements versés"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "24810000"
+    account_title: "Dépôts et cautionnements versés (ONEE, REDAL/RAMSA, Baux)"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2486"
+    account_title: "Dépôts et cautionnements versés"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "24860000"
+    account_title: "Dépôts et cautionnements versés"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2811"
+    account_title: "Amortissements des frais de constitution"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "28110000"
+    account_title: "Amortissements des frais de constitution"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2832"
+    account_title: "Amortissements des bâtiments"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "28321000"
+    account_title: "Amortissements des bâtiments industriels"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2833"
+    account_title: "Amortissements du matériel et outillage"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "28332000"
+    account_title: "Amortissements du matériel et outillage (Onduleuse & Combinés)"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2834"
+    account_title: "Amortissements du matériel de transport"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "28340000"
+    account_title: "Amortissements du matériel de transport"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "2835"
+    account_title: "Amortissements du mobilier et matériel de bureau"
+    class_code: 2
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "28351000"
+    account_title: "Amortissements du mobilier de bureau"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "28352000"
+    account_title: "Amortissements du matériel informatique"
+    class_code: 2
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  # ============================================================================
+  # CLASSE 3 : COMPTES D'ACTIF CIRCULANT (HORS TRESORERIE)
+  # ============================================================================
+  - account_number: "3111"
+    account_title: "Matières premières"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "31110000"
+    account_title: "Matières premières (Bobines Kraftliner, Testliner, Fluting)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3121"
+    account_title: "Matières et fournitures consommables"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "31210000"
+    account_title: "Matières et fournitures consommables (Amidon, Encres flexo, Fil)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3122"
+    account_title: "Consommables et fournitures d'atelier"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "31220000"
+    account_title: "Consommables et fournitures d'atelier"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3151"
+    account_title: "Produits finis"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "31510000"
+    account_title: "Produits finis (Caisses carton, Plateaux agrumes, Barquettes)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3158"
+    account_title: "Déchets et rebuts de carton"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "31580000"
+    account_title: "Déchets et rebuts de carton récupérables (Balles pressées)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3411"
+    account_title: "Fournisseurs - avances et acomptes versés"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34110000"
+    account_title: "Fournisseurs - avances et acomptes versés"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3421"
+    account_title: "Clients ordinaires"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34210000"
+    account_title: "Clients ordinaires (Créances commerciales sur ventes carton)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3424"
+    account_title: "Clients - effets à recevoir"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34240000"
+    account_title: "Clients - effets à recevoir (LCN traites en portefeuille)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3425"
+    account_title: "Clients douteux ou litigieux"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34250000"
+    account_title: "Clients douteux ou litigieux (Créances contentieuses)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34271"
+    account_title: "Clients - factures à établir"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34271000"
+    account_title: "Clients - factures à établir (Livraisons non facturées au 31/12)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3431"
+    account_title: "Personnel - avances et acomptes"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34310000"
+    account_title: "Personnel - avances et acomptes"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34511"
+    account_title: "État - TVA récupérable sur immobilisations"
+    class_code: 3
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34511000"
+    account_title: "État - TVA récupérable sur immobilisations"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34512"
+    account_title: "État - TVA récupérable sur charges"
+    class_code: 3
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34512000"
+    account_title: "État - TVA récupérable sur charges (Matières, Énergie, Transport)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34531"
+    account_title: "État - Acomptes provisionnels sur IS"
+    class_code: 3
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34531000"
+    account_title: "État - Acomptes provisionnels sur IS (4 acomptes trimestriels)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3455"
+    account_title: "État - Crédit de TVA"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34550000"
+    account_title: "État - Crédit de TVA (Solde reportable)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3456"
+    account_title: "État - Crédit d'impôt"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34560000"
+    account_title: "État - Crédit d'impôt (IS excédentaire)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3488"
+    account_title: "Divers débiteurs"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34880000"
+    account_title: "Divers débiteurs (Créances pénalités Loi 69-21)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3491"
+    account_title: "Charges constatées d'avance"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "34910000"
+    account_title: "Charges constatées d'avance (Assurances, Loyers, Abonnements)"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3911"
+    account_title: "Provisions pour dépréciation des stocks"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "39110000"
+    account_title: "Provisions pour dépréciation des stocks de matières premières"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "3942"
+    account_title: "Provisions pour dépréciation des comptes clients"
+    class_code: 3
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "39420000"
+    account_title: "Provisions pour dépréciation des comptes clients"
+    class_code: 3
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_ACTIF"
+
+  # ============================================================================
+  # CLASSE 4 : COMPTES DE PASSIF CIRCULANT (HORS TRESORERIE)
+  # ============================================================================
+  - account_number: "4411"
+    account_title: "Fournisseurs ordinaires"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44110000"
+    account_title: "Fournisseurs ordinaires (Papetiers, ONEE, Chimiques, Transitaires)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4415"
+    account_title: "Fournisseurs - effets à payer"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44150000"
+    account_title: "Fournisseurs - effets à payer (LCN traites émises)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4417"
+    account_title: "Fournisseurs - factures non parvenues"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44170000"
+    account_title: "Fournisseurs - factures non parvenues (FNP de fin d'exercice)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4432"
+    account_title: "Rémunérations dues au personnel"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44320000"
+    account_title: "Rémunérations dues au personnel (Salaires nets à payer)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4434"
+    account_title: "Oppositions sur salaires"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44340000"
+    account_title: "Oppositions sur salaires"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4441"
+    account_title: "Caisse Nationale de Sécurité Sociale"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44410000"
+    account_title: "CNSS - Caisse Nationale de Sécurité Sociale (Bordereau Damancom)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4443"
+    account_title: "Caisses de retraite"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44430000"
+    account_title: "Caisses de retraite (CIMR)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4445"
+    account_title: "Mutuelles et assurances accidents du travail"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44450000"
+    account_title: "Mutuelles et assurances accidents du travail (RMA Assurance AT)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4452"
+    account_title: "État - Impôts et taxes à payer"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44521"
+    account_title: "État - Taxe professionnelle et TSC"
+    class_code: 4
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44521000"
+    account_title: "État - Taxe professionnelle et Taxe de services communaux"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4453"
+    account_title: "État - Impôts sur les résultats"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44530000"
+    account_title: "État - Impôts sur les résultats (IS liquidé dû / Reliquat)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4455"
+    account_title: "État - TVA facturée"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44550000"
+    account_title: "État - TVA facturée et collectée sur ventes"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4456"
+    account_title: "État - TVA due"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44560000"
+    account_title: "État - TVA due (Solde liquidé mensuel à payer via SIMPL-TVA)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4457"
+    account_title: "État - Impôts et taxes retenus à la source"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44571"
+    account_title: "État - Retenues à la source sur salaires (IR)"
+    class_code: 4
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44571000"
+    account_title: "État - Retenues à la source sur salaires (IR prélevé SIMPL-IR)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44572"
+    account_title: "État - Retenues à la source sur dividendes"
+    class_code: 4
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44572000"
+    account_title: "État - Retenues à la source sur dividendes (RAS 15% / 11.25% / 10%)"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4465"
+    account_title: "Associés - dividendes à payer"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44650000"
+    account_title: "Associés - dividendes nets à payer"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4468"
+    account_title: "Associés - comptes courants"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44680000"
+    account_title: "Associés - comptes courants créditeurs"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4488"
+    account_title: "Divers créanciers"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44880000"
+    account_title: "Divers créanciers et charges à payer"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4491"
+    account_title: "Produits constatés d'avance"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "44910000"
+    account_title: "Produits constatés d'avance"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "4501"
+    account_title: "Provisions pour litiges et charges"
+    class_code: 4
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "45010000"
+    account_title: "Provisions pour litiges et pénalités Loi 69-21"
+    class_code: 4
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  # ============================================================================
+  # CLASSE 5 : COMPTES DE TRESORERIE
+  # ============================================================================
+  - account_number: "5111"
+    account_title: "Chèques à encaisser"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51111"
+    account_title: "Chèques en portefeuille"
+    class_code: 5
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51111000"
+    account_title: "Chèques en portefeuille à encaisser"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "5113"
+    account_title: "Effets à l'encaissement"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51130000"
+    account_title: "Effets à l'encaissement (LCN remises à l'encaissement)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "5115"
+    account_title: "Effets remis à l'escompte"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51150000"
+    account_title: "Effets remis à l'escompte (LCN en attente de dénouement AWB)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "5141"
+    account_title: "Banques"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51411"
+    account_title: "Attijariwafa bank"
+    class_code: 5
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51411000"
+    account_title: "Banque Attijariwafa bank (Compte courant principal Ait Melloul)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51412"
+    account_title: "Banque Centrale Populaire"
+    class_code: 5
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51412000"
+    account_title: "Banque Centrale Populaire (Compte d'exploitation secondaire)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51413"
+    account_title: "Crédit Agricole du Maroc"
+    class_code: 5
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51413000"
+    account_title: "Banque Crédit Agricole du Maroc (Compte filière agricole)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51414"
+    account_title: "BMCE Bank of Africa"
+    class_code: 5
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51414000"
+    account_title: "Banque BMCE Bank of Africa (Compte devises & export)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "5161"
+    account_title: "Caisses"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51611"
+    account_title: "Caisse centrale"
+    class_code: 5
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "51611000"
+    account_title: "Caisse Centrale Usine Ait Melloul"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "BILAN_ACTIF"
+
+  - account_number: "5520"
+    account_title: "Crédits d'escompte"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "55200000"
+    account_title: "Crédits d'escompte (Ligne mobilisée AWB)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "5530"
+    account_title: "Facilités de caisse"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "55300000"
+    account_title: "Facilités de caisse et découverts autorisés (AWB)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "5541"
+    account_title: "Crédits de trésorerie"
+    class_code: 5
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  - account_number: "55410000"
+    account_title: "Crédits de campagne agricole (Ligne saisonnière CAM)"
+    class_code: 5
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "BILAN_PASSIF"
+
+  # ============================================================================
+  # CLASSE 6 : COMPTES DE CHARGES
+  # ============================================================================
+  - account_number: "6111"
+    account_title: "Achats de matières premières"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61111"
+    account_title: "Achats de papier Kraftliner et Testliner"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61111000"
+    account_title: "Achats de papier Kraftliner et Testliner (Fournisseurs locaux)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61112"
+    account_title: "Achats de papier Kraftliner importé"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61112000"
+    account_title: "Achats de papier Kraftliner importé (UE / Espagne / Portugal)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6114"
+    account_title: "Variation des stocks de matières premières"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61140000"
+    account_title: "Variation des stocks de matières premières (Sorties fabrication)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6121"
+    account_title: "Achats de matières consommables"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61211"
+    account_title: "Achats d'amidon et colles"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61211000"
+    account_title: "Achats d'amidon et colles industrielles d'ondulation"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61212"
+    account_title: "Achats d'encres et clichés"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61212000"
+    account_title: "Achats d'encres flexographiques, solvants et clichés d'impression"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6125"
+    account_title: "Achats non stockés de matières et fournitures"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61251"
+    account_title: "Achats non stockés - Électricité"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61251000"
+    account_title: "Achats non stockés - Électricité moyenne tension (ONEE MT)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61252"
+    account_title: "Achats non stockés - Eau"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61252000"
+    account_title: "Achats non stockés - Eau industrielle et assainissement"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61253"
+    account_title: "Achats non stockés - Carburants"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61253000"
+    account_title: "Achats non stockés - Carburants, gasoil et lubrifiants"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6131"
+    account_title: "Locations et charges locatives"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61310000"
+    account_title: "Locations et charges locatives"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6133"
+    account_title: "Entretien et réparations"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61330000"
+    account_title: "Entretien et réparations du matériel de production"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61331"
+    account_title: "Entretien et réparations du matériel et outillage"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61331000"
+    account_title: "Entretien et réparations du matériel et outillage"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6134"
+    account_title: "Primes d'assurances"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61341"
+    account_title: "Primes d'assurances multirisque et incendie"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61341000"
+    account_title: "Primes d'assurances multirisque industrielle et incendie"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6136"
+    account_title: "Rémunérations d'intermédiaires et honoraires"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61361"
+    account_title: "Honoraires d'expert-comptable et CAC"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61361000"
+    account_title: "Rémunérations d'intermédiaires et honoraires (Expertise comptable & CAC)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6142"
+    account_title: "Transports"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61421"
+    account_title: "Transports sur achats"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61421000"
+    account_title: "Transports sur achats (Fret maritime & Douane Port Agadir)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61425"
+    account_title: "Transports sur ventes"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61425000"
+    account_title: "Transports sur ventes (Livraisons domaines agricoles Souss)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6144"
+    account_title: "Publicité, publications et relations publiques"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61440000"
+    account_title: "Publicité, publications et relations publiques (Cadeaux < 100 MAD)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6145"
+    account_title: "Frais postaux et télécommunications"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61450000"
+    account_title: "Frais postaux et frais de télécommunications"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6147"
+    account_title: "Services bancaires"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61471"
+    account_title: "Commissions bancaires et frais de tenue de compte"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61471000"
+    account_title: "Services bancaires et commissions de tenue de compte"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6161"
+    account_title: "Impôts et taxes directs"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61611"
+    account_title: "Taxe professionnelle"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61611000"
+    account_title: "Impôts et taxes directs - Taxe professionnelle"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61612"
+    account_title: "Taxe de services communaux"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61612000"
+    account_title: "Impôts et taxes directs - Taxe de services communaux (TSC)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6167"
+    account_title: "Droits d'enregistrement et de timbre"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61671"
+    account_title: "Droits d'enregistrement et de timbre"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61671000"
+    account_title: "Droits d'enregistrement et de timbre"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6171"
+    account_title: "Rémunérations du personnel"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61711"
+    account_title: "Rémunérations du personnel permanent"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61711000"
+    account_title: "Rémunérations du personnel permanent (22 salariés CDI)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61712"
+    account_title: "Rémunérations des ouvriers saisonniers"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61712000"
+    account_title: "Rémunérations des ouvriers saisonniers (5 opérateurs SMIG)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61713"
+    account_title: "Rémunération du Gérant statutaire"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61713000"
+    account_title: "Rémunération statutaire du Gérant majoritaire (M. Youssef Bennani)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6174"
+    account_title: "Charges sociales"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61741"
+    account_title: "Cotisations CNSS patronales"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61741000"
+    account_title: "Charges sociales patronales - CNSS Prestations & Allocations"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61742"
+    account_title: "Cotisations AMO et Taxe formation patronales"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61742000"
+    account_title: "Charges sociales patronales - AMO & Taxe de formation professionnelle"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6176"
+    account_title: "Assurances sociales"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61761"
+    account_title: "Assurance Accidents du Travail"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61761000"
+    account_title: "Cotisations d'assurance Accidents du Travail (AT obligatoire 3.80%)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6181"
+    account_title: "Dotations d'exploitation aux amortissements"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61810000"
+    account_title: "Dotations d'exploitation aux amortissements des immobilisations corporelles"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6182"
+    account_title: "Pertes sur créances irrécouvrables"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61820000"
+    account_title: "Pertes sur créances irrécouvrables"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6191"
+    account_title: "Dotations aux amortissements"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61911"
+    account_title: "Dotations d'exploitation aux amortissements"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61911000"
+    account_title: "Dotations d'exploitation aux amortissements"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6196"
+    account_title: "Dotations aux provisions de l'actif circulant"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61961"
+    account_title: "Dotations aux provisions pour dépréciation des créances"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61961000"
+    account_title: "Dotations d'exploitation aux provisions pour dépréciation des créances"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61964"
+    account_title: "Dotations aux provisions pour risques et charges"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "61964000"
+    account_title: "Dotations aux provisions pour risques et charges (Loi 69-21)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6311"
+    account_title: "Intérêts des emprunts et dettes"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63111"
+    account_title: "Intérêts des emprunts"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63111000"
+    account_title: "Intérêts des emprunts bancaires à moyen terme"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63115"
+    account_title: "Intérêts des comptes courants d'associés"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63115000"
+    account_title: "Intérêts des comptes courants d'associés créditeurs"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6318"
+    account_title: "Autres charges d'intérêts"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63181"
+    account_title: "Intérêts bancaires sur escompte"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63181000"
+    account_title: "Intérêts bancaires et agios sur crédits d'escompte"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63182"
+    account_title: "Intérêts sur découverts"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63182000"
+    account_title: "Intérêts sur facilités de caisse et découverts bancaires"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63183"
+    account_title: "Intérêts sur crédits de campagne"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63183000"
+    account_title: "Intérêts sur crédits de campagne agricole"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6331"
+    account_title: "Pertes de change"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "63310000"
+    account_title: "Pertes de change sur achats importations"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6583"
+    account_title: "Pénalités et amendes"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65831"
+    account_title: "Pénalités et amendes fiscales"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65831000"
+    account_title: "Pénalités et amendes fiscales (Non déductibles CGI Art 11)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65832"
+    account_title: "Pénalités Loi 69-21"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65832000"
+    account_title: "Pénalités et astreintes de retard Loi 69-21 (Délais de paiement)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65833"
+    account_title: "Sanctions encaissement espèces"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65833000"
+    account_title: "Sanctions pour encaissement espèces excédentaire (CGI Art 193)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6588"
+    account_title: "Autres charges non courantes"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65881"
+    account_title: "Frais de surestaries et pertes sur stocks"
+    class_code: 6
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "65881000"
+    account_title: "Frais de surestaries et magasinage Port Agadir / Pertes sur stocks avariés"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "6701"
+    account_title: "Impôts sur les résultats"
+    class_code: 6
+    level: "POSTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  - account_number: "67010000"
+    account_title: "Impôts sur les résultats (IS exigible de l'exercice)"
+    class_code: 6
+    level: "SOUS_COMPTE"
+    normal_balance: "DR"
+    statement_type: "CPC_CHARGES"
+
+  # ============================================================================
+  # CLASSE 7 : COMPTES DE PRODUITS
+  # ============================================================================
+  - account_number: "7111"
+    account_title: "Ventes de marchandises"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71110000"
+    account_title: "Ventes de marchandises"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "7121"
+    account_title: "Ventes de biens produits au Maroc"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71211"
+    account_title: "Ventes de produits finis au Maroc"
+    class_code: 7
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71211000"
+    account_title: "Ventes de produits finis au Maroc (Emballages carton - TVA 20%)"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71212"
+    account_title: "Ventes de produits finis à l'exportation"
+    class_code: 7
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71212000"
+    account_title: "Ventes de produits finis à l'exportation directe (TVA 0% Art 92)"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "7127"
+    account_title: "Ventes de produits accessoires"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71271"
+    account_title: "Ventes de déchets et rebuts"
+    class_code: 7
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71271000"
+    account_title: "Ventes de déchets, rognures et rebuts de carton"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71275"
+    account_title: "Ventes de déchets et rebuts"
+    class_code: 7
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71275000"
+    account_title: "Ventes de déchets et rebuts"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "7132"
+    account_title: "Variation des stocks de produits"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71320000"
+    account_title: "Variation des stocks de produits finis (Entrées fabrication)"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "7197"
+    account_title: "Reprises sur provisions"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "71970000"
+    account_title: "Reprises sur provisions pour dépréciation de l'actif circulant"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "7331"
+    account_title: "Gains de change"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "73310000"
+    account_title: "Gains de change sur encaissements exportations"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "7381"
+    account_title: "Intérêts et produits assimilés"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "73810000"
+    account_title: "Intérêts bancaires et produits financiers assimilés"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "73811"
+    account_title: "Pénalités et intérêts de retard reçus"
+    class_code: 7
+    level: "COMPTE_PRINCIPAL"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "73811000"
+    account_title: "Intérêts et produits assimilés (Pénalités Loi 69-21 encaissées)"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "7581"
+    account_title: "Indemnités d'assurance reçues"
+    class_code: 7
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  - account_number: "75810000"
+    account_title: "Indemnités d'assurance reçues (Sinistres et avaries)"
+    class_code: 7
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "CPC_PRODUITS"
+
+  # ============================================================================
+  # CLASSE 8 : COMPTES DE RESULTATS (SYNTHESE CGNC)
+  # ============================================================================
+  - account_number: "8100"
+    account_title: "Résultat d'exploitation"
+    class_code: 8
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "81000000"
+    account_title: "Résultat d'exploitation (Synthèse charges/produits d'exploitation)"
+    class_code: 8
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "8300"
+    account_title: "Résultat financier"
+    class_code: 8
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "83000000"
+    account_title: "Résultat financier (Synthèse charges/produits financiers)"
+    class_code: 8
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "8400"
+    account_title: "Résultat courant"
+    class_code: 8
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "84000000"
+    account_title: "Résultat courant (Exploitation + Financier)"
+    class_code: 8
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "8500"
+    account_title: "Résultat non courant"
+    class_code: 8
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "85000000"
+    account_title: "Résultat non courant (Opérations exceptionnelles)"
+    class_code: 8
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "8600"
+    account_title: "Résultat avant impôts"
+    class_code: 8
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "86000000"
+    account_title: "Résultat avant impôts"
+    class_code: 8
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "8800"
+    account_title: "Résultat net après impôts"
+    class_code: 8
+    level: "POSTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"
+
+  - account_number: "88000000"
+    account_title: "Résultat net après impôts (Bénéfice/Perte net d'exercice)"
+    class_code: 8
+    level: "SOUS_COMPTE"
+    normal_balance: "CR"
+    statement_type: "SPECIAL"

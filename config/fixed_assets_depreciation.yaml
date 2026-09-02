@@ -1,0 +1,200 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — FIXED ASSET REGISTER & DEPRECIATION SCHEDULES
+# Effective As-Of: 2025-01-01 (Opening Balance Sheet Reconciliation)
+# Accounting Standard: Plan Comptable Marocain (PCM), CGI Article 10
+# ==============================================================================
+
+depreciation_policy:
+  standard_method: "Amortissement linéaire (Linear / Straight-line method)"
+  prorata_temporis: "Calcul au prorata temporis en jours/mois à compter de la mise en service"
+  tax_rules:
+    passenger_vehicle_ceiling_mad: 300000.00
+    passenger_vehicle_depreciation_period_years: 5
+    legal_basis: "CGI Art. 10 & Art. 11-III"
+
+asset_categories:
+  - category_code: "2110"
+    pcm_account: "2111"
+    name: "Frais de constitution"
+    default_lifespan_years: 5
+    default_rate_pct: 20.00
+  - category_code: "2310"
+    pcm_account: "2311"
+    name: "Terrains"
+    default_lifespan_years: null
+    default_rate_pct: 0.00
+  - category_code: "2320"
+    pcm_account: "2321"
+    name: "Bâtiments"
+    default_lifespan_years: 20
+    default_rate_pct: 5.00
+  - category_code: "2330"
+    pcm_account: "2332"
+    name: "Matériel et outillage"
+    default_lifespan_years: 10
+    default_rate_pct: 10.00
+  - category_code: "2340"
+    pcm_account: "2340"
+    name: "Matériel de transport"
+    default_lifespan_years: 5
+    default_rate_pct: 20.00
+  - category_code: "2350"
+    pcm_account: "2351"
+    name: "Mobilier et agencements de bureau"
+    default_lifespan_years: 10
+    default_rate_pct: 10.00
+  - category_code: "2352"
+    pcm_account: "2352"
+    name: "Matériel informatique"
+    default_lifespan_years: 3.33
+    default_rate_pct: 30.00
+
+assets:
+  - asset_id: "IMM-2111"
+    pcm_account: "2111"
+    pcm_amort_account: "2811"
+    designation: "Frais de constitution et d'immatriculation SARL"
+    category: "Immobilisation en non-valeurs"
+    acquisition_date: "2020-01-02"
+    commissioning_date: "2020-01-02"
+    gross_value_mad: 50000.00
+    useful_life_years: 5.00
+    linear_rate_pct: 20.00
+    annual_depreciation_mad: 10000.00
+    months_depreciated_to_2025: 60
+    accumulated_depreciation_2025_mad: 50000.00
+    net_book_value_2025_mad: 0.00
+    status: "Fully Amortized"
+
+  - asset_id: "IMM-2311"
+    pcm_account: "2311"
+    pcm_amort_account: null
+    designation: "Terrain industriel Zone Industrielle Ait Melloul (2,000 m²)"
+    category: "Terrains"
+    acquisition_date: "2020-01-15"
+    commissioning_date: "2020-01-15"
+    gross_value_mad: 800000.00
+    useful_life_years: null
+    linear_rate_pct: 0.00
+    annual_depreciation_mad: 0.00
+    months_depreciated_to_2025: 0
+    accumulated_depreciation_2025_mad: 0.00
+    net_book_value_2025_mad: 800000.00
+    status: "Active (Non-depreciable)"
+
+  - asset_id: "IMM-2321"
+    pcm_account: "2321"
+    pcm_amort_account: "2832"
+    designation: "Bâtiment usine de production (1,400 m²) et bureaux administratifs (200 m²)"
+    category: "Bâtiments"
+    acquisition_date: "2020-06-01"
+    commissioning_date: "2020-06-01"
+    gross_value_mad: 2200000.00
+    useful_life_years: 20.00
+    linear_rate_pct: 5.00
+    annual_depreciation_mad: 110000.00
+    months_depreciated_to_2025: 54
+    accumulated_depreciation_2025_mad: 495000.00
+    net_book_value_2025_mad: 1705000.00
+    status: "Active"
+
+  - asset_id: "IMM-2332A"
+    pcm_account: "2332"
+    pcm_amort_account: "2833"
+    designation: "Ligne d'ondulation semi-automatique 1.80m & Combiné Flexo L1"
+    category: "Matériel et outillage"
+    acquisition_date: "2020-03-10"
+    commissioning_date: "2020-03-10"
+    gross_value_mad: 3500000.00
+    useful_life_years: 10.00
+    linear_rate_pct: 10.00
+    annual_depreciation_mad: 350000.00
+    months_depreciated_to_2025: 57.6
+    accumulated_depreciation_2025_mad: 1680000.00
+    net_book_value_2025_mad: 1820000.00
+    status: "Active"
+
+  - asset_id: "IMM-2332B"
+    pcm_account: "2332"
+    pcm_amort_account: "2833"
+    designation: "Combiné Flexo-Dossier-Colleur L2 & Autoplatine de découpe rotative"
+    category: "Matériel et outillage"
+    acquisition_date: "2022-06-15"
+    commissioning_date: "2022-06-15"
+    gross_value_mad: 900000.00
+    useful_life_years: 10.00
+    linear_rate_pct: 10.00
+    annual_depreciation_mad: 90000.00
+    months_depreciated_to_2025: 30
+    accumulated_depreciation_2025_mad: 225000.00
+    net_book_value_2025_mad: 675000.00
+    status: "Active"
+
+  - asset_id: "IMM-2340"
+    pcm_account: "2340"
+    pcm_amort_account: "2834"
+    designation: "Matériel de transport : 2 Chariots élévateurs gaz 3T + 1 Camion porteur 14T"
+    category: "Matériel de transport"
+    acquisition_date: "2020-04-01"
+    commissioning_date: "2020-04-01"
+    gross_value_mad: 450000.00
+    useful_life_years: 5.00
+    linear_rate_pct: 20.00
+    annual_depreciation_mad: 90000.00
+    months_depreciated_to_2025: 57
+    accumulated_depreciation_2025_mad: 427500.00
+    net_book_value_2025_mad: 22500.00
+    status: "Active (Expiring 2025-03-31)"
+
+  - asset_id: "IMM-2351"
+    pcm_account: "2351"
+    pcm_amort_account: "2835"
+    designation: "Mobilier de bureau, rayonnages magasins & agencements"
+    category: "Mobilier et agencements"
+    acquisition_date: "2020-02-01"
+    commissioning_date: "2020-02-01"
+    gross_value_mad: 120000.00
+    useful_life_years: 10.00
+    linear_rate_pct: 10.00
+    annual_depreciation_mad: 12000.00
+    months_depreciated_to_2025: 58.8
+    accumulated_depreciation_2025_mad: 58800.00
+    net_book_value_2025_mad: 61200.00
+    status: "Active"
+
+  - asset_id: "IMM-2352"
+    pcm_account: "2352"
+    pcm_amort_account: "2835"
+    designation: "Infrastructure informatique : Serveurs ERP, postes DAO/PAO & réseau"
+    category: "Matériel informatique"
+    acquisition_date: "2021-09-01"
+    commissioning_date: "2021-09-01"
+    gross_value_mad: 180000.00
+    useful_life_years: 3.3333
+    linear_rate_pct: 30.00
+    annual_depreciation_mad: 54000.00
+    months_depreciated_to_2025: 40
+    accumulated_depreciation_2025_mad: 180000.00
+    net_book_value_2025_mad: 0.00
+    status: "Fully Amortized"
+
+financial_fixed_assets:
+  - asset_id: "IMM-2481"
+    pcm_account: "2481"
+    pcm_amort_account: null
+    designation: "Dépôts et cautionnements versés (ONEE Moyenne Tension & Baux)"
+    category: "Créances immobilisées"
+    acquisition_date: "2020-01-15"
+    gross_value_mad: 45000.00
+    accumulated_depreciation_2025_mad: 0.00
+    net_book_value_2025_mad: 45000.00
+    status: "Non-depreciable Financial Asset"
+
+summary_register:
+  total_gross_depreciable_and_tangible_assets_mad: 8200000.00
+  total_accumulated_depreciation_to_2025_mad: 3116300.00
+  total_net_tangible_and_intangible_assets_mad: 5083700.00
+  total_financial_fixed_assets_mad: 45000.00
+  total_actif_immobilise_net_mad: 5128700.00
+  fy2025_annual_dda_budget_mad: 380000.00
+  fy2025_depreciation_account: "61911"

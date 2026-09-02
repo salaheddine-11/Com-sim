@@ -1,0 +1,482 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://souss-agripack.ma/schemas/entities.json",
+  "title": "SoussAgriPackEntitiesRegistry",
+  "description": "JSON Schema governing master data entities for Souss Agri-Pack SARL simulation (Clients, Suppliers, Banks, Employees, Fixed Assets, Inventory, Company Profile) with strict Moroccan statutory regex patterns.",
+  "type": "object",
+  "required": [
+    "company_profile",
+    "clients",
+    "suppliers",
+    "banks",
+    "employees",
+    "fixed_assets",
+    "inventory_items"
+  ],
+  "definitions": {
+    "ice_type": {
+      "type": "string",
+      "pattern": "^[0-9]{15}$",
+      "description": "Identifiant Commun de l'Entreprise (15 numeric digits)"
+    },
+    "identifiant_fiscal_type": {
+      "type": "string",
+      "pattern": "^[0-9]{7,9}$",
+      "description": "Identifiant Fiscal DGI (7 to 9 numeric digits)"
+    },
+    "registre_commerce_type": {
+      "type": "string",
+      "pattern": "^[0-9]{4,7}$",
+      "description": "Numéro de Registre du Commerce Tribunal de Commerce (4 to 7 numeric digits)"
+    },
+    "taxe_professionnelle_type": {
+      "type": "string",
+      "pattern": "^[0-9]{7,9}$",
+      "description": "Numéro d'article de la Taxe Professionnelle / Patente (7 to 9 numeric digits)"
+    },
+    "cnss_affiliation_type": {
+      "type": "string",
+      "pattern": "^[0-9]{7,9}$",
+      "description": "Numéro d'affiliation ou d'immatriculation CNSS (7 to 9 numeric digits)"
+    },
+    "cin_type": {
+      "type": "string",
+      "pattern": "^[A-Z]{1,2}[0-9]{4,6}$",
+      "description": "Carte d'Identité Nationale marocaine (1-2 uppercase letters followed by 4-6 digits)"
+    },
+    "bank_rib_type": {
+      "type": "string",
+      "pattern": "^[0-9]{24}$",
+      "description": "Relevé d'Identité Bancaire standard marocain BAM (24 numeric digits: 3 bank + 3 agency + 16 account + 2 key)"
+    },
+    "pcm_account_type": {
+      "type": "string",
+      "pattern": "^[1-8][0-9]{3,7}$",
+      "description": "Numéro de compte Plan Comptable Marocain (PCM / CGNC) à 4-8 chiffres"
+    },
+    "currency_amount": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Monetary amount in Moroccan Dirhams (MAD)"
+    }
+  },
+  "properties": {
+    "company_profile": {
+      "type": "object",
+      "description": "Corporate legal master record for Souss Agri-Pack SARL",
+      "required": [
+        "entity_id",
+        "corporate_name",
+        "legal_form",
+        "headquarters_address",
+        "ice",
+        "identifiant_fiscal",
+        "registre_commerce",
+        "taxe_professionnelle",
+        "cnss_affiliation",
+        "share_capital_mad",
+        "statutory_gerant",
+        "shareholders"
+      ],
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "pattern": "^ENT-SOUSS-[0-9]{3}$",
+          "description": "Unique enterprise entity identifier"
+        },
+        "corporate_name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "legal_form": {
+          "type": "string",
+          "enum": ["SARL", "SARL_AU", "SA", "COOPERATIVE", "PERSONNE_PHYSIQUE"]
+        },
+        "headquarters_address": {
+          "type": "string",
+          "minLength": 5
+        },
+        "ice": { "$ref": "#/definitions/ice_type" },
+        "identifiant_fiscal": { "$ref": "#/definitions/identifiant_fiscal_type" },
+        "registre_commerce": { "$ref": "#/definitions/registre_commerce_type" },
+        "taxe_professionnelle": { "$ref": "#/definitions/taxe_professionnelle_type" },
+        "cnss_affiliation": { "$ref": "#/definitions/cnss_affiliation_type" },
+        "share_capital_mad": {
+          "type": "number",
+          "minimum": 10000.00
+        },
+        "statutory_gerant": {
+          "type": "object",
+          "required": [
+            "full_name",
+            "cin",
+            "role",
+            "ownership_percentage"
+          ],
+          "properties": {
+            "full_name": { "type": "string", "minLength": 3 },
+            "cin": { "$ref": "#/definitions/cin_type" },
+            "role": {
+              "type": "string",
+              "enum": [
+                "GERANT_ASSOCIE_MAJORITAIRE",
+                "GERANT_ASSOCIE_MINORITAIRE",
+                "GERANT_NON_ASSOCIE"
+              ]
+            },
+            "ownership_percentage": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 100.0
+            }
+          }
+        },
+        "shareholders": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "cin",
+              "full_name",
+              "shares_count",
+              "ownership_percentage",
+              "role"
+            ],
+            "properties": {
+              "cin": { "$ref": "#/definitions/cin_type" },
+              "full_name": { "type": "string", "minLength": 3 },
+              "shares_count": { "type": "integer", "minimum": 1 },
+              "ownership_percentage": {
+                "type": "number",
+                "minimum": 0.0,
+                "maximum": 100.0
+              },
+              "role": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "clients": {
+      "type": "array",
+      "description": "Registry of commercial packaging clients across 6 agricultural market segments",
+      "items": {
+        "type": "object",
+        "required": [
+          "client_id",
+          "company_name",
+          "market_segment",
+          "ice",
+          "identifiant_fiscal",
+          "payment_terms_days",
+          "settlement_method",
+          "credit_limit_mad",
+          "tva_regime",
+          "bank_rib"
+        ],
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "pattern": "^CLI-[0-9]{3,4}$"
+          },
+          "company_name": {
+            "type": "string",
+            "minLength": 2
+          },
+          "market_segment": {
+            "type": "string",
+            "enum": [
+              "AGRI_EXPORTER",
+              "MODERN_RETAIL",
+              "SOUK_WHOLESALE",
+              "AGRO_INDUSTRIAL",
+              "DIRECT_EU_EXPORT",
+              "COOPERATIVE"
+            ]
+          },
+          "ice": { "$ref": "#/definitions/ice_type" },
+          "identifiant_fiscal": { "$ref": "#/definitions/identifiant_fiscal_type" },
+          "payment_terms_days": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 180
+          },
+          "settlement_method": {
+            "type": "string",
+            "enum": ["LCN", "VIREMENT", "CHEQUE", "ESPECES"]
+          },
+          "credit_limit_mad": {
+            "type": "number",
+            "minimum": 0.0
+          },
+          "tva_regime": {
+            "type": "string",
+            "enum": [
+              "NORMAL_20",
+              "EXEMPT_EXPORT_ART_92",
+              "SUSPENSION_ART_94"
+            ]
+          },
+          "bank_rib": { "$ref": "#/definitions/bank_rib_type" },
+          "pcm_account": { "$ref": "#/definitions/pcm_account_type" }
+        }
+      }
+    },
+    "suppliers": {
+      "type": "array",
+      "description": "Registry of local and international suppliers (Paper mills, Starch, Flexo inks, Energy, Services)",
+      "items": {
+        "type": "object",
+        "required": [
+          "supplier_id",
+          "company_name",
+          "supplier_category",
+          "country_origin",
+          "ice",
+          "identifiant_fiscal",
+          "payment_terms_days",
+          "settlement_method",
+          "bank_rib"
+        ],
+        "properties": {
+          "supplier_id": {
+            "type": "string",
+            "pattern": "^SUP-[0-9]{3,4}$"
+          },
+          "company_name": {
+            "type": "string",
+            "minLength": 2
+          },
+          "supplier_category": {
+            "type": "string",
+            "enum": [
+              "PAPER_MILL_LOCAL",
+              "PAPER_MILL_IMPORT",
+              "AUXILIARY_CHEMICALS",
+              "ENERGY_UTILITY",
+              "TRANSPORT_LOGISTICS",
+              "MAINTENANCE_SERVICES",
+              "PROFESSIONAL_SERVICES"
+            ]
+          },
+          "country_origin": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$",
+            "description": "ISO 3166-1 alpha-2 country code (MA, ES, PT, FR, etc.)"
+          },
+          "ice": { "$ref": "#/definitions/ice_type" },
+          "identifiant_fiscal": { "$ref": "#/definitions/identifiant_fiscal_type" },
+          "payment_terms_days": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "settlement_method": {
+            "type": "string",
+            "enum": ["LCN", "VIREMENT", "CHEQUE", "ESPECES", "LETTER_OF_CREDIT"]
+          },
+          "bank_rib": { "$ref": "#/definitions/bank_rib_type" },
+          "pcm_account": { "$ref": "#/definitions/pcm_account_type" }
+        }
+      }
+    },
+    "banks": {
+      "type": "array",
+      "description": "Registry of banking partner institutions and authorized credit lines",
+      "items": {
+        "type": "object",
+        "required": [
+          "bank_code",
+          "bank_name",
+          "agency_name",
+          "rib",
+          "pcm_account",
+          "facilities"
+        ],
+        "properties": {
+          "bank_code": {
+            "type": "string",
+            "enum": ["AWB", "BP", "CAM", "BMCE"]
+          },
+          "bank_name": {
+            "type": "string",
+            "minLength": 2
+          },
+          "agency_name": {
+            "type": "string",
+            "minLength": 2
+          },
+          "rib": { "$ref": "#/definitions/bank_rib_type" },
+          "pcm_account": {
+            "type": "string",
+            "pattern": "^5141[0-9]{1,4}$",
+            "description": "PCM Bank Account number (e.g. 51411000 for AWB)"
+          },
+          "facilities": {
+            "type": "object",
+            "required": [
+              "escompte_ceiling_mad",
+              "decouvert_ceiling_mad",
+              "campaign_credit_mad",
+              "interest_spread_bps"
+            ],
+            "properties": {
+              "escompte_ceiling_mad": { "type": "number", "minimum": 0.0 },
+              "decouvert_ceiling_mad": { "type": "number", "minimum": 0.0 },
+              "campaign_credit_mad": { "type": "number", "minimum": 0.0 },
+              "interest_spread_bps": { "type": "number", "minimum": 0.0 }
+            }
+          }
+        }
+      }
+    },
+    "employees": {
+      "type": "array",
+      "description": "Registry of permanent and seasonal human resources",
+      "items": {
+        "type": "object",
+        "required": [
+          "matricule",
+          "cin",
+          "cnss_number",
+          "full_name",
+          "role_title",
+          "contract_type",
+          "base_gross_monthly_mad",
+          "hourly_rate_mad",
+          "dependents_count",
+          "hire_date"
+        ],
+        "properties": {
+          "matricule": {
+            "type": "string",
+            "pattern": "^EMP-[0-9]{3}$"
+          },
+          "cin": { "$ref": "#/definitions/cin_type" },
+          "cnss_number": { "$ref": "#/definitions/cnss_affiliation_type" },
+          "full_name": { "type": "string", "minLength": 3 },
+          "role_title": { "type": "string", "minLength": 2 },
+          "contract_type": {
+            "type": "string",
+            "enum": ["CDI", "CDD", "SAISONNIER", "GERANT_STATUTAIRE"]
+          },
+          "base_gross_monthly_mad": { "type": "number", "minimum": 0.0 },
+          "hourly_rate_mad": { "type": "number", "minimum": 0.0 },
+          "dependents_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6
+          },
+          "hire_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "is_active": {
+            "type": "integer",
+            "enum": [0, 1]
+          }
+        }
+      }
+    },
+    "fixed_assets": {
+      "type": "array",
+      "description": "Registry of fixed capital assets and equipment depreciation schedules",
+      "items": {
+        "type": "object",
+        "required": [
+          "asset_code",
+          "designation",
+          "asset_pcm_account",
+          "depreciation_pcm_account",
+          "acquisition_date",
+          "gross_value_mad",
+          "salvage_value_mad",
+          "lifespan_years",
+          "depreciation_method"
+        ],
+        "properties": {
+          "asset_code": {
+            "type": "string",
+            "pattern": "^AST-[0-9]{3,4}$"
+          },
+          "designation": { "type": "string", "minLength": 3 },
+          "asset_pcm_account": {
+            "type": "string",
+            "pattern": "^2[0-9]{3,7}$",
+            "description": "Class 2 Fixed Asset Account (e.g. 23320000)"
+          },
+          "depreciation_pcm_account": {
+            "type": "string",
+            "pattern": "^28[0-9]{2,6}$",
+            "description": "Class 28 Accumulated Depreciation Account (e.g. 28332000)"
+          },
+          "dotation_pcm_account": {
+            "type": "string",
+            "pattern": "^6181[0-9]{0,4}$",
+            "description": "Class 6181 Dotations d'exploitation Account"
+          },
+          "acquisition_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "gross_value_mad": { "type": "number", "minimum": 0.01 },
+          "salvage_value_mad": { "type": "number", "minimum": 0.0 },
+          "lifespan_years": { "type": "number", "minimum": 0.5 },
+          "depreciation_method": {
+            "type": "string",
+            "enum": ["LINEAIRE", "DEGRESSIF"]
+          },
+          "accumulated_depr_opening_mad": { "type": "number", "minimum": 0.0 }
+        }
+      }
+    },
+    "inventory_items": {
+      "type": "array",
+      "description": "Registry of raw materials, auxiliaries, finished box SKUs, and scrap items",
+      "items": {
+        "type": "object",
+        "required": [
+          "sku_code",
+          "sku_category",
+          "designation",
+          "unit_of_measure",
+          "standard_cost_mad",
+          "valuation_method",
+          "safety_stock"
+        ],
+        "properties": {
+          "sku_code": {
+            "type": "string",
+            "pattern": "^(P|RM|AUX|WST)[0-9]{3}$"
+          },
+          "sku_category": {
+            "type": "string",
+            "enum": ["RAW_MATERIAL", "AUXILIARY", "FINISHED_GOOD", "SCRAP_WASTE"]
+          },
+          "designation": { "type": "string", "minLength": 2 },
+          "unit_of_measure": {
+            "type": "string",
+            "enum": ["M2", "KG", "UNIT", "LITER"]
+          },
+          "standard_cost_mad": { "type": "number", "minimum": 0.0 },
+          "current_cump_mad": { "type": "number", "minimum": 0.0 },
+          "stock_quantity": { "type": "number", "minimum": 0.0 },
+          "valuation_method": {
+            "type": "string",
+            "enum": ["CUMP", "FIFO"]
+          },
+          "safety_stock": { "type": "number", "minimum": 0.0 },
+          "stock_pcm_account": {
+            "type": "string",
+            "pattern": "^31[0-9]{2,6}$"
+          },
+          "variation_pcm_account": {
+            "type": "string",
+            "pattern": "^(6114|6124|7132)[0-9]{0,4}$"
+          }
+        }
+      }
+    }
+  }
+}

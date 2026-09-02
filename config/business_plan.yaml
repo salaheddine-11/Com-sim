@@ -1,0 +1,420 @@
+# ==============================================================================
+# SOUSS AGRI-PACK SARL — BUSINESS PLAN & CLOSED COSTING MODEL
+# Effective Fiscal Year: 2025 (with 2026 Multi-Year Projections)
+# Location: Zone Industrielle Ait Melloul, Agadir, Morocco
+# Legal Framework: Plan Comptable Marocain (PCM), CGI 2025/2026, LF 2023-2025
+# ==============================================================================
+
+company_profile:
+  legal_name: "Souss Agri-Pack SARL"
+  trade_name: "Souss Agri-Pack"
+  legal_form: "Société à Responsabilité Limitée (SARL d'associés)"
+  incorporation_date: "2020-01-02"
+  headquarters: "Lotissement Industriel 45, Zone Industrielle Ait Melloul, 80150 Agadir, Maroc"
+  industry: "Fabrication d'emballages en carton ondulé pour l'exportation agricole"
+  naf_ape_code: "17.21B"
+  ice: "002345678000091"
+  identifiant_fiscal: "45127890"
+  registre_commerce: "28451"
+  tribunal: "Tribunal de Commerce d'Agadir"
+  taxe_professionnelle: "30145280"
+  cnss_number: "9127456"
+  capital_social:
+    amount_mad: 800000.00
+    shares_count: 8000
+    nominal_value_mad: 100.00
+  governance:
+    gerant_statutaire: "M. Youssef Bennani (Gérant associé majoritaire)"
+    gerant_liability_type: "Responsabilité solidaire et personnelle (CGI Art. 182, Dahir CNSS 1972, Loi 15-95)"
+    shareholders:
+      - name: "M. Youssef Bennani"
+        role: "Gérant associé majoritaire"
+        shares: 4800
+        equity_share_pct: 60.00
+        cin: "JB123456"
+      - name: "Mme Fatima Zahra Amri"
+        role: "Directrice Administrative et Financière (DAF / Associée)"
+        shares: 2000
+        equity_share_pct: 25.00
+        cin: "JC654321"
+      - name: "M. Hassan Oulhaj"
+        role: "Directeur Commercial (Associé)"
+        shares: 1200
+        equity_share_pct: 15.00
+        cin: "JD987654"
+
+costing_model:
+  description: "Closed Bill of Materials (BOM) costing chain for 3-ply single-wall corrugated board"
+  board_composition:
+    outer_liner:
+      description: "Kraftliner virgin pulp (Couverture extérieure haute résistance)"
+      grammage_g_m2: 150.00
+      flute_takeup_factor: 1.00
+      effective_grammage_g_m2: 150.00
+    fluting_medium:
+      description: "Fluting paper C-flute (Cannelure intérieure onde C)"
+      grammage_g_m2: 120.00
+      flute_takeup_factor: 1.48
+      effective_grammage_g_m2: 177.60
+    inner_liner:
+      description: "Testliner 2 recycled (Couverture intérieure recyclée)"
+      grammage_g_m2: 150.00
+      flute_takeup_factor: 1.00
+      effective_grammage_g_m2: 150.00
+    total_paper_consumed_g_m2: 477.60
+    total_paper_consumed_kg_m2: 0.4776
+  paper_procurement:
+    blended_price_mad_per_kg: 6.2000
+    net_paper_cost_mad_per_m2: 2.9574
+    domestic_share_pct: 65.00
+    import_eu_share_pct: 35.00
+  auxiliaries_and_chemicals:
+    starch_adhesive_mad_per_m2: 0.0800
+    flexo_inks_mad_per_m2: 0.0400
+    stitching_wire_strapping_mad_per_m2: 0.0150
+    palletizing_stretch_film_mad_per_m2: 0.0150
+    total_auxiliaries_mad_per_m2: 0.1500
+  net_direct_material_cost_mad_per_m2: 3.1074
+  technical_scrap:
+    gross_waste_rate_pct: 8.00
+    scrap_breakdown:
+      corrugator_edge_trim_pct: 3.50
+      die_cutting_windows_slots_pct: 3.00
+      setup_changeover_sheets_pct: 1.00
+      flexo_misprints_rebuts_pct: 0.50
+    recyclable_scrap_pct: 6.50
+    unrecoverable_dust_sludge_pct: 1.50
+    scrap_generation_kg_per_m2: 0.04153
+    scrap_sale_price_mad_per_kg: 0.8000
+    scrap_revenue_mad_per_m2: 0.03322
+    scrap_revenue_account: "71275"
+  gross_direct_material_cost_mad_per_m2: 3.3776
+  costing_formula: "gross_direct_material_cost = (net_paper_cost + total_auxiliaries) / (1 - (gross_waste_rate_pct / 100))"
+
+capacity_and_utilization:
+  converting_plant_capacity_m2_year: 2400000.00
+  fy2025_target_volume_m2_year: 1900000.00
+  nominal_load_factor_pct: 79.1667
+  nominal_load_factor_display_pct: 79.20
+  operating_shifts: 1
+  shift_hours_per_day: 8
+  operating_days_per_year: 300
+  bottleneck_unit: "Rotary Die-Cutter (Autoplatine de découpe rotative)"
+
+product_catalog:
+  target_turnover_ht_mad: 10930700.00
+  weighted_average_price_mad_per_m2: 5.7530
+  margin_over_net_material_ratio: 1.8514
+  margin_over_gross_material_ratio: 1.7033
+  skus:
+    - sku_code: "P001"
+      product_name: "Plateau Agrumes 10kg"
+      product_category: "Telescopic / Open-Top Agricultural Tray"
+      target_crop: "Clementines, Oranges, Lemons (Sidi Bibi / Taroudant)"
+      surface_m2: 0.8500
+      complexity_factor: 1.00
+      volume_m2: 760000.00
+      volume_share_pct: 40.00
+      price_mad_per_m2: 5.5000
+      unit_price_ht_mad: 4.6750
+      annual_revenue_ht_mad: 4180000.00
+    - sku_code: "P002"
+      product_name: "Caisse Tomate Export 6kg"
+      product_category: "Heavy-Duty BCT Ventilated Box"
+      target_crop: "Round & Cluster Tomatoes (Chtouka Ait Baha)"
+      surface_m2: 0.7200
+      complexity_factor: 1.08
+      volume_m2: 532000.00
+      volume_share_pct: 28.00
+      price_mad_per_m2: 5.8000
+      unit_price_ht_mad: 4.1760
+      annual_revenue_ht_mad: 3085600.00
+    - sku_code: "P003"
+      product_name: "Plateau Avocat Export 4kg"
+      product_category: "GMS Display Tray with Self-Locking Tabs"
+      target_crop: "Hass Avocados (Souss Export EU)"
+      surface_m2: 0.6500
+      complexity_factor: 1.18
+      volume_m2: 266000.00
+      volume_share_pct: 14.00
+      price_mad_per_m2: 6.2000
+      unit_price_ht_mad: 4.0300
+      annual_revenue_ht_mad: 1649200.00
+    - sku_code: "P004"
+      product_name: "Master Barquette Fruits Rouges (8x500g)"
+      product_category: "Precision Micro-Diecut Tray"
+      target_crop: "Strawberries, Raspberries, Blueberries"
+      surface_m2: 0.5200
+      complexity_factor: 1.12
+      volume_m2: 190000.00
+      volume_share_pct: 10.00
+      price_mad_per_m2: 6.0000
+      unit_price_ht_mad: 3.1200
+      annual_revenue_ht_mad: 1140000.00
+    - sku_code: "P005"
+      product_name: "Caisse Américaine Standard (RSC Agro-Indus)"
+      product_category: "Regular Slotted Container (RSC)"
+      target_crop: "Olive Oil, Canned Fish, Agrochemicals"
+      surface_m2: 1.1500
+      complexity_factor: 0.95
+      volume_m2: 152000.00
+      volume_share_pct: 8.00
+      price_mad_per_m2: 5.7625
+      unit_price_ht_mad: 6.626875
+      annual_revenue_ht_mad: 875900.00
+
+multi_year_projections:
+  fy2026:
+    volume_growth_pct: 4.00
+    projected_volume_m2: 1976000.00
+    price_growth_pct: 2.00
+    projected_price_mad_per_m2: 5.86806
+    projected_turnover_ht_mad: 11595286.56
+    projected_turnover_ht_display_mad: 11595000.00
+    projected_load_factor_pct: 82.3333
+
+seasonality:
+  sum_of_multipliers: 12.0000
+  high_season_sum: 8.0000
+  low_season_sum: 4.0000
+  monthly_curve:
+    - month_index: 1
+      month_name: "Janvier"
+      multiplier: 1.35
+      season_phase: "High Season (Peak Orange & Round Tomato)"
+      ca_ht_mad: 1229703.75
+      ca_ttc_mad: 1475644.50
+      variable_costs_mad: 718147.00
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 195306.75
+    - month_index: 2
+      month_name: "Février"
+      multiplier: 1.45
+      season_phase: "High Season (Peak Berry & Cluster Tomato)"
+      ca_ht_mad: 1320792.92
+      ca_ttc_mad: 1584951.50
+      variable_costs_mad: 771343.06
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 233199.86
+    - month_index: 3
+      month_name: "Mars"
+      multiplier: 1.25
+      season_phase: "High Season (Maroc Late Citrus & Avocado)"
+      ca_ht_mad: 1138614.58
+      ca_ttc_mad: 1366337.50
+      variable_costs_mad: 664950.92
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 157413.66
+    - month_index: 4
+      month_name: "Avril"
+      multiplier: 0.90
+      season_phase: "Low Season (Late Season Vegetables)"
+      ca_ht_mad: 819802.50
+      ca_ttc_mad: 983763.00
+      variable_costs_mad: 478764.66
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 24787.84
+    - month_index: 5
+      month_name: "Mai"
+      multiplier: 0.70
+      season_phase: "Low Season (Campaign Taper-off)"
+      ca_ht_mad: 637624.17
+      ca_ttc_mad: 765149.00
+      variable_costs_mad: 372372.51
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: -50998.34
+    - month_index: 6
+      month_name: "Juin"
+      multiplier: 0.50
+      season_phase: "Low Season (Summer Melon / Local Market)"
+      ca_ht_mad: 455445.83
+      ca_ttc_mad: 546535.00
+      variable_costs_mad: 265980.37
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: -126784.54
+    - month_index: 7
+      month_name: "Juillet"
+      multiplier: 0.40
+      season_phase: "Low Season (Annual Maintenance Shutdown)"
+      ca_ht_mad: 364356.67
+      ca_ttc_mad: 437228.00
+      variable_costs_mad: 212784.30
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: -164677.63
+    - month_index: 8
+      month_name: "Août"
+      multiplier: 0.50
+      season_phase: "Low Season (Factory Restart & Pre-season Stockpiling)"
+      ca_ht_mad: 455445.83
+      ca_ttc_mad: 546535.00
+      variable_costs_mad: 265980.37
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: -126784.54
+    - month_index: 9
+      month_name: "Septembre"
+      multiplier: 1.00
+      season_phase: "Low Season (Early Citrus Pre-Orders)"
+      ca_ht_mad: 865347.08
+      ca_ttc_mad: 1038416.50
+      variable_costs_mad: 505362.70
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 43734.38
+    - month_index: 10
+      month_name: "Octobre"
+      multiplier: 1.15
+      season_phase: "High Season (Early Clementine Kick-off)"
+      ca_ht_mad: 1047525.42
+      ca_ttc_mad: 1257030.50
+      variable_costs_mad: 611754.85
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 119520.57
+    - month_index: 11
+      month_name: "Novembre"
+      multiplier: 1.35
+      season_phase: "High Season (Full Clementine Export Surge)"
+      ca_ht_mad: 1229703.75
+      ca_ttc_mad: 1475644.50
+      variable_costs_mad: 718147.00
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 195306.75
+    - month_index: 12
+      month_name: "Décembre"
+      multiplier: 1.45
+      season_phase: "High Season (Winter EU Holiday Export Peak)"
+      ca_ht_mad: 1320792.92
+      ca_ttc_mad: 1584951.50
+      variable_costs_mad: 771343.06
+      fixed_costs_mad: 316250.00
+      pre_tax_result_mad: 233199.86
+
+target_pl_envelope:
+  fiscal_year: 2025
+  currency: "MAD"
+  chiffre_affaires_ht: 10930700.00
+  produits_exploitation:
+    compte_71211_ventes_produits_finis: 10930700.00
+    compte_71275_ventes_dechets_rebuts: 63000.00
+    compte_7129_rr_accordes: -63000.00
+    compte_71321_variation_stocks_pf: 0.00
+    total_produits_exploitation: 10930700.00
+  charges_exploitation:
+    consommation_matieres_premieres:
+      compte_61211_achats_matieres_premieres: 5618000.00
+      compte_61221_achats_fournitures_consommables: 282000.00
+      total_matieres_fournitures: 5900000.00
+      pct_of_ca: 53.98
+    energie_et_fluides:
+      compte_61251_electricite_moyenne_tension: 380000.00
+      compte_61253_eau_et_combustibles: 100000.00
+      total_energie_fluides: 480000.00
+      pct_of_ca: 4.39
+    autres_charges_externes:
+      compte_61311_locations_et_charges: 120000.00
+      compte_61331_entretien_et_reparations: 180000.00
+      compte_61341_primes_assurances: 85000.00
+      compte_61361_remunerations_intermediaires_honoraires: 95000.00
+      compte_61411_transports_sur_ventes: 250000.00
+      compte_61441_publicite_et_foires: 40000.00
+      compte_61451_frais_postaux_telecoms: 35000.00
+      compte_61471_services_bancaires: 45000.00
+      total_autres_charges_externes: 850000.00
+      pct_of_ca: 7.78
+    charges_personnel:
+      compte_61711_remunerations_personnel: 2089586.00
+      compte_61741_charges_sociales_patronales: 411010.00
+      compte_61743_assurance_accident_travail: 79404.00
+      total_charges_personnel: 2580000.00
+      pct_of_ca: 23.60
+    dotations_amortissements:
+      compte_61911_dda_immobilisations: 380000.00
+      pct_of_ca: 3.48
+    total_charges_exploitation: 10190000.00
+    pct_of_ca: 93.22
+  resultat_exploitation: 740700.00
+  charges_financieres:
+    compte_63111_interets_emprunts_mt: -50000.00
+    compte_63114_interets_decouverts: -60000.00
+    compte_63151_agios_escompte_commercial: -135000.00
+    total_resultat_financier: -245000.00
+  resultat_courant_avant_impot: 495700.00
+  resultat_non_courant: 0.00
+  resultat_comptable_avant_impot: 495700.00
+  fiscal_reconciliation:
+    reintegrations_fiscales:
+      cadeaux_publicitaires_non_deductibles: 8500.00
+      amendes_penalites_fiscales: 6800.00
+      achats_especes_excedant_plafond: 9000.00
+      amortissement_excedentaire_vehicule: 10000.00
+      total_reintegrations: 34300.00
+    deductions_fiscales:
+      total_deductions: 0.00
+    resultat_fiscal_imposable: 530000.00
+  is_calculation:
+    fy2025:
+      tranche_1:
+        base_mad: 300000.00
+        rate_pct: 17.50
+        tax_amount_mad: 52500.00
+      tranche_2:
+        base_mad: 230000.00
+        rate_pct: 20.00
+        tax_amount_mad: 46000.00
+      total_is_mad: 98500.00
+      effective_tax_rate_pct: 18.5849
+    fy2026_projected:
+      unified_rate_pct: 20.00
+      tax_amount_on_530k_mad: 106000.00
+      rate_hike_delta_mad: 7500.00
+  cotisation_minimale:
+    base_mad: 10930700.00
+    rate_pct: 0.25
+    cm_amount_mad: 27326.75
+    cm_display_mad: 27327.00
+    minimum_floor_mad: 3000.00
+  fiscal_invariant:
+    is_amount_mad: 98500.00
+    cm_amount_mad: 27326.75
+    is_to_cm_ratio: 3.6045
+    invariant_satisfied: true
+    mandatory_min_ratio: 2.50
+  resultat_net_comptable: 397200.00
+
+working_capital_and_banking_lines:
+  operating_assumptions:
+    dso_days: 90
+    inventory_days_combined: 60
+    dpo_days: 70
+    receivables_ht_mad: 2732675.00
+    receivables_ttc_mad: 3279210.00
+    raw_material_stock_mad: 737500.00
+    finished_goods_stock_mad: 424583.33
+    total_inventory_mad: 1162083.33
+    supplier_payables_mad: 1250000.00
+  high_season_peak:
+    peak_receivables_ttc_mad: 4100000.00
+    peak_inventory_mad: 1520000.00
+    peak_payables_mad: 2100000.00
+    peak_bfr_mad: 3520000.00
+    fonds_de_roulement_mad: 1900000.00
+    peak_cash_deficit_mad: -1620000.00
+  authorized_credit_lines:
+    - bank_name: "Attijariwafa Bank (AWB)"
+      facility_type: "Ligne d'Escompte Commerciale"
+      authorized_limit_mad: 1500000.00
+      interest_rate_rule: "Taux directeur BAM + 2.50%"
+      collateral: "LCR Clients Expatriés / Agréés"
+    - bank_name: "Attijariwafa Bank (AWB)"
+      facility_type: "Facilité de Caisse / Découvert Autorisé"
+      authorized_limit_mad: 600000.00
+      interest_rate_rule: "Taux directeur BAM + 3.50%"
+      collateral: "Caution personnelle et solidaire du Gérant"
+    - bank_name: "Crédit Agricole du Maroc (CAM)"
+      facility_type: "Crédit de Campagne Agricole (Septembre - Mars)"
+      authorized_limit_mad: 400000.00
+      interest_rate_rule: "Taux directeur BAM + 2.00%"
+      collateral: "Warrant sur stocks de matières premières"
+  treasury_adequacy_invariant:
+    total_credit_lines_mad: 2500000.00
+    peak_cash_deficit_mad: 1620000.00
+    net_liquidity_safety_buffer_mad: 880000.00
+    invariant_satisfied: true
