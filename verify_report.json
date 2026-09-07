@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "SoussAgriPackVerificationReport",
-  "timestamp": "2026-09-02T12:36:41.530036+00:00",
+  "timestamp": "2026-09-07T20:47:39.484024+00:00",
   "overall_status": "PASS",
   "checks_passed": 12,
   "checks_failed": 0,
@@ -11,12 +11,12 @@
       "check_id": 1,
       "check_name": "Account Referential Integrity",
       "status": "PASS",
-      "message": "Referential integrity verified. All 78 accounts across 52 templates (148 lines) exist in the authoritative PCM Chart of Accounts.",
+      "message": "Referential integrity verified. All 79 accounts across 57 templates (158 lines) exist in the authoritative PCM Chart of Accounts.",
       "metrics": {
         "total_chart_of_accounts": 304,
-        "unique_referenced_accounts": 78,
-        "total_templates_checked": 52,
-        "total_lines_checked": 148,
+        "unique_referenced_accounts": 79,
+        "total_templates_checked": 57,
+        "total_lines_checked": 158,
         "orphan_accounts_count": 0,
         "orphan_accounts": []
       }
@@ -25,10 +25,10 @@
       "check_id": 2,
       "check_name": "1:1 Event Coverage",
       "status": "PASS",
-      "message": "Bijective 1:1 event mapping certified. Exactly 52 events map 1:1 to 52 journal templates with 0 unmapped and 0 orphans.",
+      "message": "Bijective 1:1 event mapping certified. Exactly 57 events map 1:1 to 57 journal templates with 0 unmapped and 0 orphans.",
       "metrics": {
-        "total_events": 52,
-        "total_templates": 52,
+        "total_events": 57,
+        "total_templates": 57,
         "unmapped_events_count": 0,
         "orphan_templates_count": 0,
         "unmapped_events": [],
@@ -39,10 +39,10 @@
       "check_id": 3,
       "check_name": "Zero Journal Imbalance",
       "status": "PASS",
-      "message": "Zero journal imbalance certified. All 52 PCM journal templates satisfy Sum(Debits) == Sum(Credits) with 0.00 MAD maximum imbalance.",
+      "message": "Zero journal imbalance certified. All 57 PCM journal templates satisfy Sum(Debits) == Sum(Credits) with 0.00 MAD maximum imbalance.",
       "metrics": {
-        "total_templates_checked": 52,
-        "balanced_templates_count": 52,
+        "total_templates_checked": 57,
+        "balanced_templates_count": 57,
         "imbalanced_templates_count": 0,
         "imbalanced_templates": []
       }

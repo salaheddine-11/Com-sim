@@ -340,6 +340,61 @@ PCM Code | Compte Intitulé Officiel CGNC            | Formule Débit (MAD)    |
 51413000 | Banque Crédit Agricole du Maroc          | 0.00                   | principal+interest_ttc
 ---------+------------------------------------------+------------------------+----------------------
 PROOF OF BALANCE: (loan_principal + interest_amount_ht + interest_tva_10) == Crédit(51413) -> EXACT EQUILIBRIUM
+
+----------------------------------------------------------------------------------------------------
+TEMPLATE: TPL-BNK-009 | EVENT: EVT-BNK-009 | JOURNAL: OD
+Description: Encaissement normal d'un effet client à l'échéance (portefeuille non escompté)
+----------------------------------------------------------------------------------------------------
+PCM Code | Compte Intitulé Officiel CGNC            | Formule Débit (MAD)    | Formule Crédit (MAD)
+---------+------------------------------------------+------------------------+----------------------
+51411000 | Banque Attijariwafa bank                 | lcn_nominal            | 0.00
+34240000 | Clients - effets à recevoir              | 0.00                   | lcn_nominal
+---------+------------------------------------------+------------------------+----------------------
+PROOF OF BALANCE: lcn_nominal == lcn_nominal -> EXACT EQUILIBRIUM
+
+----------------------------------------------------------------------------------------------------
+TEMPLATE: TPL-BNK-010 | EVENT: EVT-BNK-010 | JOURNAL: BQ-AWB
+Description: Encaissement virement client d'une facture réglée au terme
+----------------------------------------------------------------------------------------------------
+PCM Code | Compte Intitulé Officiel CGNC            | Formule Débit (MAD)    | Formule Crédit (MAD)
+---------+------------------------------------------+------------------------+----------------------
+51411000 | Banque Attijariwafa bank                 | amount_ttc             | 0.00
+34210000 | Clients ordinaires                       | 0.00                   | amount_ttc
+---------+------------------------------------------+------------------------+----------------------
+PROOF OF BALANCE: amount_ttc == amount_ttc -> EXACT EQUILIBRIUM
+
+----------------------------------------------------------------------------------------------------
+TEMPLATE: TPL-BNK-011 | EVENT: EVT-BNK-011 | JOURNAL: CAI
+Description: Encaissement espèces client d'une facture réglée à réception
+----------------------------------------------------------------------------------------------------
+PCM Code | Compte Intitulé Officiel CGNC            | Formule Débit (MAD)    | Formule Crédit (MAD)
+---------+------------------------------------------+------------------------+----------------------
+51611000 | Caisse Centrale Usine Ait Melloul        | amount_ttc             | 0.00
+34210000 | Clients ordinaires                       | 0.00                   | amount_ttc
+---------+------------------------------------------+------------------------+----------------------
+PROOF OF BALANCE: amount_ttc == amount_ttc -> EXACT EQUILIBRIUM
+
+----------------------------------------------------------------------------------------------------
+TEMPLATE: TPL-BNK-012 | EVENT: EVT-BNK-012 | JOURNAL: BQ-AWB
+Description: Encaissement chèque client d'une facture réglée au terme
+----------------------------------------------------------------------------------------------------
+PCM Code | Compte Intitulé Officiel CGNC            | Formule Débit (MAD)    | Formule Crédit (MAD)
+---------+------------------------------------------+------------------------+----------------------
+51411000 | Banque Attijariwafa bank                 | amount_ttc             | 0.00
+34210000 | Clients ordinaires                       | 0.00                   | amount_ttc
+---------+------------------------------------------+------------------------+----------------------
+PROOF OF BALANCE: amount_ttc == amount_ttc -> EXACT EQUILIBRIUM
+
+----------------------------------------------------------------------------------------------------
+TEMPLATE: TPL-BNK-013 | EVENT: EVT-BNK-013 | JOURNAL: OD
+Description: Effet impayé non escompté rentré en créance ordinaire (sans intervention bancaire)
+----------------------------------------------------------------------------------------------------
+PCM Code | Compte Intitulé Officiel CGNC            | Formule Débit (MAD)    | Formule Crédit (MAD)
+---------+------------------------------------------+------------------------+----------------------
+34210000 | Clients ordinaires                       | lcn_nominal            | 0.00
+34240000 | Clients - effets à recevoir              | 0.00                   | lcn_nominal
+---------+------------------------------------------+------------------------+----------------------
+PROOF OF BALANCE: lcn_nominal == lcn_nominal -> EXACT EQUILIBRIUM
 ```
 
 ---

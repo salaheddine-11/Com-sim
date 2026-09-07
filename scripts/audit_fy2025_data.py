@@ -160,8 +160,8 @@ class SimulationAuditor:
                     invalid_ice_count += 1
 
         passed_7 = invalid_ice_count == 0
-        self.log_check(7, "Invoice Legal Compliance (15-digit ICE)", passed_7,
-                       f"100% of domestic sales invoices contain valid 15-digit Moroccan ICE (0 invalid).",
+        self.log_check(7, "ICE Format Only — Domestic Invoice Identifiers (15-digit)", passed_7,
+                       f"100% of domestic sales invoices carry a syntactically valid 15-digit Moroccan ICE (0 invalid). Scope: identifier format ONLY — full invoice legal conformity is NOT proven by this check.",
                        {"invalid_ice_count": invalid_ice_count, "total_invoices": invoice_count})
 
         # 8. Payroll Labour Line Reconciliation
@@ -216,7 +216,7 @@ class SimulationAuditor:
                        f"Progressive IS 2025 ({is_due:,.2f} MAD) > Cotisation Minimale ({cm_calc:,.2f} MAD). Solde = {solde:,.2f} MAD.",
                        {"is_due": is_due, "cotisation_minimale": cm_calc, "solde_restant": solde})
 
-        # 12. Commercial Paper (LCR) Tracking
+        # 12. Commercial Paper (LCR) Inventory — scope intentionally limited to presence & reconciliation
         cp_file = os.path.join(self.op_dir, "commercial_papers.csv")
         cp_count = 0
         with open(cp_file, "r", encoding="utf-8") as f:
@@ -224,8 +224,8 @@ class SimulationAuditor:
             for row in reader:
                 cp_count += 1
         passed_12 = cp_count > 0
-        self.log_check(12, "Commercial Paper Operations", passed_12,
-                       f"Successfully mobilized and tracked {cp_count} commercial bills (LCRs) across FY 2025.",
+        self.log_check(12, "Commercial Paper Inventory — Presence Count Only", passed_12,
+                       f"{cp_count} commercial bills (LCRs) present in the export. Scope: count ONLY — chronology, payment-method compatibility and piece-level traceability are NOT proven by this check (see document_readiness review).",
                        {"commercial_papers_count": cp_count})
 
         # 13. Purchases & Customs DUM Integrity
@@ -243,20 +243,20 @@ class SimulationAuditor:
                        f"Tracked {pur_count} supplier invoices, including {dum_count} EU import DUM declarations at Port of Agadir.",
                        {"purchase_invoices_count": pur_count, "customs_dums_count": dum_count})
 
-        # 14. Bank Overdraft Compliance
+        # 14. Bank Account Year-End Balance Only
         bank_balance = tb_dict.get("51411000", {}).get("dr", Decimal("0.00"))
         passed_14 = bank_balance >= Decimal("0.00")
-        self.log_check(14, "Bank Overdraft Compliance", passed_14,
-                       f"Operating bank account (AWB) maintained positive liquidity buffer at year-end ({bank_balance:,.2f} MAD).",
+        self.log_check(14, "Bank Year-End Balance Only — No Daily Overrun Proof", passed_14,
+                       f"Operating bank account (AWB) closes the year with a positive debit balance ({bank_balance:,.2f} MAD). Scope: year-end balance ONLY — intra-year daily credit-limit compliance is NOT proven by this check.",
                        {"awb_bank_balance": bank_balance})
 
-        # 15. Retained Earnings Vintage Partition
+        # 15. Retained Earnings Opening-Constant Consistency Only
         re_pre2023 = Decimal("2150000.00")
         re_post2023 = Decimal("1678700.00")
         total_re_opening = Decimal("3828700.00")
         passed_15 = (re_pre2023 + re_post2023) == total_re_opening
-        self.log_check(15, "Retained Earnings Vintage Partition", passed_15,
-                       f"Pre-2023 ({re_pre2023:,.2f} MAD @ 15% WHT) + Post-2023 ({re_post2023:,.2f} MAD @ 11.25% WHT) = {total_re_opening:,.2f} MAD.",
+        self.log_check(15, "Retained Earnings Opening Constants Only — Internal Addition", passed_15,
+                       f"Pre-2023 ({re_pre2023:,.2f} MAD @ 15% WHT) + Post-2023 ({re_post2023:,.2f} MAD @ 11.25% WHT) = {total_re_opening:,.2f} MAD. Scope: internal consistency of opening constants ONLY — real reconciliation to reserve vintages is NOT proven by this check.",
                        {"pre_2023": re_pre2023, "post_2023": re_post2023, "total_re": total_re_opening})
 
         # Summary Output

@@ -8,10 +8,10 @@
       "check_id": 1,
       "name": "Journal Double-Entry Invariance",
       "status": "PASS",
-      "message": "Total Debit = 98,557,684.32 MAD, Total Credit = 98,557,684.32 MAD across 1488 entries (3996 lines).",
+      "message": "Total Debit = 82,048,717.69 MAD, Total Credit = 82,048,717.69 MAD across 1180 entries (3114 lines).",
       "metrics": {
-        "total_debit": "98557684.32",
-        "total_credit": "98557684.32",
+        "total_debit": "82048717.69",
+        "total_credit": "82048717.69",
         "imbalanced_entries_count": 0
       }
     },
@@ -19,20 +19,20 @@
       "check_id": 2,
       "name": "Trial Balance to Journal Reconciliation",
       "status": "PASS",
-      "message": "Trial Balance movement matches General Journal totals exactly (98,557,684.32 MAD).",
+      "message": "Trial Balance movement matches General Journal totals exactly (82,048,717.69 MAD).",
       "metrics": {
-        "tb_total_debit": "98557684.32",
-        "journal_total_debit": "98557684.32"
+        "tb_total_debit": "82048717.69",
+        "journal_total_debit": "82048717.69"
       }
     },
     {
       "check_id": 3,
       "name": "Balance Sheet Equilibrium",
       "status": "PASS",
-      "message": "Total Actif Net (16,292,460.59 MAD) == Total Passif (16,292,460.59 MAD).",
+      "message": "Total Actif Net (15,454,407.61 MAD) == Total Passif (15,454,407.61 MAD).",
       "metrics": {
-        "net_actif": "16292460.59",
-        "total_passif": "16292460.59",
+        "net_actif": "15454407.61",
+        "total_passif": "15454407.61",
         "delta": "0.00"
       }
     },
@@ -40,11 +40,11 @@
       "check_id": 4,
       "name": "Fundamental Financial Identity (FR - BFR = TN)",
       "status": "PASS",
-      "message": "FR (3,004,901.07) - BFR (-602,189.08) = 3,607,090.15 MAD == TN (3,607,090.15 MAD).",
+      "message": "FR (3,071,921.69) - BFR (1,078,973.72) = 1,992,947.97 MAD == TN (1,992,947.97 MAD).",
       "metrics": {
-        "fr": "3004901.07",
-        "bfr": "-602189.08",
-        "tn": "3607090.15",
+        "fr": "3071921.69",
+        "bfr": "1078973.72",
+        "tn": "1992947.97",
         "identity_delta": "0.00"
       }
     },
@@ -52,10 +52,10 @@
       "check_id": 5,
       "name": "P&L to Balance Sheet Net Profit Linkage",
       "status": "PASS",
-      "message": "CPC Net Profit (724,901.07 MAD) reconciles 1:1 with Account 11910000 (724,901.07 MAD).",
+      "message": "CPC Net Profit (791,921.69 MAD) reconciles 1:1 with Account 11910000 (791,921.69 MAD).",
       "metrics": {
-        "cpc_net_profit": "724901.07",
-        "balance_sheet_net_profit": "724901.07"
+        "cpc_net_profit": "791921.69",
+        "balance_sheet_net_profit": "791921.69"
       }
     },
     {
@@ -70,9 +70,9 @@
     },
     {
       "check_id": 7,
-      "name": "Invoice Legal Compliance (15-digit ICE)",
+      "name": "ICE Format Only \u2014 Domestic Invoice Identifiers (15-digit)",
       "status": "PASS",
-      "message": "100% of domestic sales invoices contain valid 15-digit Moroccan ICE (0 invalid).",
+      "message": "100% of domestic sales invoices carry a syntactically valid 15-digit Moroccan ICE (0 invalid). Scope: identifier format ONLY \u2014 full invoice legal conformity is NOT proven by this check.",
       "metrics": {
         "invalid_ice_count": 0,
         "total_invoices": 262
@@ -110,20 +110,20 @@
       "check_id": 11,
       "name": "Corporate Income Tax (IS) & Acomptes Regularization",
       "status": "PASS",
-      "message": "Progressive IS 2025 (179,350.27 MAD) > Cotisation Minimale (3,000.00 MAD). Solde = 80,850.27 MAD.",
+      "message": "Progressive IS 2025 (196,105.42 MAD) > Cotisation Minimale (3,000.00 MAD). Solde = 97,605.42 MAD.",
       "metrics": {
-        "is_due": "179350.27",
+        "is_due": "196105.42",
         "cotisation_minimale": "3000.00",
-        "solde_restant": "80850.27"
+        "solde_restant": "97605.42"
       }
     },
     {
       "check_id": 12,
-      "name": "Commercial Paper Operations",
+      "name": "Commercial Paper Inventory \u2014 Presence Count Only",
       "status": "PASS",
-      "message": "Successfully mobilized and tracked 262 commercial bills (LCRs) across FY 2025.",
+      "message": "160 commercial bills (LCRs) present in the export. Scope: count ONLY \u2014 chronology, payment-method compatibility and piece-level traceability are NOT proven by this check (see document_readiness review).",
       "metrics": {
-        "commercial_papers_count": 262
+        "commercial_papers_count": 160
       }
     },
     {
@@ -138,18 +138,18 @@
     },
     {
       "check_id": 14,
-      "name": "Bank Overdraft Compliance",
+      "name": "Bank Year-End Balance Only \u2014 No Daily Overrun Proof",
       "status": "PASS",
-      "message": "Operating bank account (AWB) maintained positive liquidity buffer at year-end (4,082,090.15 MAD).",
+      "message": "Operating bank account (AWB) closes the year with a positive debit balance (1,401,882.37 MAD). Scope: year-end balance ONLY \u2014 intra-year daily credit-limit compliance is NOT proven by this check.",
       "metrics": {
-        "awb_bank_balance": "4082090.15"
+        "awb_bank_balance": "1401882.37"
       }
     },
     {
       "check_id": 15,
-      "name": "Retained Earnings Vintage Partition",
+      "name": "Retained Earnings Opening Constants Only \u2014 Internal Addition",
       "status": "PASS",
-      "message": "Pre-2023 (2,150,000.00 MAD @ 15% WHT) + Post-2023 (1,678,700.00 MAD @ 11.25% WHT) = 3,828,700.00 MAD.",
+      "message": "Pre-2023 (2,150,000.00 MAD @ 15% WHT) + Post-2023 (1,678,700.00 MAD @ 11.25% WHT) = 3,828,700.00 MAD. Scope: internal consistency of opening constants ONLY \u2014 real reconciliation to reserve vintages is NOT proven by this check.",
       "metrics": {
         "pre_2023": "2150000.00",
         "post_2023": "1678700.00",

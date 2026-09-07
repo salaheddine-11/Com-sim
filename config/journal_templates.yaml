@@ -502,6 +502,76 @@ journal_templates:
         debit_formula: "0.00"
         credit_formula: "loan_principal + interest_amount_ht + interest_tva_10"
 
+  - template_id: "TPL-BNK-009"
+    event_id: "EVT-BNK-009"
+    journal_code: "OD"
+    description: "Encaissement normal d'un effet client à l'échéance (portefeuille non escompté)"
+    lines:
+      - account_number: "51411000"
+        account_title: "Banque Attijariwafa bank"
+        debit_formula: "lcn_nominal"
+        credit_formula: "0.00"
+      - account_number: "34240000"
+        account_title: "Clients - effets à recevoir"
+        debit_formula: "0.00"
+        credit_formula: "lcn_nominal"
+
+  - template_id: "TPL-BNK-010"
+    event_id: "EVT-BNK-010"
+    journal_code: "BQ-AWB"
+    description: "Encaissement virement client d'une facture réglée au terme"
+    lines:
+      - account_number: "51411000"
+        account_title: "Banque Attijariwafa bank"
+        debit_formula: "amount_ttc"
+        credit_formula: "0.00"
+      - account_number: "34210000"
+        account_title: "Clients ordinaires"
+        debit_formula: "0.00"
+        credit_formula: "amount_ttc"
+
+  - template_id: "TPL-BNK-011"
+    event_id: "EVT-BNK-011"
+    journal_code: "CAI"
+    description: "Encaissement espèces client d'une facture réglée à réception"
+    lines:
+      - account_number: "51611000"
+        account_title: "Caisse Centrale Usine Ait Melloul"
+        debit_formula: "amount_ttc"
+        credit_formula: "0.00"
+      - account_number: "34210000"
+        account_title: "Clients ordinaires"
+        debit_formula: "0.00"
+        credit_formula: "amount_ttc"
+
+  - template_id: "TPL-BNK-012"
+    event_id: "EVT-BNK-012"
+    journal_code: "BQ-AWB"
+    description: "Encaissement chèque client d'une facture réglée au terme"
+    lines:
+      - account_number: "51411000"
+        account_title: "Banque Attijariwafa bank"
+        debit_formula: "amount_ttc"
+        credit_formula: "0.00"
+      - account_number: "34210000"
+        account_title: "Clients ordinaires"
+        debit_formula: "0.00"
+        credit_formula: "amount_ttc"
+
+  - template_id: "TPL-BNK-013"
+    event_id: "EVT-BNK-013"
+    journal_code: "OD"
+    description: "Effet impayé non escompté rentré en créance ordinaire (sans intervention bancaire)"
+    lines:
+      - account_number: "34210000"
+        account_title: "Clients ordinaires"
+        debit_formula: "lcn_nominal"
+        credit_formula: "0.00"
+      - account_number: "34240000"
+        account_title: "Clients - effets à recevoir"
+        debit_formula: "0.00"
+        credit_formula: "lcn_nominal"
+
   # ============================================================================
   # 5. TAXATION & COMPLIANCE JOURNAL TEMPLATES (OD / BQ-AWB)
   # ============================================================================

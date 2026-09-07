@@ -73,7 +73,24 @@ def main():
     sales_gen = SalesGenerator(ledger, param_engine, seed=master_seed)
     purch_gen = PurchaseGenerator(ledger, param_engine, seed=master_seed + 1)
     pay_gen = PayrollGenerator(ledger, param_engine, payroll_grid_path)
-    treasury_gen = TreasuryGenerator(ledger, param_engine, seed=master_seed + 2)
+    # Index factures par numéro + par pièce d'effet pour les dénouements trésorerie
+    sales_by_number = {inv.invoice_number: inv for inv in sales_gen.invoices}
+    sales_by_paper_piece = {}
+    treasury_gen = TreasuryGenerator(ledger, param_engine, seed=master_seed + 2,
+                                     invoice_index=sales_by_number,
+                                     invoice_source=sales_by_paper_piece)
+
+    def sync_invoice_indexes():
+        sales_by_number.clear()
+        for inv in sales_gen.invoices:
+            sales_by_number[inv.invoice_number] = inv
+        sales_by_paper_piece.clear()
+        for cp in sales_gen.commercial_papers:
+            sales_by_paper_piece[f"ENC-{cp.effet_id}"] = sales_by_number.get(cp.invoice_number)
+            sales_by_paper_piece[f"RET-{cp.effet_id}"] = sales_by_number.get(cp.invoice_number)
+            sales_by_paper_piece[f"IMP-{cp.effet_id}"] = sales_by_number.get(cp.invoice_number)
+
+    sync_invoice_indexes()
     tax_gen = TaxComplianceGenerator(ledger, param_engine)
     closing_gen = ClosingGenerator(ledger, param_engine)
 
@@ -94,6 +111,7 @@ def main():
         # 1. Sales Generation
         month_sales = sales_gen.generate_month_sales(2025, month, mult)
         all_sales_invoices.extend(month_sales)
+        sync_invoice_indexes()
 
         # 2. Purchases Generation
         month_purch = purch_gen.generate_month_purchases(2025, month, mult)
@@ -103,16 +121,18 @@ def main():
         month_slips = pay_gen.generate_month_payroll(2025, month)
 
         # 4. Treasury & Banking Flows
-        # Commercial paper discounting on Day 15
+        # Commercial paper discounting on Day 15 — seuls les effets déjà créés à cette
+        # date (draw_date <= 15) et à échéance suffisante sont admis à l'escompte.
         cur_papers = [p for p in sales_gen.commercial_papers if p.status == "PORTFOLIO"]
         if cur_papers:
             treasury_gen.process_escompte_discounting(cur_papers, date(2025, month, 15))
 
-        # Daily maturities and settlements
+        # Daily maturities, settlements and supplier payments
         days_in_month = 31 if month in (1, 3, 5, 7, 8, 10, 12) else (30 if month in (4, 6, 9, 11) else 28)
         for d in range(1, days_in_month + 1):
             cur_date = date(2025, month, d)
             treasury_gen.process_commercial_paper_maturities(cur_date, sales_gen.commercial_papers)
+            treasury_gen.process_customer_settlements(cur_date, sales_gen.invoices)
             treasury_gen.process_supplier_payments(cur_date, purch_gen.invoices)
 
         # Month-end salary disbursement (EVT-PAY-004)
@@ -170,6 +190,14 @@ def main():
         for inv in sales_gen.invoices:
             writer.writerow([inv.invoice_number, inv.invoice_date.isoformat(), inv.due_date.isoformat(), inv.customer_id, inv.customer_name, inv.customer_ice, str(inv.total_ht), str(inv.total_tva), str(inv.total_ttc), inv.payment_method.value, inv.is_export, inv.status])
 
+    # Détail articles/lignes de facture (traçabilité BL -> ligne -> montant) persisté
+    with open(os.path.join(op_dir, "sales_invoice_lines.csv"), "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["invoice_number", "invoice_date", "delivery_note_ref", "line_number", "sku", "description", "quantity", "unit_price_ht_mad", "surface_m2_total", "total_ht_mad", "tva_rate_pct", "total_tva_mad", "total_ttc_mad"])
+        for inv in sales_gen.invoices:
+            for ln_num, line in enumerate(inv.lines, start=1):
+                writer.writerow([inv.invoice_number, inv.invoice_date.isoformat(), inv.delivery_note_ref, ln_num, line.sku, line.description, line.quantity, str(line.unit_price_ht), str(line.surface_m2_total), str(line.total_ht), str(line.tva_rate_pct), str(line.total_tva), str(line.total_ttc)])
+
     with open(os.path.join(op_dir, "purchase_invoices.csv"), "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(["invoice_number", "invoice_date", "due_date", "supplier_id", "supplier_name", "category", "currency", "amount_ht_mad", "tva_amount_mad", "amount_ttc_mad", "customs_dum_ref", "status"])
@@ -184,9 +212,9 @@ def main():
 
     with open(os.path.join(op_dir, "commercial_papers.csv"), "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["effet_id", "invoice_number", "customer_id", "customer_name", "draw_date", "due_date", "nominal_amount_mad", "status", "bank_discounted", "agio_interet_mad", "agio_endos_mad", "total_agio_mad", "net_cash_received_mad"])
+        writer.writerow(["effet_id", "invoice_number", "customer_id", "customer_name", "draw_date", "due_date", "nominal_amount_mad", "status", "bank_discounted", "discount_date", "agio_interet_mad", "agio_endos_mad", "agio_service_mad", "agio_tva_10_mad", "total_agio_mad", "net_cash_received_mad", "status_orig"])
         for cp in sales_gen.commercial_papers:
-            writer.writerow([cp.effet_id, cp.invoice_number, cp.customer_id, cp.customer_name, cp.draw_date.isoformat(), cp.due_date.isoformat(), str(cp.nominal_amount_mad), cp.status, cp.bank_discounted or "", str(cp.agio_interet_mad), str(cp.agio_endos_mad), str(cp.total_agio_mad), str(cp.net_cash_received_mad)])
+            writer.writerow([cp.effet_id, cp.invoice_number, cp.customer_id, cp.customer_name, cp.draw_date.isoformat(), cp.due_date.isoformat(), str(cp.nominal_amount_mad), cp.status, cp.bank_discounted or "", cp.discount_date.isoformat() if cp.discount_date else "", str(cp.agio_interet_mad), str(cp.agio_endos_mad), str(cp.agio_service_mad), str(cp.agio_tva_10_mad), str(cp.total_agio_mad), str(cp.net_cash_received_mad), cp.status_orig or ""])
 
     with open(os.path.join(acc_dir, "journal_general.csv"), "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -266,6 +294,26 @@ def main():
         for line in entry.lines:
             cur.execute("INSERT INTO journal_entries (entry_id, entry_date, journal_code, piece_ref, event_id, account_number, account_title, debit_mad, credit_mad, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                         (entry.entry_id, entry.entry_date.isoformat(), entry.journal_code.value, entry.piece_ref, entry.event_id, line.account_number, line.account_title, float(line.debit), float(line.credit), line.description))
+
+    cur.execute("""
+        CREATE TABLE sales_invoice_lines (
+            invoice_number TEXT,
+            line_number INTEGER,
+            sku TEXT,
+            description TEXT,
+            quantity INTEGER,
+            unit_price_ht_mad REAL,
+            total_ht_mad REAL,
+            tva_rate_pct REAL,
+            total_tva_mad REAL,
+            total_ttc_mad REAL,
+            PRIMARY KEY (invoice_number, line_number)
+        );
+    """)
+    for inv in sales_gen.invoices:
+        for ln_num, line in enumerate(inv.lines, start=1):
+            cur.execute("INSERT INTO sales_invoice_lines VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        (inv.invoice_number, ln_num, line.sku, line.description, line.quantity, float(line.unit_price_ht), float(line.total_ht), float(line.tva_rate_pct), float(line.total_tva), float(line.total_ttc)))
 
     conn.commit()
     conn.close()

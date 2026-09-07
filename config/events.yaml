@@ -480,6 +480,86 @@ events:
     parameters:
       required_fields: ["loan_contract_number", "settlement_date", "loan_principal", "interest_amount_ht", "interest_tva_10"]
 
+  - event_id: "EVT-BNK-009"
+    event_code: "BNK_LCN_PORTFOLIO_COLLECTION"
+    event_name: "Portfolio LCN Collection at Maturity (Not Discounted)"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "SCHEDULED"
+    primary_document: "Avis de Crédit Encaissement LCN"
+    description: "Encaissement normal d'un effet client conservé en portefeuille (non escompté), dénoué à l'échéance par crédit du compte bancaire."
+    preconditions:
+      - "Effet client en portefeuille non escompté parvenu à échéance"
+      - "Aucun avis d'impayé reçu de la banque tirée"
+    postconditions:
+      - "Debit 51411000 (Banque AWB) for nominal"
+      - "Credit 34240000 (Clients - effets à recevoir) for nominal"
+    parameters:
+      required_fields: ["lcn_reference", "maturity_date", "lcn_nominal"]
+
+  - event_id: "EVT-BNK-010"
+    event_code: "BNK_CUSTOMER_WIRE_COLLECTION"
+    event_name: "Customer Wire Transfer Collection at Terms"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "SCHEDULED"
+    primary_document: "Relevé Bancaire - Virement Client"
+    description: "Encaissement par virement bancaire d'une facture client réglée au terme convenu (30 jours)."
+    preconditions:
+      - "Facture client parvenue au terme de règlement par virement"
+      - "Virement client réconcilié avec la facture"
+    postconditions:
+      - "Debit 51411000 (Banque AWB) for TTC amount"
+      - "Credit 34210000 (Clients ordinaires) for TTC amount"
+    parameters:
+      required_fields: ["invoice_number", "settlement_date", "amount_ttc"]
+
+  - event_id: "EVT-BNK-011"
+    event_code: "BNK_CUSTOMER_CASH_COLLECTION"
+    event_name: "Customer Cash Collection at Reception"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "TRANSACTIONAL"
+    primary_document: "Reçu de Caisse Client"
+    description: "Encaissement en espèces à réception d'une facture client réglée comptant (souk et marché traditionnel)."
+    preconditions:
+      - "Facture client livrée et réglée comptant à réception"
+      - "Pièce de caisse émise et rapprochée de la facture"
+    postconditions:
+      - "Debit 51611000 (Caisse Centrale) for TTC amount"
+      - "Credit 34210000 (Clients ordinaires) for TTC amount"
+    parameters:
+      required_fields: ["invoice_number", "settlement_date", "amount_ttc"]
+
+  - event_id: "EVT-BNK-012"
+    event_code: "BNK_CUSTOMER_CHEQUE_COLLECTION"
+    event_name: "Customer Cheque Collection at Terms"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "SCHEDULED"
+    primary_document: "Bordereau de Remise de Chèques"
+    description: "Encaissement par chèque d'une facture client réglée au terme convenu (15 jours)."
+    preconditions:
+      - "Facture client parvenue au terme de règlement par chèque"
+      - "Chèque client encaissé et réconcilié avec la facture"
+    postconditions:
+      - "Debit 51411000 (Banque AWB) for TTC amount"
+      - "Credit 34210000 (Clients ordinaires) for TTC amount"
+    parameters:
+      required_fields: ["invoice_number", "settlement_date", "amount_ttc"]
+
+  - event_id: "EVT-BNK-013"
+    event_code: "BNK_LCN_PORTFOLIO_UNPAID_RETURN"
+    event_name: "Portfolio LCN Unpaid Return to Ordinary Receivable"
+    operational_cycle: "BANKING_TREASURY"
+    trigger_type: "CONDITIONAL"
+    primary_document: "Effet Impayé Rendu par la Banque Tirée"
+    description: "Effet client impayé à l'échéance alors qu'il était conservé en portefeuille (non escompté) : rentrée de la créance en compte ordinaire, sans intervention bancaire ni frais."
+    preconditions:
+      - "Effet en portefeuille non escompté parvenu à échéance"
+      - "Refus de paiement constaté par la banque tirée ou le tireur"
+    postconditions:
+      - "Debit 34210000 (Clients ordinaires) for nominal"
+      - "Credit 34240000 (Clients - effets à recevoir) for nominal"
+    parameters:
+      required_fields: ["lcn_reference", "maturity_date", "lcn_nominal"]
+
   # ============================================================================
   # 5. TAXATION, REGULATORY & FISCAL COMPLIANCE (EVT-TAX-xxx)
   # ============================================================================

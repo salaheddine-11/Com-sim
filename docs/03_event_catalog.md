@@ -422,6 +422,71 @@ Every single event satisfies the **1:1 Mapping Contract**: it corresponds to exa
   - **Credit**: `51413000` (Banque Crédit Agricole du Maroc) = `loan_principal + interest_amount_ht + interest_tva_10`
 - **Statutory Reference**: BAM directives & CGI Art. 99-3.
 
+#### `EVT-BNK-009`: Portfolio LCN Collection at Maturity (Not Discounted)
+- **Description**: Normal collection of a customer bill retained in portfolio (not discounted), settled at maturity by credit of the bank account.
+- **Trigger**: Bill maturity date reached while the bill remains in PORTFOLIO.
+- **Trigger Type**: Scheduled.
+- **Primary Document**: *Avis de Crédit Encaissement LCN*.
+- **Parameters**: `lcn_reference`, `maturity_date`, `lcn_nominal`.
+- **Preconditions**: Customer bill in portfolio, not discounted; no unpaid protest received from the drawee bank.
+- **Postconditions**: Bank cash increased; bills receivable decreased.
+- **Accounting Template**: `TPL-BNK-009` (Journal `OD`):
+  - **Debit**: `51411000` (Banque Attijariwafa bank) = `lcn_nominal`
+  - **Credit**: `34240000` (Clients - effets à recevoir) = `lcn_nominal`
+- **Statutory Reference**: CGI Art. 218 / practice des effets de commerce.
+
+#### `EVT-BNK-010`: Customer Wire Transfer Collection at Terms
+- **Description**: Collection by bank wire of a customer invoice settled at the agreed terms (30 days).
+- **Trigger**: Invoice due date reached for a `VIR_30D` payment-terms invoice.
+- **Trigger Type**: Scheduled.
+- **Primary Document**: *Relevé Bancaire - Virement Client*.
+- **Parameters**: `invoice_number`, `settlement_date`, `amount_ttc`.
+- **Preconditions**: Customer invoice at wire-transfer terms; wire reconciled with the invoice.
+- **Postconditions**: Bank cash increased; ordinary trade receivable extinguished.
+- **Accounting Template**: `TPL-BNK-010` (Journal `BQ-AWB`):
+  - **Debit**: `51411000` (Banque Attijariwafa bank) = `amount_ttc`
+  - **Credit**: `34210000` (Clients ordinaires) = `amount_ttc`
+- **Statutory Reference**: CGI Art. 218.
+
+#### `EVT-BNK-011`: Customer Cash Collection at Reception
+- **Description**: Cash collection at reception of a customer invoice settled on delivery (souk / traditional wholesale market).
+- **Trigger**: Delivery of a CASH payment-terms invoice.
+- **Trigger Type**: Transactional.
+- **Primary Document**: *Reçu de Caisse Client*.
+- **Parameters**: `invoice_number`, `settlement_date`, `amount_ttc`.
+- **Preconditions**: Invoice delivered and settled cash on reception; cash receipt reconciled with the invoice.
+- **Postconditions**: Central cash increased; ordinary trade receivable extinguished.
+- **Accounting Template**: `TPL-BNK-011` (Journal `CAI`):
+  - **Debit**: `51611000` (Caisse Centrale Usine Ait Melloul) = `amount_ttc`
+  - **Credit**: `34210000` (Clients ordinaires) = `amount_ttc`
+- **Statutory Reference**: CGI Art. 218.
+
+#### `EVT-BNK-012`: Customer Cheque Collection at Terms
+- **Description**: Collection by cheque of a customer invoice settled at the agreed terms (15 days).
+- **Trigger**: Invoice due date reached for a CHEQUE payment-terms invoice.
+- **Trigger Type**: Scheduled.
+- **Primary Document**: *Bordereau de Remise de Chèques*.
+- **Parameters**: `invoice_number`, `settlement_date`, `amount_ttc`.
+- **Preconditions**: Customer invoice at cheque terms; cheque cleared and reconciled with the invoice.
+- **Postconditions**: Bank cash increased; ordinary trade receivable extinguished.
+- **Accounting Template**: `TPL-BNK-012` (Journal `BQ-AWB`):
+  - **Debit**: `51411000` (Banque Attijariwafa bank) = `amount_ttc`
+  - **Credit**: `34210000` (Clients ordinaires) = `amount_ttc`
+- **Statutory Reference**: CGI Art. 218.
+
+#### `EVT-BNK-013`: Portfolio LCN Unpaid Return to Ordinary Receivable
+- **Description**: Customer bill unpaid at maturity while retained in portfolio (not discounted): the receivable returns to the ordinary account, with no bank intervention and no protest fees.
+- **Trigger**: Portfolio bill maturity with drawee dishonor.
+- **Trigger Type**: Conditional.
+- **Primary Document**: *Effet Impayé Rendu par la Banque Tirée*.
+- **Parameters**: `lcn_reference`, `maturity_date`, `lcn_nominal`.
+- **Preconditions**: Bill in portfolio, not discounted, at maturity; dishonor confirmed by the drawee bank or the drawer.
+- **Postconditions**: Ordinary trade receivable increased; bills receivable decreased. No bank fee (bank was not mobilized).
+- **Accounting Template**: `TPL-BNK-013` (Journal `OD`):
+  - **Debit**: `34210000` (Clients ordinaires) = `lcn_nominal`
+  - **Credit**: `34240000` (Clients - effets à recevoir) = `lcn_nominal`
+- **Statutory Reference**: CGI Art. 218 / pratique des effets de commerce.
+
 ---
 
 ### Cycle 5: Corporate Taxes, Declarations & Compliance (`EVT-TAX-xxx`)

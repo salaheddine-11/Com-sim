@@ -1,15 +1,15 @@
 {
   "ca_turnover_ht": "10885818.20",
   "total_produits": "10885818.20",
-  "total_charges": "9981566.86",
+  "total_charges": "9897791.09",
   "charges_non_courantes": "0.00",
-  "pre_tax_accounting_profit": "904251.34",
+  "pre_tax_accounting_profit": "988027.11",
   "reintegrations_fiscales": "30000.00",
-  "fiscal_result": "934251.34",
-  "is_calculated": "179350.27",
+  "fiscal_result": "1018027.11",
+  "is_calculated": "196105.42",
   "cotisation_minimale": "3000.0",
-  "is_final_due": "179350.27",
+  "is_final_due": "196105.42",
   "acomptes_paid": "98500.00",
-  "is_solde_restant": "80850.27",
-  "net_profit": "724901.07"
+  "is_solde_restant": "97605.42",
+  "net_profit": "791921.69"
 }

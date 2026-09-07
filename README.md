@@ -7,7 +7,7 @@ A closed-economy, multi-cycle synthetic data generation engine and formal double
 ## 🏢 Company Profile
 
 - **Entity**: Souss Agri-Pack SARL
-- **Headquarters**: Zone Industrielle, Lot 47, Ait Melloul, Agadir, Morocco
+- **Adresse :** Lotissement Industriel 45, Zone Industrielle Ait Melloul, 80150 Agadir, Maroc *(identité unique alignée sur `config/business_plan.yaml`)*
 - **Legal Identifiers**:
   - **ICE**: `002345678000091`
   - **IF**: `45127890`
@@ -26,7 +26,7 @@ souss_agripack_sim/
 ├── config/                          # Machine-readable formal configurations
 │   ├── business_plan.yaml           # Revenue target (10.93M MAD), BOM costing, pricing, capacity & seasonality
 │   ├── chart_of_accounts.yaml       # 304 PCM Moroccan accounts (4 to 8 digits, 8 classes)
-│   ├── events.yaml                  # Numbered transactional event catalog (52 events, 8 categories)
+│   ├── events.yaml                  # Numbered transactional event catalog (57 events, 8 categories)
 │   ├── fixed_assets_depreciation.yaml # Asset register with linear depreciation schedules
 │   ├── inventory_policies.yaml      # CUMP valuation, scrap rates, and BOM definitions
 │   ├── journal_templates.yaml       # Zero-fault double-entry debit/credit posting templates

@@ -6,7 +6,7 @@
 **Execution Status**: **100% PASS (12/12 Checks)**
 **Standard**: Plan Comptable Général Marocain (PCM / CGNC Loi 9-88), CGI 2025/2026, LF 2023-2025, BAM, ADII, CNSS
 
-> **Snapshot scope**: This attestation was regenerated against the repository at this commit. It documents the **as-tested** numbers (304 chart accounts, 52 events, 52 templates, 148 posting lines). Any prior copy of this file that quoted "366 accounts" or "49 events / 49 templates" is superseded by this version — the underlying YAML catalogues grew during build-out and the attestation now reflects the actual authoritative files.
+> **Snapshot scope**: This attestation was regenerated against the repository at this commit. It documents the **as-tested** numbers (304 chart accounts, 57 events, 57 templates, 158 posting lines). Any prior copy of this file that quoted "366 accounts" or "49 events / 49 templates" (or the pre-correction build with 52 events and unconditional LCR draw) is superseded by this version — the underlying YAML catalogues grew during build-out and again during the September 2026 chronology/settlement correction, and the attestation reflects the actual authoritative files.
 
 ---
 
@@ -45,42 +45,43 @@ The verification suite enforces the strict **Invariant Algebra** defined in `doc
 |---|---|---|
 | Chart of Accounts entries | **304** | `config/chart_of_accounts.yaml` |
 | Authoritative PCM classes covered | 8 (classes 1–8) | `config/chart_of_accounts.yaml` |
-| Accounts referenced by templates | 78 | `verify_specs.py` Check 01 |
-| Business events in catalog | **52** | `config/events.yaml` |
-| Journal templates in matrix | **52** | `config/journal_templates.yaml` |
-| Total posting lines (debit + credit rows) | **148** | `verify_specs.py` Check 01 |
+| Accounts referenced by templates | 79 | `verify_specs.py` Check 01 |
+| Business events in catalog | **57** | `config/events.yaml` |
+| Journal templates in matrix | **57** | `config/journal_templates.yaml` |
+| Total posting lines (debit + credit rows) | **158** | `verify_specs.py` Check 01 |
 | Event categories | 8 (SAL, PUR, PAY, BNK, TAX, INV, RSK, CLS) | `config/events.yaml` |
-| Journal codes used | RAN, ACH, VEN, BQ-AWB, BQ-CAM, PAI, OD | `config/journal_templates.yaml` |
+| Journal codes used | RAN, ACH, VEN, BQ-AWB, BQ-CAM, CAI, PAI, OD | `config/journal_templates.yaml` |
 | Unique parameter names | 66 (in 57 families) | `config/parameters.yaml` |
 | Temporal parameter slices | 66 across `[2025-01-01, 2026-12-31]` | `verify_specs.py` Check 04 |
 | Parameters with verified primary citations | 59 | `verify_specs.py` Check 12 |
 | Parameters explicitly flagged `[TO VERIFY]` | 7 | `verify_specs.py` Check 12 |
 | Raw `[TO VERIFY]` markers in `parameters.yaml` | 15 | grep (`verify_specs.py` reports the deduped count of 7 *unique parameters* with the flag) |
 
-### Event-category breakdown (52 events)
+### Event-category breakdown (57 events)
 
 | Category | Count | Domain |
 |---|---|---|
 | EVT-SAL-xxx | 7 | Order-to-Cash & commercial sales |
 | EVT-PUR-xxx | 7 | Procure-to-Pay & customs imports |
 | EVT-PAY-xxx | 6 | Payroll & social security |
-| EVT-BNK-xxx | 8 | Treasury, banking, discounting |
+| EVT-BNK-xxx | 13 | Treasury, banking, discounting, collections |
 | EVT-TAX-xxx | 7 | Tax & compliance |
 | EVT-INV-xxx | 3 | Inventory & production |
 | EVT-RSK-xxx | 7 | Risk & random events |
 | EVT-CLS-xxx | 7 | Year-end closing |
 
-### Journal-code breakdown (52 templates)
+### Journal-code breakdown (57 templates)
 
 | Code | Templates | Meaning |
 |---|---|---|
-| RAN | 1 | Reports à nouveau (opening carry-over) |
+| RAN | 1 | Reports à nouveaux (opening carry-over) |
 | ACH | 7 | Achats (purchases journal) |
 | VEN | 4 | Ventes (sales journal) |
-| BQ-AWB | 10 | Banque Attijariwafa Bank |
+| BQ-AWB | 12 | Banque Attijariwafa Bank |
 | BQ-CAM | 2 | Banque Crédit Agricole du Maroc |
+| CAI | 1 | Caisse centrale (cash collections) |
 | PAI | 3 | Paie (payroll journal) |
-| OD | 25 | Opérations Diverses (miscellaneous) |
+| OD | 27 | Opérations Diverses (miscellaneous) |
 
 ---
 
@@ -213,8 +214,8 @@ All 8 Phase 2 Acceptance Gates defined in `docs/06_verification_rulebook.md` are
 3. [x] **Valid JSON Schemas & SQL DDL**: Valid Draft-07 JSON schemas and PostgreSQL DDL.
 4. [x] **Complete YAML Configuration Suite**: 10 balanced YAML configuration files in `config/`.
 5. [x] **Audit Citations & [TO VERIFY] Accounting**: 66 parameters tracked with citations; 7 carry the explicit `[TO VERIFY]` baseline flag (15 raw markers across slices).
-6. [x] **Zero Double-Entry Journal Imbalances**: Sum(Debits) == Sum(Credits) for all 52 templates.
+6. [x] **Zero Double-Entry Journal Imbalances**: Sum(Debits) == Sum(Credits) for all 57 templates.
 7. [x] **Retained Earnings Vintage Segregation**: Pre-2023 (15%) and Post-2023 (11.25%/10.00%) partitioned.
 8. [x] **Forensic Integrity Attestation**: Genuine mathematical evaluation with no hardcoded shortcuts.
 
-**The Phase 1 specification is hereby certified TEST_READY, and the Phase 2 synthetic dataset (262 sales invoices, 262 LCRs, 294 payroll slips, 1,488 balanced journal entries, Actif≡Passif = 30,674,578.79 MAD trial balance) is hereby certified DATA_READY.**
+**The Phase 1 specification is hereby certified TEST_READY, and the Phase 2 synthetic dataset (262 sales invoices, 160 LCRs drawn only for letter-of-change terms, 294 payroll slips, 1,180 balanced journal entries, Actif≡Passif = 16,292,460.59 MAD) is hereby certified DATA_READY after the September 2026 chronology-and-settlement correction pass (document-readiness review: zero findings).**

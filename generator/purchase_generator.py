@@ -26,7 +26,9 @@ class PurchaseGenerator:
         self.invoices: List[PurchaseInvoice] = []
         self.invoice_counter = 1
         self.dum_counter = 1
-        self.journal_counter = 500
+        # Plage dédiée (10000+) pour éviter toute collision d'entry_id avec les ventes
+        # (plage 0002-0999), la paie (1000+), les impôts (3000+) et la clôture (4000+).
+        self.journal_counter = 10000
 
     def _init_suppliers(self) -> Dict[str, Supplier]:
         return {

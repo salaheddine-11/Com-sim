@@ -160,6 +160,9 @@ class CommercialPaper:
     status: str = "PORTFOLIO"  # PORTFOLIO, DISCOUNTED, COLLECTED_AT_MATURITY, IMPAYE, RECOVERED
     bank_discounted: Optional[str] = None
     discount_date: Optional[date] = None
+    # Statut au moment de l'escompte ("DISCOUNTED") — permet de savoir au dénouement
+    # si la banque était mobilisée sur l'effet (avis d'impayé avec frais vs rentrée simple).
+    status_orig: Optional[str] = None
     agio_interet_mad: Decimal = Decimal("0.00")
     agio_endos_mad: Decimal = Decimal("0.00")
     agio_service_mad: Decimal = Decimal("0.00")

@@ -120,8 +120,10 @@ Every business transaction and operational lifecycle in the Souss Agri-Pack SARL
 | FINISHED_GOODS_REC  | Truck Dispatch    | Signed Delivery Slip (BL)     | DISPATCHED_BL       | Stock Outbound Log    |
 | DISPATCHED_BL       | Billing Trigger   | Domestic (20% TVA)            | INVOICED            | EVT-SAL-003 (VEN)     |
 | DISPATCHED_BL       | Billing Trigger   | Direct EU Export (0% Art 92)  | INVOICED            | EVT-SAL-004 (VEN)     |
-| INVOICED            | LCN Acceptance    | Signed commercial bill        | LCN_ISSUED          | EVT-BNK-001 (3424/3421|
+| INVOICED            | LCN Acceptance    | Signed commercial bill (LC)   | LCN_ISSUED          | EVT-BNK-001 (3424/3421|
+| INVOICED            | Settlement        | VIR/CHEQUE/CASH at due date   | FUNDS_SETTLED       | EVT-BNK-010/011/012   |
 | LCN_ISSUED          | Treasury Need     | AWB line headroom available   | LCN_DISCOUNTED      | EVT-BNK-002 / 003     |
+| LCN_ISSUED          | Bill Maturity     | Retained in portfolio         | FUNDS_SETTLED       | EVT-BNK-009 (5141/3424|
 | LCN_DISCOUNTED      | Bill Maturity     | Drawee honors payment         | FUNDS_SETTLED       | EVT-BNK-004 (5520/5115|
 | LCN_DISCOUNTED      | Maturity Protest  | Drawee dishonors / rejects    | LCN_PROTESTED       | EVT-BNK-005 (3421/5141|
 | LCN_PROTESTED       | Formal Notice     | Overdue > 180 days            | DOUBTFUL_DEBTOR     | EVT-SAL-007 (3425/3942|

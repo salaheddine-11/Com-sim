@@ -19,11 +19,19 @@ from generator.parameters_engine import ParameterEngine
 
 
 class TreasuryGenerator:
-    def __init__(self, ledger: PCMLedgerEngine, param_engine: ParameterEngine, seed: int = 44):
+    def __init__(self, ledger: PCMLedgerEngine, param_engine: ParameterEngine, seed: int = 44,
+                 invoice_index: Optional[Dict[str, SalesInvoice]] = None,
+                 invoice_source: Optional[Dict[str, SalesInvoice]] = None):
         self.ledger = ledger
         self.param_engine = param_engine
         self.rng = random.Random(seed)
-        self.journal_counter = 2000
+        # Plage dédiée (20000+) pour éviter toute collision d'entry_id avec les
+        # autres générateurs (ventes ~0002-0600, achats ~0500, paie ~1000, taxes ~3000).
+        self.journal_counter = 20000
+        # Index facture par numéro + index par pièce d'effet (ENC-/RET-...)
+        # NB: test "is not None" — un dict vide reste un index valide (falsy mais fonctionnel).
+        self._invoice_index = invoice_index if invoice_index is not None else {}
+        self._invoice_source = invoice_source if invoice_source is not None else {}
 
     def process_escompte_discounting(self, paper_batch: List[CommercialPaper], discount_date: date) -> List[CommercialPaper]:
         bam_key_rate = self.param_engine.get_decimal("bam_key_rate", discount_date)
@@ -31,10 +39,21 @@ class TreasuryGenerator:
         discounted_papers = []
 
         for paper in paper_batch:
+            # Chronologie stricte : seul un effet déjà créé (draw_date passée ou présente)
+            # et toujours en portefeuille peut être remis à l'escompte à cette date.
             if paper.status != "PORTFOLIO":
                 continue
+            if paper.draw_date > discount_date:
+                continue
+            if paper.due_date <= discount_date:
+                # Un effet échu ou à échéance du jour ne se remet pas à l'escompte.
+                continue
 
-            days = max(15, (paper.due_date - discount_date).days)
+            days = (paper.due_date - discount_date).days
+            # Durée minimale d'escompte bancaire : en dessous de 15 jours, la remise
+            # est refusée ; l'effet dénouera en portefeuille (EVT-BNK-009).
+            if days < 15:
+                continue
             nominal = paper.nominal_amount_mad
 
             # Interêts d'escompte
@@ -49,6 +68,7 @@ class TreasuryGenerator:
             net_cash = to_dec(nominal - total_agio)
 
             paper.status = "DISCOUNTED"
+            paper.status_orig = "DISCOUNTED"
             paper.bank_discounted = "Attijariwafa Bank"
             paper.discount_date = discount_date
             paper.agio_interet_mad = interet
@@ -78,15 +98,32 @@ class TreasuryGenerator:
 
         return discounted_papers
 
+    def _settle_invoice(self, invoice: SalesInvoice, status: str) -> None:
+        """Met à jour le statut de la facture source au dénouement de son effet."""
+        if invoice is not None and invoice.status not in ("PAID", "DEFAULTED"):
+            invoice.status = status
+
+    def _find_invoice(self, invoice_number: str) -> Optional[SalesInvoice]:
+        inv = self._invoice_index.get(invoice_number)
+        if inv is None:
+            inv = self._invoice_source.get(invoice_number)
+        return inv
+
     def process_commercial_paper_maturities(self, current_date: date, papers: List[CommercialPaper]):
         for paper in papers:
-            if paper.due_date == current_date:
-                # Check for default (CLI-011 in Sep)
-                if paper.customer_id == "CLI-011" and current_date.month == 9 and paper.status != "IMPAYE":
-                    paper.status = "IMPAYE"
-                    reject_fee_ht = Decimal("1500.00")
-                    reject_fee_tva = Decimal("150.00")
+            if paper.due_date != current_date:
+                continue
 
+            invoice = self._find_invoice(paper.invoice_number)
+
+            # Cas 1 : impayé programmé (CLI-011 en septembre)
+            if paper.customer_id == "CLI-011" and current_date.month == 9 and paper.status != "IMPAYE":
+                paper.status = "IMPAYE"
+                reject_fee_ht = Decimal("1500.00")
+                reject_fee_tva = Decimal("150.00")
+
+                if paper.status_orig == "DISCOUNTED":
+                    # L'effet était escompté : la banque débite le compte avec frais de rejet.
                     entry_id_imp = f"JRN-{current_date.year}-{self.journal_counter:05d}"
                     self.journal_counter += 1
                     ctx_imp = {
@@ -95,14 +132,70 @@ class TreasuryGenerator:
                         "reject_fee_tva": reject_fee_tva
                     }
                     self.ledger.post_event("EVT-BNK-005", entry_id_imp, current_date, f"IMP-{paper.effet_id}", ctx_imp, f"Impayé effet LCR {paper.effet_id}")
-                    continue
-
-                if paper.status == "DISCOUNTED":
-                    paper.status = "COLLECTED_AT_MATURITY"
-                    entry_id_ech = f"JRN-{current_date.year}-{self.journal_counter:05d}"
+                else:
+                    # Effet non escompté : rentrée en créance ordinaire, sans intervention bancaire.
+                    entry_id_ret = f"JRN-{current_date.year}-{self.journal_counter:05d}"
                     self.journal_counter += 1
-                    self.ledger.post_event("EVT-BNK-004", entry_id_ech, current_date, f"ECH-{paper.effet_id}", {"lcn_nominal": paper.nominal_amount_mad}, f"Extinction normale LCR {paper.effet_id}")
+                    self.ledger.post_event(
+                        "EVT-BNK-013", entry_id_ret, current_date, f"RET-{paper.effet_id}",
+                        {"lcn_nominal": paper.nominal_amount_mad},
+                        f"Effet impayé rentré en créance LCR {paper.effet_id}"
+                    )
 
+                self._settle_invoice(invoice, "DEFAULTED")
+                continue
+
+            # Cas 2 : effet escompté dénoué normalement (la banque se rembourse)
+            if paper.status == "DISCOUNTED":
+                paper.status = "COLLECTED_AT_MATURITY"
+                entry_id_ech = f"JRN-{current_date.year}-{self.journal_counter:05d}"
+                self.journal_counter += 1
+                self.ledger.post_event("EVT-BNK-004", entry_id_ech, current_date, f"ECH-{paper.effet_id}", {"lcn_nominal": paper.nominal_amount_mad}, f"Extinction normale LCR {paper.effet_id}")
+                self._settle_invoice(invoice, "PAID")
+                continue
+
+            # Cas 3 : effet en portefeuille (non escompté) encaissé normalement à l'échéance
+            if paper.status == "PORTFOLIO":
+                paper.status = "COLLECTED_AT_MATURITY"
+                entry_id_col = f"JRN-{current_date.year}-{self.journal_counter:05d}"
+                self.journal_counter += 1
+                self.ledger.post_event(
+                    "EVT-BNK-009", entry_id_col, current_date, f"ENC-{paper.effet_id}",
+                    {"lcn_nominal": paper.nominal_amount_mad},
+                    f"Encaissement effet LCR {paper.effet_id}"
+                )
+                self._settle_invoice(invoice, "PAID")
+
+    def process_customer_settlements(self, current_date: date, invoices: List[SalesInvoice]):
+        """Règlements clients sans effet (virement, chèque, espèces) au terme de la facture."""
+        for inv in invoices:
+            if inv.due_date != current_date:
+                continue
+            if inv.status in ("PAID", "DEFAULTED", "COMMERCIAL_PAPER_DRAWN", "DISCOUNTED"):
+                continue
+            if inv.is_export:
+                continue  # Encaissements export hors périmètre bancaire marocain simulé
+            method = inv.payment_method
+            if method == PaymentMethod.VIREMENT30:
+                event_id = "EVT-BNK-010"
+                piece_prefix = "VIR"
+            elif method == PaymentMethod.CHEQUE:
+                event_id = "EVT-BNK-012"
+                piece_prefix = "CHQ"
+            elif method == PaymentMethod.CASH:
+                event_id = "EVT-BNK-011"
+                piece_prefix = "CAI"
+            else:
+                continue
+
+            entry_id = f"JRN-{current_date.year}-{self.journal_counter:05d}"
+            self.journal_counter += 1
+            self.ledger.post_event(
+                event_id, entry_id, current_date, f"{piece_prefix}-{inv.invoice_number}",
+                {"amount_ttc": inv.total_ttc},
+                f"Encaissement client {inv.invoice_number} ({method.value})"
+            )
+            inv.status = "PAID"
 
     def process_supplier_payments(self, current_date: date, purchase_invoices: List[PurchaseInvoice]):
         for pinv in purchase_invoices:

@@ -232,26 +232,31 @@ class SalesGenerator:
                 }
                 self.ledger.post_event("EVT-SAL-003", entry_id, inv_date, inv_number, context, f"Facturation Vente {inv_number} - {cust.trade_name}")
 
-            # Draw LCN / Commercial Paper for the invoice and post EVT-BNK-001
-            effet_id = f"LCR-{year}-{self.effet_counter:05d}"
-            self.effet_counter += 1
-            paper = CommercialPaper(
-                effet_id=effet_id,
-                invoice_number=inv_number,
-                customer_id=cust.customer_id,
-                customer_name=cust.company_name,
-                draw_date=inv_date + timedelta(days=2),
-                due_date=due_date,
-                nominal_amount_mad=total_ttc,
-                status="PORTFOLIO"
-            )
-            self.commercial_papers.append(paper)
+            # Traite (LCN) uniquement pour les règlements prévus en effet de commerce.
+            # Virement, chèque et espèces ne donnent pas lieu à création d'effet.
+            if cust.payment_method in (PaymentMethod.LC60, PaymentMethod.LC90, PaymentMethod.LC120):
+                # La traite ne peut être créée après le terme : tirage au plus tard à l'échéance.
+                paper_draw_date = min(due_date, inv_date + timedelta(days=2))
+                effet_id = f"LCR-{year}-{self.effet_counter:05d}"
+                self.effet_counter += 1
+                paper = CommercialPaper(
+                    effet_id=effet_id,
+                    invoice_number=inv_number,
+                    customer_id=cust.customer_id,
+                    customer_name=cust.company_name,
+                    draw_date=paper_draw_date,
+                    due_date=due_date,
+                    nominal_amount_mad=total_ttc,
+                    status="PORTFOLIO"
+                )
+                self.commercial_papers.append(paper)
+                invoice.status = "COMMERCIAL_PAPER_DRAWN"
 
-            j_entry_id = f"JRN-{year}-{self.journal_counter:05d}"
-            self.journal_counter += 1
-            cp_context = {
-                "lcn_nominal": total_ttc
-            }
-            self.ledger.post_event("EVT-BNK-001", j_entry_id, paper.draw_date, effet_id, cp_context, f"Création Traite {effet_id} Facture {inv_number}")
+                j_entry_id = f"JRN-{year}-{self.journal_counter:05d}"
+                self.journal_counter += 1
+                cp_context = {
+                    "lcn_nominal": total_ttc
+                }
+                self.ledger.post_event("EVT-BNK-001", j_entry_id, paper.draw_date, effet_id, cp_context, f"Création Traite {effet_id} Facture {inv_number}")
 
         return generated_invoices
