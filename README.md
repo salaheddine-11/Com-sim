@@ -7,7 +7,7 @@ A closed-economy, multi-cycle synthetic data generation engine and formal double
 ## 🏢 Company Profile
 
 - **Entity**: Souss Agri-Pack SARL
-- **Adresse :** Lotissement Industriel 45, Zone Industrielle Ait Melloul, 80150 Agadir, Maroc *(identité unique alignée sur `config/business_plan.yaml`)*
+- **Address:** Lotissement Industriel 45, Zone Industrielle Ait Melloul, 80150 Agadir, Morocco *(single identity, aligned with `config/business_plan.yaml`)*
 - **Legal Identifiers**:
   - **ICE**: `002345678000091`
   - **IF**: `45127890`
@@ -38,7 +38,7 @@ souss_agripack_sim/
 │   └── fy2025/                      # Generated FY 2025 synthetic datasets
 │       ├── accounting/              # General journal & 6-column trial balance
 │       ├── database/                # SQLite database (souss_sim_2025.db)
-│       ├── operational/             # Sales invoices, purchase invoices, payroll slips, LCRs
+│       ├── operational/             # Sales invoices, purchase invoices, payroll slips, LCNs
 │       └── reports/                 # Bilan, CPC, Liasse Fiscale, Audit reports
 ├── docs/                            # Comprehensive domain architecture documentation
 │   ├── 01_world_architecture.md
@@ -58,7 +58,7 @@ souss_agripack_sim/
 │   ├── sales_generator.py           # Order-to-Cash, delivery notes, 15-digit ICE sales invoices
 │   ├── simulation_clock.py          # Daily clock management with business days
 │   ├── tax_compliance_generator.py  # IS liquidation, TVA returns, IR/CNSS filings, 4 acomptes IS
-│   └── treasury_generator.py        # LCR discounting (AWB), agios, maturities, settlements
+│   └── treasury_generator.py        # LCN discounting (AWB), agios, maturities, settlements
 ├── schemas/                         # Formal JSON & SQL data contracts
 │   ├── entities.json
 │   ├── events.json
@@ -107,7 +107,7 @@ python scripts/audit_fy2025_data.py
 
 - **Turnover (Chiffre d'Affaires HT)**: `10,885,818.20 MAD`
 - **Total Invoices**: `262 Sales Invoices` (100% valid 15-digit ICE)
-- **Commercial Bills (LCR)**: `262 LCNs drawn & discounted`
+- **Commercial Bills (LCN)**: `262 LCNs drawn and discounted`
 - **Payroll**: `294 Monthly Payslips` across 27 employees (`2.58M MAD` labour line)
 - **Pre-Tax Accounting Profit**: `904,251.34 MAD`
 - **Corporate Tax (IS 2025)**: `179,350.27 MAD` ($\text{IS} > \text{CM}$ by $6.6\times$)
@@ -126,8 +126,8 @@ python scripts/audit_fy2025_data.py
 | Metric | Value | Source |
 |---|---|---|
 | Chart of accounts | 304 entries, 8 PCM classes | `config/chart_of_accounts.yaml` |
-| Business events | 52 across 8 categories | `config/events.yaml` |
-| Journal templates | 52, 148 posting lines | `config/journal_templates.yaml` |
+| Business events | 57 across 8 categories | `config/events.yaml` |
+| Journal templates | 57 templates, 158 posting lines | `config/journal_templates.yaml` |
 | Regulatory parameters | 66 (57 families, 7 `[TO VERIFY]`) | `config/parameters.yaml` |
 | Generator modules | 11 Python files (stdlib-only) | `generator/` |
 | Phase 1 checks | 12 / 12 PASS | `verify_specs.py` |
