@@ -47,7 +47,7 @@ souss_agripack_sim/
 │   ├── 04_pcm_journal_matrix.md
 │   ├── 05_state_machines.md
 │   └── 06_verification_rulebook.md
-├── generator/                       # Core simulation & ledger posting modules (11 files)
+├── generator/                       # Core simulation & ledger posting modules (11 modules + __init__.py)
 │   ├── closing_generator.py         # Year-end linear DDA, fiscal reconciliation, IS liquidation
 │   ├── financial_reports.py         # Moroccan Bilan, CPC & Tableau de Passage generator
 │   ├── models.py                    # Data structures with Decimal monetary precision
@@ -129,7 +129,7 @@ python scripts/audit_fy2025_data.py
 | Business events | 57 across 8 categories | `config/events.yaml` |
 | Journal templates | 57 templates, 158 posting lines | `config/journal_templates.yaml` |
 | Regulatory parameters | 66 (57 families, 7 `[TO VERIFY]`) | `config/parameters.yaml` |
-| Generator modules | 11 Python files (stdlib-only) | `generator/` |
+| Generator modules | 11 modules + `__init__.py` (3 of them load YAML via PyYAML) | `generator/` |
 | Phase 1 checks | 12 / 12 PASS | `verify_specs.py` |
 | Phase 2 forensic checks | 15 / 15 PASS | `audit_fy2025_data.py` |
 | Generated journal entries | 1,488 (all balanced, Δ = 0.00) | `data/fy2025/accounting/journal_general.csv` |
